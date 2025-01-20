@@ -14,7 +14,7 @@ const links = [{
     label: 'Alarm Intrusion',
     to: '/services/alarm-intrusion',
     icon: 'material-symbols:detector-alarm',
-    description: 'Empêchez les intrusions à tout moment'
+    description: 'Empêchez les intrusions à tout moment',
   }, {
     label: 'Vidéo protection',
     to: '/services/video-protection',
@@ -67,7 +67,8 @@ const links = [{
 </script>
 
 <template>
-  <UHeader :links="links" >
+  
+  <UHeader :links="links" ">
     <template #logo>
       <NuxtImg
         src="/etp-logo.svg"
@@ -79,25 +80,27 @@ const links = [{
     <template #right>
       <UButton 
       label="04 68 87 72 91"
-      color="primary"
       variant="outline"
       class="hidden lg:flex"
       to="tel:0468877291"
+      color="primary"
       />
     </template>
 
     <template #panel>
-      <UAsideLinks :links="links" />
+      <UAsideLinks 
+      :links="links" 
+      />
 
       <UDivider class="my-6" />
 
       <UButton
         label="04 68 87 72 91"
-        color="primary"
         variant="outline"
         block
         class="mb-3"
         to="tel:0468877291"
+        color="primary"
       />
     </template>
   </UHeader>
