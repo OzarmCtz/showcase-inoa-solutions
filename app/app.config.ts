@@ -11,7 +11,7 @@ export default defineAppConfig({
       }
     },
     button: {
-      rounded: 'rounded',
+      rounded: 'rounded-sm',
       default: {
         size: 'md',
         color: 'black'

@@ -2,40 +2,72 @@
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
 
-const links = computed(() => [{
-  label: 'Features',
-  to: '#features',
-  icon: 'i-heroicons-cube-transparent',
-  active: activeHeadings.value.includes('features') && !activeHeadings.value.includes('pricing')
+const links = [{
+  label: 'Accueil',
+  icon: 'i-heroicons-book-open',
+  to: '/'
 }, {
-  label: 'Pricing',
-  to: '#pricing',
-  icon: 'i-heroicons-credit-card',
-  active: activeHeadings.value.includes('pricing') && !activeHeadings.value.includes('testimonials')
+  label: 'Services',
+  icon: 'i-heroicons-square-3-stack-3d',
+  to: '/services',
+  children: [{
+    label: 'Alarm Intrusion',
+    to: '/services/alarm-intrusion',
+    icon: 'material-symbols:detector-alarm',
+    description: 'Empêchez les intrusions à tout moment'
+  }, {
+    label: 'Vidéo protection',
+    to: '/services/video-protection',
+    icon: 'material-symbols:speed-camera',
+    description: 'Augmentez la sécurité de votre entreprise'
+  },
+  {
+    label: "Contrôle d'Accès",
+    to: '/services/controle-acces',
+    icon: 'material-symbols:nest-secure-alarm-outline',
+    description: "Limitez l'accès de vos employés à des zones prédéfinies"
+  },
+  {
+    label: "Télésurveillance",
+    to: '/services/telesurveillance',
+    icon: 'mdi:television-ambient-light',
+    description: "Gardez un oeil sur vos locaux"
+  },
+  {
+    label: "Caméra Nomade La Chouette",
+    to: 'services/camera-nomade-la-chouette',
+    icon: 'material-symbols:speed-camera-outline',
+    description: "La caméra nomade nouvelle génération"
+  },
+  {
+    label: "Reconnaissance Automatique des Plaques d'Immatriculation",
+    to: '/controle-acces/reconnaissance-automatique-plaques-immatriculation',
+    icon: 'ri:voice-recognition-line',
+    description: "Gérez l'entrée et la sortie de vos locaux"
+  }]
 }, {
-  label: 'Testimonials',
-  to: '#testimonials',
-  icon: 'i-heroicons-academic-cap',
-  active: activeHeadings.value.includes('testimonials')
-}, {
-  label: 'FAQ',
-  to: '#faq',
-  icon: 'i-heroicons-question-mark-circle',
-  active: activeHeadings.value.includes('faq')
-}])
+  label: 'Pourquoi nous choirsir ?',
+  icon: 'i-heroicons-rocket-launch',
+  to: '/pourquoi-nous-choisir'
+},
+{
+  label: 'Contact',
+  icon: 'i-heroicons-rocket-launch',
+  to: '/contact'
+}]
 
-nuxtApp.hooks.hookOnce('page:finish', () => {
+/*nuxtApp.hooks.hookOnce('page:finish', () => {
   updateHeadings([
     document.querySelector('#features'),
     document.querySelector('#pricing'),
     document.querySelector('#testimonials'),
     document.querySelector('#faq')
   ])
-})
+})*/
 </script>
 
 <template>
-  <UHeader :links="links">
+  <UHeader :links="links" >
     <template #logo>
       <NuxtImg
         src="/etp-logo.svg"
