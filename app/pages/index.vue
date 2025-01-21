@@ -89,26 +89,23 @@ const logos = [
           v-for="(item, index) in page.features.items"
           :key="index"
           v-bind="item"
-        />
+          orientation="vertical"
+          icon="material-symbols:arrow-outward"
+          :ui="{
+            strategy: 'override',
+            icon: {
+              wrapper: 'ml-auto flex items-center justify-end', // Positionnement à droite
+              base: 'w-8 h-8 flex-shrink-0 text-primary dark:text-primary', // Couleur primaire
+            },
+          }"
+        >
+          <img
+            :src="`/services/${item.image}.png`"
+            alt="Feature Icon"
+            class="w-26 h-26"
+          />
+        </ULandingCard>
       </UPageGrid>
-    </ULandingSection>
-
-    <ULandingSection
-      :title="page.pricing.title"
-      :description="page.pricing.description"
-      :headline="page.pricing.headline"
-    >
-      <UPricingGrid
-        id="pricing"
-        compact
-        class="scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
-      >
-        <UPricingCard
-          v-for="(plan, index) in page.pricing.plans"
-          :key="index"
-          v-bind="plan"
-        />
-      </UPricingGrid>
     </ULandingSection>
 
     <ULandingSection
