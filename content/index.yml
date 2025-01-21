@@ -11,19 +11,14 @@ hero:
       size: xl
       color: primary
     - label: Nous contacter
+      variant: outline
+      color: primary
       icon: i-simple-icons-github
       size: xl
-      color: gray
       to: https://github.com/nuxt-ui-pro/landing
       target: _blank
 logos:
-  title: Trusted by the world's best
-  icons:
-    - i-simple-icons-amazonaws
-    - i-simple-icons-heroku
-    - i-simple-icons-netlify
-    - i-simple-icons-vercel
-    - i-simple-icons-cloudflare
+  title: Ils nous font confiance
 features:
   headline: Features
   title: Why choose our service?

@@ -1,21 +1,32 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
-
+const { data: page } = await useAsyncData("index", () =>
+  queryContent("/").findOne()
+);
 useSeoMeta({
   title: page.value.title,
   ogTitle: page.value.title,
   description: page.value.description,
-  ogDescription: page.value.description
-})
+  ogDescription: page.value.description,
+});
 
-useHead({
-  link: [
-    { rel: 'icon', href: '/favicon.ico' },
-    { rel: 'preload', href: '/bottomline.svg', as: 'image', type: 'image/svg+xml' },
-    { rel: 'preload', href: '/topline.svg', as: 'image', type: 'image/svg+xml' }
-  ]
-})
-
+const logos = [
+  "/trusted-etp/66logo_Pompier.png",
+  "/trusted-etp/ausi-scala.png",
+  "/trusted-etp/cazes-png.png",
+  "/trusted-etp/Conseil_Departemental.png",
+  "/trusted-etp/guasch-logo.png",
+  "/trusted-etp/Logo_Dragons_Catalans.png",
+  "/trusted-etp/logo_saint_charles.png",
+  "/trusted-etp/logo-USSAP.png",
+  "/trusted-etp/logo-wolkswagen.png",
+  "/trusted-etp/Ministere_des_Armees.png",
+  "/trusted-etp/oph_de_perpignan-logo.png",
+  "/trusted-etp/Perpignan_Mediterranee_Metropole_2016.png",
+  "/trusted-etp/Peugeot-Logo.png",
+  "/trusted-etp/Socafna-logo.png",
+  "/trusted-etp/tressol-chabrier.png",
+  "/trusted-etp/UPVD_Logo_CMJN_horizontal.png",
+];
 </script>
 
 <template>
@@ -26,40 +37,43 @@ useHead({
       :description="page.hero.description"
       :links="page.hero.links"
     >
-    <template #headline>
-    <div class="relative w-full h-full">
-      <img
-        src="/topline.svg"
-        alt="Topline"
-        class="w-full h-full object-contain"
-      />
-    </div>
-  </template>
-
-    <template >
-      <div class="relative w-full h-full">
-        <img
-          src="/bottomline.svg"
-          alt="Topline"
-          class="w-full h-full object-contain"
-        />
-      </div>
-    </template>
-
+      <template #headline>
+        <div class="relative w-full h-full">
+          <img
+            src="/topline.svg"
+            alt="Topline"
+            class="w-full h-full object-contain"
+          />
+        </div>
+      </template>
 
       <ImagePlaceholder />
 
-      <ULandingLogos
-        :title="page.logos.title"
-        align="center"
-      >
-        <UIcon
-          v-for="icon in page.logos.icons"
-          :key="icon"
-          :name="icon"
-          class="w-12 h-12 lg:w-16 lg:h-16 flex-shrink-0 text-gray-900 dark:text-white"
-        />
+      <ULandingLogos :title="page.logos.title" align="center">
+        <div class="flex flex-wrap justify-center gap-12 p-[50px]">
+          <div
+            v-for="(logo, index) in logos"
+            :key="index"
+            class="w-16 h-16 lg:w-20 lg:h-20 flex-shrink-0"
+          >
+            <img
+              :src="logo"
+              :alt="'Logo ' + (index + 1)"
+              class="w-full h-full object-contain"
+            />
+          </div>
+        </div>
       </ULandingLogos>
+
+      <template>
+        <div class="relative w-full h-full">
+          <img
+            src="/bottomline.svg"
+            alt="Bottomline"
+            class="w-full h-full object-contain"
+          />
+        </div>
+      </template>
     </ULandingHero>
 
     <ULandingSection
@@ -116,11 +130,10 @@ useHead({
       </UPageColumns>
     </ULandingSection>
 
-    <ULandingSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
-      <ULandingCTA
-        v-bind="page.cta"
-        :card="false"
-      />
+    <ULandingSection
+      class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
+    >
+      <ULandingCTA v-bind="page.cta" :card="false" />
     </ULandingSection>
 
     <ULandingSection
@@ -136,9 +149,9 @@ useHead({
           button: {
             label: 'font-semibold',
             trailingIcon: {
-              base: 'w-6 h-6'
-            }
-          }
+              base: 'w-6 h-6',
+            },
+          },
         }"
         class="max-w-4xl mx-auto"
       />
