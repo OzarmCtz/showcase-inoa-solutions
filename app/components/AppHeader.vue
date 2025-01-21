@@ -2,6 +2,8 @@
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
 
+
+
 const links = [{
   label: 'Accueil',
   icon: 'i-heroicons-book-open',
@@ -9,7 +11,7 @@ const links = [{
 }, {
   label: 'Services',
   icon: 'i-heroicons-square-3-stack-3d',
-  to: '/services',
+  to: '#features',
   children: [{
     label: 'Alarm Intrusion',
     to: '/services/alarm-intrusion',
@@ -25,7 +27,7 @@ const links = [{
     label: "Contrôle d'Accès",
     to: '/services/controle-acces',
     icon: 'material-symbols:nest-secure-alarm-outline',
-    description: "Limitez l'accès de vos employés à des zones prédéfinies"
+    description: "Limitez l'accès de vos employés à des zones prédéfinies",
   },
   {
     label: "Télésurveillance",
@@ -68,40 +70,40 @@ const links = [{
 
 <template>
   
-  <UHeader :links="links" ">
-    <template #logo>
-      <NuxtImg
-        src="/etp-logo.svg"
-        alt="Company Logo"
-        class="h-9 w-auto"
-      />
-    </template>
+  <UHeader :links="links">
 
-    <template #right>
-      <UButton 
+  <template #logo>
+    <NuxtImg
+      src="/etp-logo.svg"
+      alt="Company Logo"
+      class="h-9 w-auto"
+    />
+  </template>
+
+  <template #right>
+    <UButton
       label="04 68 87 72 91"
       variant="outline"
       class="hidden lg:flex"
       to="tel:0468877291"
       color="primary"
-      />
-    </template>
+    />
+  </template>
 
-    <template #panel>
-      <UAsideLinks 
-      :links="links" 
-      />
+  <template #panel>
+    <UNavigationTree :links="links" :multiple="false" default-open />
 
-      <UDivider class="my-6" />
 
-      <UButton
-        label="04 68 87 72 91"
-        variant="outline"
-        block
-        class="mb-3"
-        to="tel:0468877291"
-        color="primary"
-      />
-    </template>
-  </UHeader>
+    <UDivider class="my-6" />
+    <UButton
+      label="04 68 87 72 91"
+      variant="outline"
+      block
+      class="mb-3"
+      to="tel:0468877291"
+      color="primary"
+    />
+  </template>
+</UHeader>
+
 </template>

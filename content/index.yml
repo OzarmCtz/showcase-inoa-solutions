@@ -2,14 +2,15 @@ title: Nuxt UI Pro - Landing template
 description: Nuxt UI Pro is a collection of premium Vue components built on top of Nuxt UI to create beautiful & responsive Nuxt applications in minutes.
 hero:
   title: INOA Solutions
-  description: Spécialisée dans le domaine de la protection des biens et des personnes, notre agence INOA Solutions, basée à Tecnosud 2, s’est donnée comme objectif de répondre à un besoin exprimé par la clientèle en termes de qualité de services, de promptitude d’intervention et de satisfaction continue.
+  description: Spécialisée dans le domaine de la protection des biens et des personnes.
   links:
-    - label: Get started
+    - label: Nos services
       icon: i-heroicons-arrow-right-20-solid
       trailing: true
       to: "#features"
       size: xl
-    - label: Use this template
+      color: primary
+    - label: Nous contacter
       icon: i-simple-icons-github
       size: xl
       color: gray

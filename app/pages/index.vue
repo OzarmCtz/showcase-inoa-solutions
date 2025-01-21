@@ -7,15 +7,46 @@ useSeoMeta({
   description: page.value.description,
   ogDescription: page.value.description
 })
+
+useHead({
+  link: [
+    { rel: 'icon', href: '/favicon.ico' },
+    { rel: 'preload', href: '/bottomline.svg', as: 'image', type: 'image/svg+xml' },
+    { rel: 'preload', href: '/topline.svg', as: 'image', type: 'image/svg+xml' }
+  ]
+})
+
 </script>
 
 <template>
   <div>
     <ULandingHero
+      headline="test"
       :title="page.hero.title"
       :description="page.hero.description"
       :links="page.hero.links"
     >
+    <template #headline>
+    <div class="relative w-full h-full">
+      <img
+        src="/topline.svg"
+        alt="Topline"
+        class="w-full h-full object-contain"
+      />
+    </div>
+  </template>
+
+    <template >
+      <div class="relative w-full h-full">
+        <img
+          src="/bottomline.svg"
+          alt="Topline"
+          class="w-full h-full object-contain"
+        />
+      </div>
+    </template>
+
+
       <ImagePlaceholder />
 
       <ULandingLogos
