@@ -36,6 +36,10 @@ const logos = [
       :title="page.hero.title"
       :description="page.hero.description"
       :links="page.hero.links"
+      :ui="{
+        strategy: 'override',
+        wrapper: 'mt-0',
+      }"
     >
       <template #headline>
         <div class="relative w-full h-full">
@@ -90,11 +94,11 @@ const logos = [
           :key="index"
           v-bind="item"
           orientation="vertical"
-          icon="material-symbols:arrow-outward"
+          icon="material-symbols:multimodal-hand-eye-outline"
           :ui="{
             strategy: 'override',
             icon: {
-              wrapper: 'ml-auto flex items-center justify-end', // Positionnement à droite
+              wrapper: 'ml-auto flex items-center justify-end mb-5', // Positionnement à droite
               base: 'w-8 h-8 flex-shrink-0 text-primary dark:text-primary', // Couleur primaire
             },
           }"

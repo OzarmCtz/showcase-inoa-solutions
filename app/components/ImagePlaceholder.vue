@@ -1,14 +1,15 @@
 <template>
   <div class="relative">
-    <div class="bg-background border-gradient rounded-xl p-4">
-      <div class="aspect-w-16 aspect-h-9 rounded-lg relative overflow-hidden border border-dashed border-gray-950/10 dark:border-white/10">
-        <!-- Intégration de la vidéo YouTube -->
+    <div
+      class="rounded-xl p-4 border border-dashed border-gray-200 dark:border-gray-700"
+    >
+      <div class="aspect-w-16 aspect-h-9 rounded-lg relative overflow-hidden">
         <iframe
-          class="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/Ie32iUqS5I8"
+          class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          src="https://www.youtube.com/embed/Ie32iUqS5I8?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1&playlist=Ie32iUqS5I8"
           title="YouTube Video"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
       </div>
@@ -16,14 +17,13 @@
   </div>
 </template>
 
-
 <style scoped>
 .border-gradient:after {
   --angle: 0deg;
   --border-color: rgb(var(--color-gray-300));
   --highlight-color: rgb(var(--color-primary-500));
 
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -36,7 +36,14 @@
   background: var(--border-color);
 
   @supports (background: paint(houdini)) {
-    background: linear-gradient(var(--angle), var(--border-color), var(--border-color), var(--border-color), var(--border-color), var(--highlight-color));
+    background: linear-gradient(
+      var(--angle),
+      var(--border-color),
+      var(--border-color),
+      var(--border-color),
+      var(--border-color),
+      var(--highlight-color)
+    );
     animation: 10s rotate linear infinite;
   }
 }
@@ -53,7 +60,7 @@
 }
 
 @property --angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
