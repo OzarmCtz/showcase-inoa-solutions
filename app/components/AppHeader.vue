@@ -86,6 +86,7 @@ const links = [
         class="hidden lg:flex"
         to="tel:0468877291"
         color="primary"
+        icon="material-symbols:call-outline"
       />
     </template>
 
@@ -100,6 +101,7 @@ const links = [
         class="mb-3"
         to="tel:0468877291"
         color="primary"
+        icon="material-symbols:call-outline"
       />
     </template>
   </UHeader>
