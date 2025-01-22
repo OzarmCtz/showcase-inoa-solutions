@@ -27,6 +27,13 @@ const logos = [
   "/trusted-etp/tressol-chabrier.png",
   "/trusted-etp/UPVD_Logo_CMJN_horizontal.png",
 ];
+
+const items = [
+  "/inoa_place.jpeg",
+  "/inoa_place.jpeg",
+  "/inoa_place.jpeg",
+  "/inoa_place.jpeg",
+];
 </script>
 
 <template>
@@ -52,6 +59,64 @@ const logos = [
       </template>
 
       <ImagePlaceholder />
+
+      <template>
+        <ULandingCard
+          title="INOA Solutions : architecte de votre protection"
+          icon="i-heroicons-shield-check"
+          color="primary"
+          orientation="horizontal"
+          class="w-full max-w-screen-lg mx-auto"
+        >
+          <template #description>
+            <br />
+            Spécialisée dans le domaine de la protection des biens et des
+            personnes, notre agence INOA Solutions, basée à Tecnosud 2, s’est
+            donnée comme objectif de répondre à un besoin exprimé par la
+            clientèle en termes de qualité de services, de promptitude
+            d’intervention et de satisfaction continue.
+            <br />
+            <br />
+            Notre objectif ? <br />
+            <br />
+            Répondre à vos besoins de sécurité sans cesse grandissants. Au fil
+            du temps, nous avons réussi à fidéliser notre clientèle diversifiée
+            grâce à notre exigence, notre savoir-faire et notre disponibilité.
+            <br />
+            <br />
+            Dans le cadre de notre engagement qualité, INOA Solutions est à ce
+            jour entreprise certifiée APSAD et NF Service :
+            <br />
+            <br />
+            - Service d’installation et de maintenance de systèmes de détection
+            d’intrusion (NF367 – I81)
+            <br />
+            <br />
+            - Catégories AB et de systèmes de vidéosurveillance (NF367-I82).
+          </template>
+
+          <!-- Carousel et bouton -->
+          <div class="flex flex-col items-center gap-4 mt-10">
+            <UCarousel
+              v-slot="{ item }"
+              :items="items"
+              :ui="{ item: 'basis-full' }"
+              class="rounded-lg overflow-hidden"
+              arrows
+            >
+              <img :src="item" class="w-full" draggable="false" />
+            </UCarousel>
+            <UButton
+              block
+              class="mt-10"
+              color="primary"
+              to="/pourquoi-nous-choisir"
+              label="Pourquoi nous choisir ?"
+              variant="outline"
+            />
+          </div>
+        </ULandingCard>
+      </template>
 
       <ULandingLogos :title="page.logos.title" align="center">
         <div class="flex flex-wrap justify-center gap-12 p-[50px]">
