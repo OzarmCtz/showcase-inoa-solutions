@@ -34,6 +34,17 @@ const items = [
   "/inoa_place.jpeg",
   "/inoa_place.jpeg",
 ];
+
+const certif = [
+  {
+    label: "Nos certifications",
+    icon: "i-heroicons-information-circle",
+    defaultOpen: true,
+    content: `Dans le cadre de notre engagement qualité, INOA Solutions est à ce jour entreprise certifiée APSAD et NF Service : Service d’installation et de maintenance de systèmes de détection d’intrusion (NF367 – I81) Catégories AB et de systèmes de vidéosurveillance (NF367-I82).
+
+`,
+  },
+];
 </script>
 
 <template>
@@ -96,19 +107,8 @@ const items = [
         />
       </ULandingSection>
 
-      <!-- Card Section -->
-      <UCard
-        icon="material-symbols:speed-camera"
-        :ui="{
-          strategy: 'override',
-        }"
-      >
-        <p>
-          Dans le cadre de notre engagement qualité, INOA Solutions est à ce
-          jour entreprise certifiée APSAD et NF Service : Service d’installation
-          et de maintenance de systèmes de détection d’intrusion (NF367 – I81)
-          Catégories AB et de systèmes de vidéosurveillance (NF367-I82).
-        </p>
+      <UCard>
+        <ULandingFAQ :items="certif" multiple />
       </UCard>
 
       <ULandingLogos :title="page.logos.title" align="center">
