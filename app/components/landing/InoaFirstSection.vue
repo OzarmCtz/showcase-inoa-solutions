@@ -30,6 +30,8 @@ const trustedEtpLogo = [
   "/trusted-etp/tressol-chabrier.png",
   "/trusted-etp/UPVD_Logo_CMJN_horizontal.png",
 ];
+
+const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
 </script>
 
 <template>
@@ -85,10 +87,15 @@ const trustedEtpLogo = [
         temps, nous avons réussi à fidéliser notre clietèle diversifiée grâce à
         notre exigence, notre savoir-faire et notre disponibilité.
       </template>
-      <img
-        src="/inoa_place.jpeg"
-        class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
-      />
+      <UCarousel
+        v-slot="{ item }"
+        :items="itemsCarroussel"
+        :ui="{ item: 'basis-full' }"
+        class="rounded-lg overflow-hidden"
+        arrows
+      >
+        <img :src="item" class="w-full" draggable="false" />
+      </UCarousel>
     </ULandingSection>
     <UAccordion
       :items="certifAccordion"
