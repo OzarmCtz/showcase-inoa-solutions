@@ -26,27 +26,27 @@ features:
   items:
     - title: Alarme intrusion
       description: Empêchez les intrusions à tout moment
-      image: alarm
+      icon: material-symbols:detector
       to: "/services/alarm-intrusion"
     - title: Vidéoprotection
       description: Augmentez la sécurité de votre entreprise
-      image: camera
+      icon: material-symbols:camera-indoor
       to: "/services/video-protection"
     - title: Contrôle d'Accès
       description: Limitez l'accès de vos employés à des zones prédéfinies
-      image: control_access
+      icon: material-symbols:nest-secure-alarm-outline
       to: "/services/controle-access"
     - title: Télésurveillance
       description: Gardez un oeil sur vos locaux
-      image: telesurveillance
+      icon: mdi:television-ambient-light
       to: "/services/telesurveillance"
     - title: Caméra Nomade La Chouette
       description: Découvrez la caméra nomade La Chouette
-      image: camera
+      icon: material-symbols:speed-camera-outline
       to: "services/camera-nomade-la-chouette"
     - title: Reconnaissance Automatique des Plaques d'Immatriculation
       description: Gérez l'entrée et la sortie de vos locaux
-      image: immatricul
+      icon: ri:voice-recognition-line
       to: "/controle-acces/reconnaissance-automatique-plaques-immatriculation"
 pricing:
   headline: Pricing

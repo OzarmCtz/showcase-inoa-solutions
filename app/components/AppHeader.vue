@@ -16,13 +16,13 @@ const links = [
       {
         label: "Alarm Intrusion",
         to: "/services/alarm-intrusion",
-        icon: "material-symbols:detector-alarm",
+        icon: "material-symbols:detector",
         description: "Empêchez les intrusions à tout moment",
       },
       {
         label: "Vidéo protection",
         to: "/services/video-protection",
-        icon: "material-symbols:speed-camera",
+        icon: "material-symbols:camera-indoor",
         description: "Augmentez la sécurité de votre entreprise",
       },
       {
