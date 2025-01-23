@@ -63,7 +63,7 @@ const trustedEtpLogo = [
       align="left"
       :ui="{
         strategy: 'override',
-        wrapper: 'p-0',
+        wrapper: 'mb-0',
         title:
           'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
 
@@ -83,7 +83,7 @@ const trustedEtpLogo = [
         <br />
         <br />
         Répondre à vos besoins de sécurité sans cesse grandissants. Au fil du
-        temps, nous avons réussi à fidéliser notre clientèle diversifiée grâce à
+        temps, nous avons réussi à fidéliser notre clietèle diversifiée grâce à
         notre exigence, notre savoir-faire et notre disponibilité.
       </template>
       <img
@@ -91,7 +91,6 @@ const trustedEtpLogo = [
         class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
       />
     </ULandingSection>
-
     <TempTest />
 
     <ULandingLogos :title="pageData.logos.title" align="center">
