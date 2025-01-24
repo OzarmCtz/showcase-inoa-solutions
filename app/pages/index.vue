@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { LandingInoaFirstSection } from "#components";
 import { LandingInoaServicesSection } from "#components";
+import { LandingInoaContactSection } from "#components";
 const { data: page } = await useAsyncData("index", () =>
   queryContent("/").findOne()
 );
@@ -36,12 +37,7 @@ useSeoMeta({
       </UPageColumns>
     </ULandingSection>
 
-    <ULandingSection
-      class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
-    >
-      <ULandingCTA v-bind="page.cta" :card="false" />
-    </ULandingSection>
-
+    <LandingInoaContactSection />
     <ULandingSection
       id="faq"
       :title="page.faq.title"
