@@ -17,9 +17,6 @@ export default defineAppConfig({
         color: 'black'
       }
     },
-    input: {
-      rounded: 'rounded-full'
-    },
     header: {
       wrapper: 'lg:!border-solid bg-gray-50 dark:bg-gray-950',
       links: {

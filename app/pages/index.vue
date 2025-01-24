@@ -19,6 +19,7 @@ useSeoMeta({
     <LandingInoaServicesSection :pageData="page" />
 
     <ULandingSection
+      class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 py-10"
       :headline="page.testimonials.headline"
       :title="page.testimonials.title"
       :description="page.testimonials.description"
@@ -37,7 +38,7 @@ useSeoMeta({
       </UPageColumns>
     </ULandingSection>
 
-    <LandingInoaContactSection />
+    <LandingInoaContactSection :pageData="page" />
     <ULandingSection
       id="faq"
       :title="page.faq.title"
