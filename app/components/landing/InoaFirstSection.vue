@@ -102,7 +102,7 @@ const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
       :ui="{
         strategy: 'override',
         wrapper:
-          'bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 text-primary-500 dark:text-primary-400 rounded-md',
+          'bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 text-primary-500 dark:text-primary-400 rounded-md p-2',
       }"
     >
       <template #item="{ item }">
