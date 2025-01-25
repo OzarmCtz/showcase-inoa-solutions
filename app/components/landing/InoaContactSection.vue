@@ -57,7 +57,7 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
     >
       <!-- Formulaire de contact -->
       <div class="w-full">
-        <div class="mb-5">
+        <div class="mb-5 flex justify-center">
           <a href="/faq" class="no-underline">
             <UBadge
               icon="streamline:interface-help-question-circle-circle-faq-frame-help-info-mark-more-query-question"
@@ -67,6 +67,7 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
             </UBadge>
           </a>
         </div>
+
         <UForm :schema="schema" :state="state" @submit="onSubmit">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <UFormGroup label="Nom & Prénom" name="name">
@@ -142,20 +143,24 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
 
       <!-- Informations de contact -->
       <div class="w-full">
-        <h3 class="text-3xl font-bold mb-12 text-gray-100">
+        <h3 class="text-3xl font-bold text-gray-700 dark:text-gray-100 mb-12">
           Informations de contact
         </h3>
 
         <!-- Nous trouver -->
         <div class="mb-10">
-          <h4 class="text-xl font-semibold text-gray-100 mb-2">Nous trouver</h4>
+          <h4
+            class="text-xl font-semibold text-gray-700 dark:text-gray-100 mb-2"
+          >
+            Nous trouver
+          </h4>
           <div class="flex items-center">
             <UIcon
               name="material-symbols:location-on"
               class="text-primary-500 w-6 h-6 mr-4 flex-shrink-0"
             ></UIcon>
             <div class="flex items-center">
-              <p class="text-xl text-gray-300">
+              <p class="text-sm text-gray-700 dark:text-gray-300">
                 Rue Gaïa Tecnosud 2 66100 PERPIGNAN
               </p>
               <div
@@ -173,11 +178,11 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
                       ? 'clarity:success-line'
                       : 'ic:baseline-copy-all'
                   "
-                  class="w-4 h-4 text-gray-400"
+                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
                 ></UIcon>
                 <span
                   v-if="copiedState.address"
-                  class="text-sm text-gray-400 ml-1"
+                  class="text-sm text-gray-500 dark:text-gray-400 ml-1"
                   >Copié</span
                 >
               </div>
@@ -187,14 +192,18 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
 
         <!-- Nous écrire -->
         <div class="mb-10">
-          <h4 class="text-xl font-semibold text-gray-100 mb-2">Nous écrire</h4>
+          <h4
+            class="text-xl font-semibold text-gray-700 dark:text-gray-100 mb-2"
+          >
+            Nous écrire
+          </h4>
           <div class="flex items-center">
             <UIcon
               name="mingcute:mail-fill"
               class="text-primary-500 w-6 h-6 mr-4 flex-shrink-0"
             ></UIcon>
             <div class="flex items-center">
-              <p class="text-xl">
+              <p class="text-sm text-gray-700 dark:text-gray-300">
                 <a
                   href="mailto:contact@inoa-solutions.com"
                   class="text-primary-500 hover:underline"
@@ -211,11 +220,11 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
                       ? 'clarity:success-line'
                       : 'ic:baseline-copy-all'
                   "
-                  class="w-4 h-4 text-gray-400"
+                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
                 ></UIcon>
                 <span
                   v-if="copiedState.email"
-                  class="text-sm text-gray-400 ml-1"
+                  class="text-sm text-gray-500 dark:text-gray-400 ml-1"
                   >Copié</span
                 >
               </div>
@@ -225,14 +234,18 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
 
         <!-- Nous appeler -->
         <div class="mb-10">
-          <h4 class="text-xl font-semibold text-gray-100 mb-2">Nous appeler</h4>
+          <h4
+            class="text-xl font-semibold text-gray-700 dark:text-gray-100 mb-2"
+          >
+            Nous appeler
+          </h4>
           <div class="flex items-center">
             <UIcon
               name="carbon:phone"
               class="text-primary-500 w-6 h-6 mr-4 flex-shrink-0"
             ></UIcon>
             <div class="flex items-center">
-              <p class="text-xl">
+              <p class="text-sm text-gray-700 dark:text-gray-300">
                 <a
                   href="tel:+33468877291"
                   class="text-primary-500 hover:underline"
@@ -249,11 +262,11 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
                       ? 'clarity:success-line'
                       : 'ic:baseline-copy-all'
                   "
-                  class="w-4 h-4 text-gray-400"
+                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
                 ></UIcon>
                 <span
                   v-if="copiedState.phone"
-                  class="text-sm text-gray-400 ml-1"
+                  class="text-sm text-gray-500 dark:text-gray-400 ml-1"
                   >Copié</span
                 >
               </div>
