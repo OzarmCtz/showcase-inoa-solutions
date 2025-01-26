@@ -31,6 +31,17 @@ const trustedEtpLogo = [
   "/trusted-etp/UPVD_Logo_CMJN_horizontal.png",
 ];
 
+const realisationItem = [
+  "/realisation/realisation-1.jpeg",
+  "/realisation/realisation-2.jpeg",
+  "/realisation/realisation-3.jpg",
+  "/realisation/realisation-4.jpg",
+  "/realisation/realisation-5.jpg",
+  "/realisation/realisation-6.jpeg",
+  "/realisation/realisation-7.jpg",
+  "/realisation/realisation-8.jpeg",
+];
+
 const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
 const itemsCarrousselSecond = ["/maison-secu.jpg"];
 </script>
@@ -143,6 +154,44 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
         <img :src="item" class="w-full" draggable="false" />
       </UCarousel>
     </ULandingSection>
+
+    <ULandingSection
+      headline="Nos réalisations"
+      :ui="{
+        strategy: 'override',
+        wrapper: 'mb-0',
+        title:
+          'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
+      }"
+    >
+      <UCarousel
+        v-slot="{ item }"
+        :items="realisationItem"
+        :ui="{
+          item: 'basis-full',
+          container: 'rounded-lg',
+        }"
+        :prev-button="{
+          color: 'primary',
+          icon: 'i-heroicons-arrow-left-20-solid',
+          class: '-start-12',
+        }"
+        :next-button="{
+          color: 'primary',
+          icon: 'i-heroicons-arrow-right-20-solid',
+          class: '-end-12',
+        }"
+        arrows
+        class="w-full max-w-4xl mx-auto"
+      >
+        <img
+          :src="item"
+          class="w-full h-auto max-h-[500px] object-cover"
+          draggable="false"
+        />
+      </UCarousel>
+    </ULandingSection>
+
     <!--<UAccordion
       :items="certifAccordion"
       :ui="{
@@ -215,15 +264,3 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
     </ULandingLogos>
   </ULandingSection>
 </template>
-
-<style scoped>
-.grid-background {
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 255, 0, 0.1) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px; /* Taille des carrés */
-}
-</style>

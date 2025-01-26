@@ -67,6 +67,13 @@ useSeoMeta({
         }"
         class="max-w-4xl mx-auto"
       />
+    </ULandingSection>
+    <ULandingSection
+      :ui="{
+        strategy: 'override',
+        wrapper: 'mb-0',
+      }"
+    >
       <template>
         <div class="relative w-full h-full">
           <img
