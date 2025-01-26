@@ -67,8 +67,8 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
   <ULandingSection
     headline="Vous avez une question ?"
     title="Contactez-nous !"
-    class="scroll-mt-[var(--header-height)]"
     id="contact"
+    class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
   >
     <div
       class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"

@@ -36,115 +36,114 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
 </script>
 
 <template>
-  <div class="grid-background">
-    <ULandingHero
-      headline="test"
-      :title="pageData.hero.title"
-      :description="pageData.hero.description"
-      :links="pageData.hero.links"
+  <ULandingHero
+    headline="test"
+    :title="pageData.hero.title"
+    :description="pageData.hero.description"
+    :links="pageData.hero.links"
+    :ui="{
+      strategy: 'override',
+      wrapper: 'mt-0 pb-20 bg-grid-pattern bg-grid-sm',
+    }"
+  >
+    <template #headline>
+      <div class="relative w-full h-full">
+        <img
+          src="/topline.svg"
+          alt="Topline"
+          class="w-full h-full object-contain"
+        />
+      </div>
+    </template>
+
+    <ImagePlaceholder />
+
+    <!-- Première Section -->
+    <ULandingSection
+      headline="Architecte de votre protection
+"
+      align="left"
       :ui="{
         strategy: 'override',
-        wrapper: 'mt-0 pb-20',
+        wrapper: 'mb-0',
+        title:
+          'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
+
+        description:
+          'mt-6 text-base leading-relaxed text-gray-600 dark:text-gray-300',
       }"
     >
-      <template #headline>
-        <div class="relative w-full h-full">
-          <img
-            src="/topline.svg"
-            alt="Topline"
-            class="w-full h-full object-contain"
-          />
-        </div>
+      <template #description>
+        Spécialisée dans le domaine de la protection des biens et des personnes,
+        notre agence INOA Solutions, basée à Tecnosud 2, s’est donnée comme
+        objectif de répondre à un besoin exprimé par la clientèle en termes de
+        qualité de services, de promptitude d’intervention et de satisfaction
+        continue.
+        <br />
+        <br />
+        Notre objectif ?
+        <br />
+        <br />
+        Répondre à vos besoins de sécurité sans cesse grandissants. Au fil du
+        temps, nous avons réussi à fidéliser notre clietèle diversifiée grâce à
+        notre exigence, notre savoir-faire et notre disponibilité.
       </template>
 
-      <ImagePlaceholder />
-
-      <!-- Première Section -->
-      <ULandingSection
-        headline="Architecte de votre protection
-"
-        align="left"
-        :ui="{
-          strategy: 'override',
-          wrapper: 'mb-0',
-          title:
-            'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
-
-          description:
-            'mt-6 text-base leading-relaxed text-gray-600 dark:text-gray-300',
-        }"
+      <UCarousel
+        v-slot="{ item }"
+        :items="itemsCarroussel"
+        :ui="{ item: 'basis-full' }"
+        class="rounded-lg overflow-hidden"
+        arrows
       >
-        <template #description>
-          Spécialisée dans le domaine de la protection des biens et des
-          personnes, notre agence INOA Solutions, basée à Tecnosud 2, s’est
-          donnée comme objectif de répondre à un besoin exprimé par la clientèle
-          en termes de qualité de services, de promptitude d’intervention et de
-          satisfaction continue.
-          <br />
-          <br />
-          Notre objectif ?
-          <br />
-          <br />
-          Répondre à vos besoins de sécurité sans cesse grandissants. Au fil du
-          temps, nous avons réussi à fidéliser notre clietèle diversifiée grâce
-          à notre exigence, notre savoir-faire et notre disponibilité.
-        </template>
+        <img :src="item" class="w-full" draggable="false" />
+      </UCarousel>
+    </ULandingSection>
 
-        <UCarousel
-          v-slot="{ item }"
-          :items="itemsCarroussel"
-          :ui="{ item: 'basis-full' }"
-          class="rounded-lg overflow-hidden"
-          arrows
-        >
-          <img :src="item" class="w-full" draggable="false" />
-        </UCarousel>
-      </ULandingSection>
+    <ULandingSection
+      headline="Au services de votre sécurité"
+      align="right"
+      :ui="{
+        strategy: 'override',
+        wrapper: 'mb-0',
+        title:
+          'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
 
-      <ULandingSection
-        headline="Au services de votre sécurité"
-        align="right"
-        :ui="{
-          strategy: 'override',
-          wrapper: 'mb-0',
-          title:
-            'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
+        description:
+          'mt-6 text-base leading-relaxed text-gray-600 dark:text-gray-300',
+      }"
+    >
+      <template #description>
+        <p class="text-xl">Caméra de surveillance</p>
+        <br />
+        <p class="text-sm">
+          Sentez-vous plus en sécurité avec notre large gamme de caméras de
+          surveillance. Que ce soit pour des besoins de surveillance intérieure
+          ou extérieure, nos conseillers seront en mesure de vous offrir la
+          caméra répondant à chacune de vos attentes spécifiques.
+        </p>
+        <br />
+        <p class="text-xl">Détection de mouvement</p>
+        <br />
+        <p class="text-sm">
+          Découvrez notre système d’alarme sans fil à la pointe de la
+          technologie. Activez les détecteurs de mouvement via votre téléphone
+          ou internet. Les systèmes d’alarme sans-fil permettent d’envoyer des
+          notifications par téléphone, mail ou SMS dans l’éventualité d’une
+          intrusion ou de tout autre événement anormal.
+        </p>
+      </template>
 
-          description:
-            'mt-6 text-base leading-relaxed text-gray-600 dark:text-gray-300',
-        }"
+      <UCarousel
+        v-slot="{ item }"
+        :items="itemsCarrousselSecond"
+        :ui="{ item: 'basis-full' }"
+        class="rounded-lg overflow-hidden"
       >
-        <template #description>
-          <p class="text-xl">Caméra de surveillance</p>
-          <br />
-          <p class="text-sm">
-            Sentez-vous plus en sécurité avec notre large gamme de caméras de
-            surveillance. Que ce soit pour des besoins de surveillance
-            intérieure ou extérieure, nos conseillers seront en mesure de vous
-            offrir la caméra répondant à chacune de vos attentes spécifiques.
-          </p>
-          <br />
-          <p class="text-xl">Détection de mouvement</p>
-          <br />
-          <p class="text-sm">
-            Découvrez notre système d’alarme sans fil à la pointe de la
-            technologie. Activez les détecteurs de mouvement via votre téléphone
-            ou internet. Les systèmes d’alarme sans-fil permettent d’envoyer des
-            notifications par téléphone, mail ou SMS dans l’éventualité d’une
-            intrusion ou de tout autre événement anormal.
-          </p>
-        </template>
-
-        <UCarousel
-          v-slot="{ item }"
-          :items="itemsCarrousselSecond"
-          :ui="{ item: 'basis-full' }"
-          class="rounded-lg overflow-hidden"
-        >
-          <img :src="item" class="w-full" draggable="false" />
-        </UCarousel>
-      </ULandingSection>
-      <!--<UAccordion
+        <img :src="item" class="w-full" draggable="false" />
+      </UCarousel>
+    </ULandingSection>
+    <!--<UAccordion
       :items="certifAccordion"
       :ui="{
         strategy: 'override',
@@ -190,8 +189,7 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
       </template>
     </UAccordion>
     -->
-    </ULandingHero>
-  </div>
+  </ULandingHero>
 
   <ULandingSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
     <ULandingLogos

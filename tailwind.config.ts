@@ -20,6 +20,16 @@ export default <Partial<Config>>{
           950: '#103403',
         }
       },
+      backgroundImage: {
+        'grid-pattern': `
+          linear-gradient(to right, rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 255, 0, 0.1) 1px, transparent 1px)
+        `,
+      },
+      backgroundSize: {
+        'grid-sm': '50px 50px',
+        'grid-lg': '100px 100px',
+      },
     },
   },
   content: ['./components/**/*.{vue,js}', './pages/**/*.{vue,js}', './app.vue'],

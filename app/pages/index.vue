@@ -16,36 +16,35 @@ useSeoMeta({
 <template>
   <div>
     <LandingInoaFirstSection :pageData="page" />
-    <LandingInoaServicesSection :pageData="page" />
 
-    <ULandingSection
-      :headline="page.testimonials.headline"
-      :title="page.testimonials.title"
-      :description="page.testimonials.description"
-    >
-      <UPageColumns
-        id="testimonials"
-        class="xl:columns-4 scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
+    <div class="bg-grid-pattern bg-grid-sm">
+      <LandingInoaServicesSection :pageData="page" />
+
+      <ULandingSection
+        :headline="page.testimonials.headline"
+        :title="page.testimonials.title"
+        :description="page.testimonials.description"
       >
-        <div
-          v-for="(testimonial, index) in page.testimonials.items"
-          :key="index"
-          class="break-inside-avoid"
+        <UPageColumns
+          id="testimonials"
+          class="xl:columns-4 scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
         >
-          <ULandingTestimonial v-bind="testimonial" />
-        </div>
-      </UPageColumns>
-    </ULandingSection>
+          <div
+            v-for="(testimonial, index) in page.testimonials.items"
+            :key="index"
+            class="break-inside-avoid"
+          >
+            <ULandingTestimonial v-bind="testimonial" />
+          </div>
+        </UPageColumns>
+      </ULandingSection>
+    </div>
 
     <LandingInoaContactSection :pageData="page" />
     <ULandingSection
       id="faq"
       :title="page.faq.title"
       class="scroll-mt-[var(--header-height)]"
-      :ui="{
-        strategy: 'override',
-        wrapper: 'mb-0',
-      }"
     >
       <template #description>
         <div class="mb-5 flex justify-center">
