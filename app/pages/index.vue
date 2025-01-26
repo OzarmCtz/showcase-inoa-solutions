@@ -44,6 +44,10 @@ useSeoMeta({
       :title="page.faq.title"
       :description="page.faq.description"
       class="scroll-mt-[var(--header-height)]"
+      :ui="{
+        strategy: 'override',
+        wrapper: 'mb-0',
+      }"
     >
       <ULandingFAQ
         multiple
@@ -58,6 +62,15 @@ useSeoMeta({
         }"
         class="max-w-4xl mx-auto"
       />
+      <template>
+        <div class="relative w-full h-full">
+          <img
+            src="/bottomline.svg"
+            alt="Bottomline"
+            class="w-full h-full object-contain"
+          />
+        </div>
+      </template>
     </ULandingSection>
   </div>
 </template>

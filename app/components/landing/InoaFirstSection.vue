@@ -158,15 +158,5 @@ const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
         </div>
       </div>
     </ULandingLogos>
-
-    <template>
-      <div class="relative w-full h-full">
-        <img
-          src="/bottomline.svg"
-          alt="Bottomline"
-          class="w-full h-full object-contain"
-        />
-      </div>
-    </template>
   </ULandingHero>
 </template>

@@ -10,7 +10,7 @@ defineProps({
     :headline="pageData.features.headline"
   >
     <UPageGrid
-      id="features"
+      id="services"
       class="scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
     >
       <ULandingCard

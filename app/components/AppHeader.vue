@@ -11,7 +11,7 @@ const links = [
   {
     label: "Services",
     icon: "i-heroicons-square-3-stack-3d",
-    to: "#features",
+    to: "#services",
     children: [
       {
         label: "Alarm Intrusion",
