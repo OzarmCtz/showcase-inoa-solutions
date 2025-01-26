@@ -42,7 +42,7 @@ const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
     :links="pageData.hero.links"
     :ui="{
       strategy: 'override',
-      wrapper: 'mt-0',
+      wrapper: 'mt-0 mb-20',
     }"
   >
     <template #headline>
@@ -87,6 +87,7 @@ const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
         temps, nous avons réussi à fidéliser notre clietèle diversifiée grâce à
         notre exigence, notre savoir-faire et notre disponibilité.
       </template>
+
       <UCarousel
         v-slot="{ item }"
         :items="itemsCarroussel"
@@ -97,7 +98,7 @@ const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
         <img :src="item" class="w-full" draggable="false" />
       </UCarousel>
     </ULandingSection>
-    <UAccordion
+    <!--<UAccordion
       :items="certifAccordion"
       :ui="{
         strategy: 'override',
@@ -142,21 +143,30 @@ const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
         <img src="/APSAD.png" alt="APSAD" class="w-auto h-12 mx-auto mt-5" />
       </template>
     </UAccordion>
+    -->
+  </ULandingHero>
 
-    <ULandingLogos :title="pageData.logos.title" align="center">
-      <div class="flex flex-wrap justify-center gap-12 p-[50px]">
-        <div
-          v-for="(logo, index) in trustedEtpLogo"
-          :key="index"
-          class="w-16 h-16 lg:w-20 lg:h-20 flex-shrink-0"
-        >
-          <img
-            :src="logo"
-            :alt="'Logo ' + (index + 1)"
-            class="w-full h-full object-contain"
-          />
-        </div>
+  <ULandingSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
+    <ULandingLogos
+      title="Ils nous font confiance"
+      :ui="{
+        strategy: 'override',
+        wrapper: 'mt-2 text-center',
+        title: 'text-lg font-semibold leading-8 text-gray-900 dark:text-white',
+        images: 'flex flex-wrap justify-center gap-8 p-4',
+      }"
+    >
+      <div
+        v-for="(logo, index) in trustedEtpLogo"
+        :key="index"
+        class="w-14 h-14 lg:w-16 lg:h-16 flex-shrink-0"
+      >
+        <img
+          :src="logo"
+          :alt="'Logo ' + (index + 1)"
+          class="w-full h-full object-contain"
+        />
       </div>
     </ULandingLogos>
-  </ULandingHero>
+  </ULandingSection>
 </template>

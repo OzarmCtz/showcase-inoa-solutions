@@ -6,6 +6,7 @@ defineProps({
 import { boolean, object, string, type InferType } from "yup";
 import { reactive } from "vue";
 import type { FormSubmitEvent } from "#ui/types";
+import { UIcon } from "#components";
 
 const schema = object({
   name: string()
@@ -74,15 +75,11 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
     >
       <!-- Formulaire de contact -->
       <div class="w-full">
-        <div class="mb-5 flex justify-center">
-          <a href="/faq" class="no-underline">
-            <UBadge
-              icon="streamline:interface-help-question-circle-circle-faq-frame-help-info-mark-more-query-question"
-              label="Vous pouvez aussi consulter notre rubrique FAQ !"
-              variant="outline"
-            >
-            </UBadge>
-          </a>
+        <div class="mb-5 flex">
+          <ULink to="#faq" class="text-primary text-sm">
+            Vous pouvez aussi consulter notre rubrique F.A.Q
+          </ULink>
+          <UIcon name="pepicons-pencil:arrow-up-right" class="text-primary" />
         </div>
 
         <UForm :schema="schema" :state="state" @submit="onSubmit">

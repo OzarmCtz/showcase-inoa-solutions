@@ -19,7 +19,6 @@ useSeoMeta({
     <LandingInoaServicesSection :pageData="page" />
 
     <ULandingSection
-      class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 py-10"
       :headline="page.testimonials.headline"
       :title="page.testimonials.title"
       :description="page.testimonials.description"
@@ -42,13 +41,20 @@ useSeoMeta({
     <ULandingSection
       id="faq"
       :title="page.faq.title"
-      :description="page.faq.description"
       class="scroll-mt-[var(--header-height)]"
       :ui="{
         strategy: 'override',
         wrapper: 'mb-0',
       }"
     >
+      <template #description>
+        <div class="mb-5 flex justify-center">
+          <ULink to="#contact" class="text-primary text-sm">
+            Vous pouvez aussi nous contacter
+          </ULink>
+          <UIcon name="pepicons-pencil:arrow-up-right" class="text-primary" />
+        </div>
+      </template>
       <ULandingFAQ
         multiple
         :items="page.faq.items"

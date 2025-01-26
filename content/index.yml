@@ -15,8 +15,7 @@ hero:
       color: primary
       icon: material-symbols:android-chat
       size: xl
-      to: https://github.com/nuxt-ui-pro/landing
-      target: _blank
+      to: "#services"
 logos:
   title: Ils nous font confiance
 features:
