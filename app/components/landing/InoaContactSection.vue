@@ -3,15 +3,22 @@ defineProps({
   pageData: Object,
 });
 
-import { object, string, type InferType } from "yup";
-import { reactive, ref } from "vue";
+import { boolean, object, string, type InferType } from "yup";
+import { reactive } from "vue";
 import type { FormSubmitEvent } from "#ui/types";
 
 const schema = object({
-  name: string().required("Le nom est requis"),
-  email: string().email("Email invalide").required("L'email est requis"),
-  subject: string().required("Le sujet est requis"),
-  message: string().required("Le message est requis"),
+  name: string()
+    .min(3, "Le champ Nom & Prénom doit contenir au moins 3 caractères")
+    .required("Le champ Nom & Prénom est requis"),
+  email: string().email("L'email est invalide").required("L'email est requis"),
+  subject: string()
+    .min(3, "Le champ sujet doit contenir au moins 3 caractères")
+    .required("Le champ sujet est requis"),
+  message: string()
+    .min(3, "Le champ message doit contenir au moins 3 caractères")
+    .required("Le champ est requis"),
+  data_accept: boolean().oneOf([true], "Vous devez accepter les conditions."),
 });
 
 type Schema = InferType<typeof schema>;
@@ -21,6 +28,16 @@ const state = reactive<Schema>({
   email: "",
   subject: "",
   message: "",
+  data_accept: false,
+});
+
+const isValid = computed(() => {
+  try {
+    schema.validateSync(state, { abortEarly: true });
+    return true;
+  } catch {
+    return false;
+  }
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
@@ -70,50 +87,46 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
 
         <UForm :schema="schema" :state="state" @submit="onSubmit">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <UFormGroup label="Nom & Prénom" name="name">
+            <UFormGroup label="Nom & Prénom" name="name" required>
               <UInput
                 size="xl"
                 icon="icon-park-outline:edit-name"
                 v-model="state.name"
                 placeholder="Nom & Prénom"
-                required
               />
             </UFormGroup>
 
-            <UFormGroup label="Email" name="email">
+            <UFormGroup label="Email" name="email" required>
               <UInput
                 size="xl"
                 v-model="state.email"
                 icon="i-heroicons-envelope"
                 placeholder="Email"
                 type="email"
-                required
               />
             </UFormGroup>
           </div>
 
-          <UFormGroup label="Sujet" name="subject" class="mb-6">
+          <UFormGroup label="Sujet" name="subject" class="mb-6" required>
             <UInput
               size="xl"
               icon="material-symbols:subject"
               v-model="state.subject"
               placeholder="Sujet"
-              required
             />
           </UFormGroup>
 
-          <UFormGroup label="Message" name="message" class="mb-6">
+          <UFormGroup label="Message" name="message" class="mb-6" required>
             <UTextarea
               size="xl"
               icon="material-symbols:android-messages-outline"
               v-model="state.message"
-              placeholder="Entrez votre message"
-              required
+              placeholder="Message"
             />
           </UFormGroup>
 
-          <div class="mb-6 flex items-center">
-            <UCheckbox :model-value="true" required>
+          <UFormGroup name="data_accept" class="mb-6" required>
+            <UCheckbox v-model="state.data_accept">
               <template #label>
                 <span>
                   J'accepte que mes données soient utilisées dans le cadre des
@@ -121,7 +134,7 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
                 </span>
               </template>
             </UCheckbox>
-          </div>
+          </UFormGroup>
 
           <UButton
             block
@@ -129,13 +142,20 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
             label="Envoyer"
             icon="mingcute:mail-send-fill"
             class="mb-6"
+            type="submit"
+            :disabled="!isValid"
           ></UButton>
           <div>
             <p class="text-xs text-gray-500">
               INOA Solutions recueille et utilise vos données personnelles pour
               assurer la gestion de vos demandes. Pour en savoir plus ou exercer
-              vos droits, vous pouvez accéder à la politique de confidentialité
-              via ce lien.
+              vos droits, vous pouvez accéder à la
+              <ULink
+                to="/politique-de-confidentialite"
+                class="text-primary hover:underline"
+              >
+                politique de confidentialité via ce lien.
+              </ULink>
             </p>
           </div>
         </UForm>
@@ -143,52 +163,9 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
 
       <!-- Informations de contact -->
       <div class="w-full">
-        <h3 class="text-3xl font-bold text-gray-700 dark:text-gray-100 mb-12">
+        <h3 class="text-3xl font-bold text-gray-700 dark:text-gray-100 mb-6">
           Informations de contact
         </h3>
-
-        <!-- Nous trouver -->
-        <div class="mb-10">
-          <h4
-            class="text-xl font-semibold text-gray-700 dark:text-gray-100 mb-2"
-          >
-            Nous trouver
-          </h4>
-          <div class="flex items-center">
-            <UIcon
-              name="material-symbols:location-on"
-              class="text-primary-500 w-6 h-6 mr-4 flex-shrink-0"
-            ></UIcon>
-            <div class="flex items-center">
-              <p class="text-sm text-gray-700 dark:text-gray-300">
-                Rue Gaïa Tecnosud 2 66100 PERPIGNAN
-              </p>
-              <div
-                class="flex items-center ml-1 cursor-pointer hover:text-primary-500"
-                @click="
-                  copyToClipboard(
-                    'address',
-                    'Rue Gaïa Tecnosud 2 66100 PERPIGNAN'
-                  )
-                "
-              >
-                <UIcon
-                  :name="
-                    copiedState.address
-                      ? 'clarity:success-line'
-                      : 'ic:baseline-copy-all'
-                  "
-                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                ></UIcon>
-                <span
-                  v-if="copiedState.address"
-                  class="text-sm text-gray-500 dark:text-gray-400 ml-1"
-                  >Copié</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- Nous écrire -->
         <div class="mb-10">
@@ -199,7 +176,7 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
           </h4>
           <div class="flex items-center">
             <UIcon
-              name="mingcute:mail-fill"
+              name="material-symbols:mail-outline"
               class="text-primary-500 w-6 h-6 mr-4 flex-shrink-0"
             ></UIcon>
             <div class="flex items-center">
@@ -271,6 +248,60 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
                 >
               </div>
             </div>
+          </div>
+        </div>
+        <!-- Nous trouver -->
+        <div class="mb-10">
+          <h4
+            class="text-xl font-semibold text-gray-700 dark:text-gray-100 mb-2"
+          >
+            Nous trouver
+          </h4>
+          <div class="flex items-center">
+            <UIcon
+              name="material-symbols:location-on-outline"
+              class="text-primary-500 w-6 h-6 mr-4 flex-shrink-0"
+            ></UIcon>
+            <div class="flex items-center">
+              <p class="text-sm text-gray-700 dark:text-gray-300">
+                Rue Gaïa Tecnosud 2 66100 PERPIGNAN
+              </p>
+              <div
+                class="flex items-center ml-1 cursor-pointer hover:text-primary-500"
+                @click="
+                  copyToClipboard(
+                    'address',
+                    'Rue Gaïa Tecnosud 2 66100 PERPIGNAN'
+                  )
+                "
+              >
+                <UIcon
+                  :name="
+                    copiedState.address
+                      ? 'clarity:success-line'
+                      : 'ic:baseline-copy-all'
+                  "
+                  class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                ></UIcon>
+                <span
+                  v-if="copiedState.address"
+                  class="text-sm text-gray-500 dark:text-gray-400 ml-1"
+                  >Copié</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12">
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2904.297164681281!2d2.9093875159041745!3d42.6712850791685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b051994751231d%3A0x41dbe6f55db6d29a!2s338%20Rue%20Ga%C3%AFa%2C%2066000%20Perpignan!5e0!3m2!1sfr!2sfr!4v1616179622333!5m2!1sfr!2sfr"
+              width="100%"
+              height="150"
+              style="border: 0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>
