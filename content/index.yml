@@ -99,16 +99,13 @@ pricing:
         - 100 SSL Certificates
         - 100 Support Tickets
 testimonials:
-  headline: Testimonials
-  title: What our customers are saying.
-  description: Proident sunt exercitation minim laborum enim laboris labore esse.
   items:
-    - quote: Nostrud tempor sunt fugiat. Dolor in sint dolore labore non occaecat adipisicing Lorem labore ullamco enim excepteur. In fugiat Lorem sit velit id veniam esse eiusmod non ea voluptate cupidatat reprehenderit ullamco dolore. Mollit laborum occaecat aliquip.
+    - quote: Entreprise sérieuse, fiable et à l'écoute du client. Aucun abonnement n'est nécessaire. L'application est simple. Le technicien donne des explications claires et précises. Je suis beaucoup plus sereine depuis la pose de l'alarme. Très satisfaite de la prestation, je recommande fortement cette entreprise.
       author:
-        name: Rose Roberson
-        description: CEO at Company
+        name: Celine Maugard
+        description: Client
         avatar:
-          src: https://i.pravatar.cc/120?img=1
+          src: https://lh3.googleusercontent.com/a/ACg8ocIeANJmxvsPC95z7jYVrD4wGULukntfiLgLy38CAzy23szGUg=w60-h60-p-rp-mo-br100
           loading: lazy
     - quote: Eiusmod dolor aute ut nulla pariatur officia consequat aute amet exercitation.
       author:

@@ -2,6 +2,7 @@
 import { LandingInoaFirstSection } from "#components";
 import { LandingInoaServicesSection } from "#components";
 import { LandingInoaContactSection } from "#components";
+import { LandingInoaTestimonialsSection } from "#components";
 const { data: page } = await useAsyncData("index", () =>
   queryContent("/").findOne()
 );
@@ -19,25 +20,7 @@ useSeoMeta({
 
     <div class="bg-grid-pattern bg-grid-sm">
       <LandingInoaServicesSection :pageData="page" />
-
-      <ULandingSection
-        :headline="page.testimonials.headline"
-        :title="page.testimonials.title"
-        :description="page.testimonials.description"
-      >
-        <UPageColumns
-          id="testimonials"
-          class="xl:columns-4 scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
-        >
-          <div
-            v-for="(testimonial, index) in page.testimonials.items"
-            :key="index"
-            class="break-inside-avoid"
-          >
-            <ULandingTestimonial v-bind="testimonial" />
-          </div>
-        </UPageColumns>
-      </ULandingSection>
+      <LandingInoaTestimonialsSection :pageData="page" />
     </div>
 
     <LandingInoaContactSection :pageData="page" />
