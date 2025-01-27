@@ -32,18 +32,15 @@ const trustedEtpLogo = [
 ];
 
 const realisationItem = [
-  "/realisation/realisation-1.jpeg",
-  "/realisation/realisation-2.jpeg",
-  "/realisation/realisation-3.jpg",
-  "/realisation/realisation-4.jpg",
   "/realisation/realisation-5.jpg",
   "/realisation/realisation-6.jpeg",
-  "/realisation/realisation-7.jpg",
+  "/realisation/realisation-3.jpg",
+  "/realisation/realisation-2.jpeg",
+  "/realisation/realisation-4.jpg",
+  "/realisation/realisation-1.jpeg",
   "/realisation/realisation-8.jpeg",
+  "/realisation/realisation-7.jpg",
 ];
-
-const itemsCarroussel = ["/inoa_place.jpeg", "/inoa-solutions-equipe.jpg"];
-const itemsCarrousselSecond = ["/maison-secu.jpg"];
 </script>
 
 <template>
@@ -99,16 +96,7 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
         temps, nous avons réussi à fidéliser notre clietèle diversifiée grâce à
         notre exigence, notre savoir-faire et notre disponibilité.
       </template>
-
-      <UCarousel
-        v-slot="{ item }"
-        :items="itemsCarroussel"
-        :ui="{ item: 'basis-full' }"
-        class="rounded-lg overflow-hidden"
-        arrows
-      >
-        <img :src="item" class="w-full" draggable="false" />
-      </UCarousel>
+      <NuxtImg src="/inoa_place.jpeg" class="w-full" draggable="false" />
     </ULandingSection>
 
     <ULandingSection
@@ -145,14 +133,7 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
         </p>
       </template>
 
-      <UCarousel
-        v-slot="{ item }"
-        :items="itemsCarrousselSecond"
-        :ui="{ item: 'basis-full' }"
-        class="rounded-lg overflow-hidden"
-      >
-        <img :src="item" class="w-full" draggable="false" />
-      </UCarousel>
+      <NuxtImg src="/maison-secu.jpg" class="w-full" draggable="false" />
     </ULandingSection>
 
     <ULandingSection
@@ -165,11 +146,13 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
       }"
     >
       <UCarousel
-        v-slot="{ item }"
         :items="realisationItem"
         :ui="{
           item: 'basis-full',
           container: 'rounded-lg',
+          indicators: {
+            wrapper: 'relative bottom-0 mt-4',
+          },
         }"
         :prev-button="{
           color: 'primary',
@@ -182,13 +165,27 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
           class: '-end-12',
         }"
         arrows
+        indicators
         class="w-full max-w-4xl mx-auto"
       >
-        <img
-          :src="item"
-          class="w-full h-auto max-h-[500px] object-cover"
-          draggable="false"
-        />
+        <template #default="{ item }">
+          <img
+            :src="item"
+            class="w-full h-auto max-h-[500px] object-cover"
+            draggable="false"
+          />
+        </template>
+
+        <template #indicator="{ onClick, page, active }">
+          <UButton
+            :label="String(page)"
+            :variant="active ? 'solid' : 'outline'"
+            size="2xs"
+            class="rounded-full min-w-6 justify-center mt-5"
+            color="primary"
+            @click="onClick(page)"
+          />
+        </template>
       </UCarousel>
     </ULandingSection>
 
@@ -259,6 +256,7 @@ const itemsCarrousselSecond = ["/maison-secu.jpg"];
           :src="logo"
           :alt="'Logo ' + (index + 1)"
           class="w-full h-full object-contain"
+          draggable="false"
         />
       </div>
     </ULandingLogos>
