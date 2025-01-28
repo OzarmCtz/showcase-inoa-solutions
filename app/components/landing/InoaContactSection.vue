@@ -1,66 +1,9 @@
 <script setup lang="ts">
-defineProps({
-  pageData: Object,
-});
+import { useCopyToClipboard } from "@/functions/useCopyToClipboard";
+const { copiedState, copyToClipboard } = useCopyToClipboard();
 
-import { boolean, object, string, type InferType } from "yup";
-import { reactive } from "vue";
-import type { FormSubmitEvent } from "#ui/types";
-import { UIcon } from "#components";
-
-const schema = object({
-  name: string()
-    .min(3, "Le champ Nom & Prénom doit contenir au moins 3 caractères")
-    .required("Le champ Nom & Prénom est requis"),
-  email: string().email("L'email est invalide").required("L'email est requis"),
-  subject: string()
-    .min(3, "Le champ sujet doit contenir au moins 3 caractères")
-    .required("Le champ sujet est requis"),
-  message: string()
-    .min(3, "Le champ message doit contenir au moins 3 caractères")
-    .required("Le champ est requis"),
-  data_accept: boolean().oneOf([true], "Vous devez accepter les conditions."),
-});
-
-type Schema = InferType<typeof schema>;
-
-const state = reactive<Schema>({
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-  data_accept: false,
-});
-
-const isValid = computed(() => {
-  try {
-    schema.validateSync(state, { abortEarly: true });
-    return true;
-  } catch {
-    return false;
-  }
-});
-
-async function onSubmit(event: FormSubmitEvent<Schema>) {
-  console.log("Données soumises :", event.data);
-}
-
-// État pour gérer l'élément copié
-const copiedState = reactive({
-  address: false,
-  email: false,
-  phone: false,
-});
-
-// Fonction générique pour gérer la copie
-function copyToClipboard(type: keyof typeof copiedState, text: string) {
-  navigator.clipboard.writeText(text).then(() => {
-    copiedState[type] = true;
-    setTimeout(() => {
-      copiedState[type] = false; // Réinitialise l'état après 2 secondes
-    }, 2000);
-  });
-}
+import { useContactForm } from "@/functions/useContactForm";
+const { schema, state, isValid, onSubmit } = useContactForm();
 </script>
 
 <template>
@@ -123,7 +66,7 @@ function copyToClipboard(type: keyof typeof copiedState, text: string) {
           </UFormGroup>
 
           <UFormGroup name="data_accept" class="mb-6" required>
-            <UCheckbox v-model="state.data_accept">
+            <UCheckbox v-model="state.data_accept" required>
               <template #label>
                 <span>
                   J'accepte que mes données soient utilisées dans le cadre des

@@ -3,16 +3,7 @@ defineProps({
   pageData: Object,
 });
 
-const certifAccordion = [
-  {
-    label: "Nos certifications",
-    icon: "mingcute:certificate-fill",
-    defaultOpen: false,
-    slot: "certification",
-  },
-];
-
-const trustedEtpLogo = [
+const LandingLogoPicture = [
   "/trusted-etp/66logo_Pompier.png",
   "/trusted-etp/ausi-scala.png",
   "/trusted-etp/cazes-png.png",
@@ -31,7 +22,7 @@ const trustedEtpLogo = [
   "/trusted-etp/UPVD_Logo_CMJN_horizontal.png",
 ];
 
-const realisationItem = [
+const realisationCarouselPicture = [
   "/realisation/realisation-5.jpg",
   "/realisation/realisation-6.jpeg",
   "/realisation/realisation-3.jpg",
@@ -45,7 +36,6 @@ const realisationItem = [
 
 <template>
   <ULandingHero
-    headline="test"
     :title="pageData.hero.title"
     :description="pageData.hero.description"
     :links="pageData.hero.links"
@@ -146,7 +136,7 @@ const realisationItem = [
       }"
     >
       <UCarousel
-        :items="realisationItem"
+        :items="realisationCarouselPicture"
         :ui="{
           item: 'basis-full',
           container: 'rounded-lg',
@@ -188,53 +178,6 @@ const realisationItem = [
         </template>
       </UCarousel>
     </ULandingSection>
-
-    <!--<UAccordion
-      :items="certifAccordion"
-      :ui="{
-        strategy: 'override',
-        wrapper:
-          'bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 text-primary-500 dark:text-primary-400 rounded-md p-2',
-      }"
-    >
-      <template #item="{ item }">
-        <button
-          type="button"
-          class="focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:cursor-not-allowed aria-disabled:opacity-75 flex-shrink-0 font-medium rounded-md text-sm gap-x-1.5 px-2.5 py-1.5 text-primary-500 dark:text-primary-400 bg-primary-50 hover:bg-primary-100 disabled:bg-primary-50 aria-disabled:bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 dark:hover:bg-primary-300 dark:disabled:bg-primary-400 dark:aria-disabled:bg-primary-400 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500 dark:focus-visible:ring-primary-300 inline-flex items-center w-full"
-        >
-          <span
-            class="iconify i-heroicons:information-circle flex-shrink-0 h-5 w-5"
-            aria-hidden="true"
-          ></span>
-          <span class="text-left break-all line-clamp-1">
-            {{ item.label }}
-          </span>
-          <span
-            class="iconify i-heroicons:chevron-down-20-solid -rotate-180 h-5 w-5 ms-auto transform transition-transform duration-200 flex-shrink-0"
-            aria-hidden="true"
-          ></span>
-        </button>
-      </template>
-
-      <template #certification>
-        <div class="text-gray-900 dark:text-white text-center px-4 py-3">
-          <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
-            Dans le cadre de notre engagement qualité, INOA Solutions est à ce
-            jour entreprise certifiée APSAD et NF Service :
-            <br />
-            <br />
-            • Service d’installation et de maintenance de systèmes de détection
-            d’intrusion (NF367 – I81 / Certificat n°191/13/367-81)
-            <br />
-            <br />
-            • Catégories AB et de systèmes de vidéosurveillance (NF367-I82 /
-            Certificat n° 121/13/367-82)
-          </p>
-        </div>
-        <img src="/APSAD.png" alt="APSAD" class="w-auto h-12 mx-auto mt-5" />
-      </template>
-    </UAccordion>
-    -->
   </ULandingHero>
 
   <ULandingSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
@@ -248,7 +191,7 @@ const realisationItem = [
       }"
     >
       <div
-        v-for="(logo, index) in trustedEtpLogo"
+        v-for="(logo, index) in LandingLogoPicture"
         :key="index"
         class="w-14 h-14 lg:w-16 lg:h-16 flex-shrink-0"
       >

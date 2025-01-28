@@ -7,7 +7,7 @@ hero:
     - label: Nos services
       icon: i-heroicons-arrow-right-20-solid
       trailing: true
-      to: "#features"
+      to: "#services"
       size: xl
       color: primary
     - label: Nous contacter
@@ -15,13 +15,17 @@ hero:
       color: primary
       icon: material-symbols:android-chat
       size: xl
-      to: "#services"
+      to: "#contact"
 logos:
   title: Ils nous font confiance
 features:
   headline: Inoa Solutions
   title: Nos services
-  description: Spécialisée dans le domaine de la protection des biens et des personnes, notre agence INOA Solutions, basée à Tecnosud 2, s’est donnée comme objectif de répondre à un besoin exprimé par la clientèle en termes de qualité de services, de promptitude d’intervention et de satisfaction continue.
+  description: >
+    Spécialisée dans le domaine de la protection des biens et des personnes, notre
+    agence INOA Solutions, basée à Tecnosud 2, s’est donnée comme objectif de répondre
+    à un besoin exprimé par la clientèle en termes de qualité de services, de promptitude
+    d’intervention et de satisfaction continue.
   items:
     - title: Alarme intrusion
       description: Empêchez les intrusions à tout moment
@@ -47,128 +51,92 @@ features:
       description: Gérez l'entrée et la sortie de vos locaux
       icon: ri:voice-recognition-line
       to: "/controle-acces/reconnaissance-automatique-plaques-immatriculation"
-pricing:
-  headline: Pricing
-  title: A plan for every need
-  description: Pariatur laborum dolor ea commodo sit aute aliquip qui et cillum excepteur.
-  plans:
-    - title: Basic
-      description: A basic plan for individuals.
-      price: $9.99
-      align: top
-      button:
-        label: Get Started
-        color: gray
-      features:
-        - 1 GB Storage
-        - 1 Email Account
-        - 1 Domain
-        - 1 Website
-        - 1 Database
-        - 1 SSL Certificate
-        - 1 Support Ticket
-    - title: Standard
-      description: A standard plan for small teams.
-      price: $19.99
-      highlight: true
-      scale: true
-      align: top
-      button:
-        label: Get Started
-      features:
-        - 10 GB Storage
-        - 10 Email Accounts
-        - 10 Domains
-        - 10 Websites
-        - 10 Databases
-        - 10 SSL Certificates
-        - 10 Support Tickets
-    - title: Premium
-      description: A premium plan for large teams.
-      price: $29.99
-      align: top
-      button:
-        label: Get Started
-        color: gray
-      features:
-        - 100 GB Storage
-        - 100 Email Accounts
-        - 100 Domains
-        - 100 Websites
-        - 100 Databases
-        - 100 SSL Certificates
-        - 100 Support Tickets
 testimonials:
   items:
-    - quote: Entreprise sérieuse, fiable et à l'écoute du client. Aucun abonnement n'est nécessaire. L'application est simple. Le technicien donne des explications claires et précises. Je suis beaucoup plus sereine depuis la pose de l'alarme. Très satisfaite de la prestation, je recommande fortement cette entreprise.
+    - quote: >
+        Entreprise sérieuse, fiable et à l'écoute du client. Aucun abonnement
+        n'est nécessaire. L'application est simple. Le technicien donne des explications
+        claires et précises. Je suis beaucoup plus sereine depuis la pose de l'alarme.
+        Très satisfaite de la prestation, je recommande fortement cette entreprise.
       author:
         name: Celine Maugard
         description: Client
         avatar:
           src: https://lh3.googleusercontent.com/a/ACg8ocIeANJmxvsPC95z7jYVrD4wGULukntfiLgLy38CAzy23szGUg=w60-h60-p-rp-mo-br100
           loading: lazy
-    - quote: Je suis un particulier et j'ai décidé de faire installer une alarme pour quitter ma maison l'esprit tranquille. Installation effectuée aujourd'hui. Je recommande cette entreprise efficace, sérieuse et à l'écoute du client. Technicien sérieux, patient et pédagogue. Explications claires et matériel de bonne qualité. Aucun abonnement est nécessaire et l'efficacité est au rendez-vous.
+    - quote: >
+        Je suis un particulier et j'ai décidé de faire installer une alarme pour
+        quitter ma maison l'esprit tranquille. Installation effectuée aujourd'hui.
+        Je recommande cette entreprise efficace, sérieuse et à l'écoute du client.
+        Technicien sérieux, patient et pédagogue. Explications claires et matériel
+        de bonne qualité. Aucun abonnement est nécessaire et l'efficacité est au rendez-vous.
       author:
         name: Eric C
         description: Client
         avatar:
           src: https://lh3.googleusercontent.com/a-/ALV-UjVukbaVla3Ye3VNg9XONNqlOhKOsW3eRninm1pw_bxBHafUx9na=w60-h60-p-rp-mo-br100
           loading: lazy
-    - quote: Nouveaux dans la région nous recherchions une entreprise fiable avec un SAV performant car nous habitons un peu loin de Perpignan. Nos enfants nous ont orientés vers inoa solutions et c'est avec plaisir que nous les avons retenu pour sécuriser notre nouvelle maison. Technicien efficace et pédagogue. Commercial sympa avec toujours une petite blague pour nous faire rire. Raymond et Anne G.
+    - quote: >
+        Nouveaux dans la région nous recherchions une entreprise fiable avec un
+        SAV performant car nous habitons un peu loin de Perpignan. Nos enfants nous ont
+        orientés vers inoa solutions et c'est avec plaisir que nous les avons retenu pour
+        sécuriser notre nouvelle maison. Technicien efficace et pédagogue. Commercial sympa
+        avec toujours une petite blague pour nous faire rire.
       author:
         name: Raymond GIRARD
         description: Client
         avatar:
           src: https://lh3.googleusercontent.com/a-/ALV-UjVrbUBwNKWMmpQMhUoS9M3S6Jx4s9i7XU96qOFQ8707M_Opqt4=w60-h60-p-rp-mo-br100
           loading: lazy
-    - quote: Aucuns regrets d'avoir choisi cette entreprise. Premier contact excellent,à mml'écoute,mise en confiance direct. Mise en place du matériel avec une équipe bien organisée, à l'écoute également, sympathique, rapide, bonne explications sur le fonctionnement des différents éléments. En gros ,très satisfait,je recommande. Merci à toute l'équipe
+    - quote: >
+        Aucuns regrets d'avoir choisi cette entreprise. Premier contact excellent,
+        à m'écoute, mise en confiance directe. Mise en place du matériel avec une équipe
+        bien organisée, à l'écoute également, sympathique, rapide, bonne explications
+        sur le fonctionnement des différents éléments. En gros, très satisfait, je recommande.
+        Merci à toute l'équipe.
       author:
         name: Nicolas Tisseyre
         description: Client
         avatar:
           src: https://lh3.googleusercontent.com/a/ACg8ocLNS6SFJBvu_8z702kVEkprNEV96LX6HFLdRC6dhE7_sCmyrw=w60-h60-p-rp-mo-br100
           loading: lazy
-    - quote: Entreprise très réactive et efficace, matériels de qualités, personnel à l'écoute autant commercialement parlant qu'au niveau technique. Je recommande fortement cette entreprise.
-      author:
-        name: Francois pastor
-        description: Client
-        avatar:
-          src: https://lh3.googleusercontent.com/a/ACg8ocJTr-p0ITI2zOko2UVHHEvMO3mBwyDROWhcgTyOkLQ-aw9-Gg=w60-h60-p-rp-mo-ba2-br100
-          loading: lazy
-    - quote: Depuis que j'ai perdu mon mari je n'étais pas rassurée d'être seule à la maison. Ma voisine m'a recommandée de contacter la société inoa et depuis qu'ils m'ont installés une alarme anti intrusion et anti agression, je me sens plus sereine. Ceci en parallèle de mon inscription sur la liste des voisins vigilants, je sais que je peux partir faire mes courses sans trop de craintes... Merci
-      author:
-        name: Elisabeth De Roquefeuil
-        description: Client
-        avatar:
-          src: https://lh3.googleusercontent.com/a/ACg8ocJ7ifEs8mty2Wj2oc67IN2hYWZL_qCHtqRtYKmEYoLmqQgSiA=w60-h60-p-rp-mo-br100
-          loading: lazy
-    - quote: Entreprise sérieuse, personnelle très professionnelle, a l écoute. je recommande
-      author:
-        name: Christian
-        description: Client
-        avatar:
-          src: https://lh3.googleusercontent.com/a-/ALV-UjVhkad2U-nBNy-N-NGr9AQw6KRvXNjO3I8LxZMnTvWsg3NBrU8f=w60-h60-p-rp-mo-br100
-          loading: lazy
-cta:
-  title: Get started today
-  description: Nisi mollit id aliquip sunt est laborum sit sit.
-  links:
-    - label: Sign up for free
-      size: xl
 faq:
   title: Questions fréquemment posées
-  description: todo -> dire que si ya de nouvelles question voila le formualaire
+  description: >
+    todo -> dire que si ya de nouvelles question voila le formulaire
   items:
     - label: Que dois-je faire si je reçois une alerte de déclenchement d’alarme ?
-      content: Les alertes sont aussitôt envoyées au centre opérationnel de sécurité par la centrale de transmission. Les opérateurs reçoivent, analysent et gèrent les informations envoyées. Ils mettent en place la procédure appropriée et font intervenir les personnes adaptées pour gérer l’incident (destinataires d’alerte, agent de sécurité, forces de l’ordre, pompiers…).
+      content: >
+        Les alertes sont aussitôt envoyées au centre opérationnel de sécurité
+        par la centrale de transmission. Les opérateurs reçoivent, analysent et gèrent
+        les informations envoyées. Ils mettent en place la procédure appropriée et font
+        intervenir les personnes adaptées pour gérer l’incident (destinataires d’alerte,
+        agent de sécurité, forces de l’ordre, pompiers…).
       defaultOpen: true
     - label: Quels sont les délais d’intervention des agents de sécurité ?
-      content: Le délai d’intervention des agents de sécurité varie selon les conditions d’accessibilité sur le lieu protégé. Lors d’une alerte, un système de localisation GPS permet d’identifier l’agent le plus proche et de le dépêcher sur les lieux au plus vite.
+      content: >
+        Le délai d’intervention des agents de sécurité varie selon les conditions
+        d’accessibilité sur le lieu protégé. Lors d’une alerte, un système de localisation
+        GPS permet d’identifier l’agent le plus proche et de le dépêcher sur les lieux
+        au plus vite.
     - label: Qu'est-ce que la levée de doute ?
-      content: La levée de doute est une étape obligatoire pour prévenir les Forces de l’Ordre (cf. article 16-1 de la Loi de 1983). Elle consiste en l’ensemble des vérifications qui permettent de présumer d’une intrusion dans le lieu protégé. Avec INOA Solutions, elle peut se faire grâce à la téléinterpellation, à la détection par l’image, aux contacts de proximité ou aux agents de sécurité.
+      content: >
+        La levée de doute est une étape obligatoire pour prévenir les Forces de l’Ordre
+        (cf. article 16-1 de la Loi de 1983). Elle consiste en l’ensemble des vérifications
+        qui permettent de présumer d’une intrusion dans le lieu protégé. Avec INOA Solutions,
+        elle peut se faire grâce à la téléinterpellation, à la détection par l’image,
+        aux contacts de proximité ou aux agents de sécurité.
     - label: Quelles sont les certifications d'INOA Solutions ?
-      content: "INOA Solutions possède les certifications APSAD & NF Service : Service d’Installation et de Maintenance de Systèmes de Détection d’Intrusion."
+      content: >
+        INOA Solutions possède les certifications APSAD & NF Service : Service d’Installation
+        et de Maintenance de Systèmes de Détection d’Intrusion.
     - label: Comment puis-je contrôler mon alarme à distance ?
-      content: Grâce aux systèmes d’alarmes sans fil, vous pouvez contrôler les alarmes  à distance depuis votre téléphone ou un simple accès internet. Recevez des SMS, mails ou notifications en cas d’intrusion.
+      content: >
+        Grâce aux systèmes d’alarmes sans fil, vous pouvez contrôler les alarmes à distance
+        depuis votre téléphone ou un simple accès internet. Recevez des SMS, mails ou
+        notifications en cas d’intrusion.
     - label: Quels sont les précautions à prendre pour éviter les cambriolages ?
-      content: Il est conseillé de mettre une plaque dissuasive avec autocollants indiquant la présence de l’alarme. Les voleurs préfèrent ne pas cambrioler les maisons équipées d’une alarme car ils savent que la police peut intervenir d’une minute à l’autre.
+      content: >
+        Il est conseillé de mettre une plaque dissuasive avec autocollants indiquant
+        la présence de l’alarme. Les voleurs préfèrent ne pas cambrioler les maisons
+        équipées d’une alarme car ils savent que la police peut intervenir d’une minute à l’autre.
