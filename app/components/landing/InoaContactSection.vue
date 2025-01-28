@@ -33,16 +33,18 @@ const { schema, state, isValid, onSubmit } = useContactForm();
                 icon="icon-park-outline:edit-name"
                 v-model="state.name"
                 placeholder="Nom & Prénom"
+                class="bg-white dark:bg-gray-800"
               />
             </UFormGroup>
 
-            <UFormGroup label="Email" name="email" required>
+            <UFormGroup label="Email" name="email">
               <UInput
                 size="xl"
                 v-model="state.email"
                 icon="i-heroicons-envelope"
                 placeholder="Email"
                 type="email"
+                class="bg-white dark:bg-gray-800"
               />
             </UFormGroup>
           </div>
@@ -53,6 +55,7 @@ const { schema, state, isValid, onSubmit } = useContactForm();
               icon="material-symbols:subject"
               v-model="state.subject"
               placeholder="Sujet"
+              class="bg-white dark:bg-gray-800"
             />
           </UFormGroup>
 
@@ -62,6 +65,7 @@ const { schema, state, isValid, onSubmit } = useContactForm();
               icon="material-symbols:android-messages-outline"
               v-model="state.message"
               placeholder="Message"
+              class="bg-white dark:bg-gray-800"
             />
           </UFormGroup>
 

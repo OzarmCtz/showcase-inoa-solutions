@@ -1,4 +1,4 @@
-import { ref, unref, watch } from "vue";
+import { ref, unref } from "vue";
 import { useMouse, useWindowScroll } from "@vueuse/core";
 
 export function useContextMenu() {
@@ -18,6 +18,15 @@ export function useContextMenu() {
 
   // Actions pour le menu contextuel
   const actions = ref([]);
+
+  // Vérifie si le clic droit est dans #contact
+  function isInContactSection(event: MouseEvent) {
+    const contactSection = document.querySelector("#contact");
+    if (contactSection) {
+      return contactSection.contains(event.target as Node);
+    }
+    return false;
+  }
 
   // Vérifie le contexte au clic droit
   function detectContext(event: MouseEvent) {
@@ -42,7 +51,7 @@ export function useContextMenu() {
     }
 
     // Met à jour les actions dynamiques
-    updateActions();
+    updateActions(isInContactSection(event));
   }
 
   // Gestion de l'ouverture du menu contextuel
@@ -68,7 +77,7 @@ export function useContextMenu() {
   async function copyToClipboard() {
     if (selectedText.value) {
       await navigator.clipboard.writeText(selectedText.value);
-      alert("Texte copié !");
+      isOpen.value = false; // Ferme le menu après l'action
     }
   }
 
@@ -77,11 +86,12 @@ export function useContextMenu() {
     if (isInInput.value && currentInput.value) {
       const clipboardText = await navigator.clipboard.readText();
       currentInput.value.value += clipboardText;
+      isOpen.value = false; // Ferme le menu après l'action
     }
   }
 
   // Met à jour les actions dynamiques
-  function updateActions() {
+  function updateActions(isInContact: boolean) {
     const dynamicActions = [];
 
     // Ajoute le bouton "Copier" si un texte est sélectionné (hors input)
@@ -106,19 +116,26 @@ export function useContextMenu() {
     actions.value = [
       ...dynamicActions,
       {
-        label: "Appeler",
+        label: "Nous appeler",
         icon: "carbon:phone",
         onClick: () => {
           window.location.href = "tel:+33468877291";
+          isOpen.value = false; // Ferme le menu après l'action
         },
       },
-      {
-        label: "Nous contacter",
-        icon: "material-symbols:mail-outline",
-        onClick: () => {
-          document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-        },
-      },
+      // N'ajoute "Nous contacter" que si le clic n'est pas dans la section #contact
+      ...(isInContact
+        ? []
+        : [
+            {
+              label: "Nous contacter",
+              icon: "material-symbols:mail-outline",
+              onClick: () => {
+                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                isOpen.value = false; // Ferme le menu après l'action
+              },
+            },
+          ]),
     ];
   }
 
