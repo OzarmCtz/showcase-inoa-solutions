@@ -76,7 +76,17 @@ const links = [
 <template>
   <UHeader :links="links">
     <template #logo>
-      <NuxtImg src="/etp-logo.svg" alt="Company Logo" class="h-9 w-auto" />
+      <NuxtImg
+        src="/white/etp-logo.svg"
+        alt="Logo Clair"
+        class="h-9 w-auto hidden dark:block"
+      />
+      <!-- Logo pour le thème sombre -->
+      <NuxtImg
+        src="/dark/etp-logo.png"
+        alt="Logo Sombre"
+        class="h-9 w-auto block dark:hidden"
+      />
     </template>
 
     <template #right>

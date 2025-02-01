@@ -36,7 +36,6 @@ const realisationCarouselPicture = [
 
 <template>
   <ULandingHero
-    :title="pageData.hero.title"
     :description="pageData.hero.description"
     :links="pageData.hero.links"
     :ui="{
@@ -46,10 +45,30 @@ const realisationCarouselPicture = [
   >
     <template #headline>
       <div class="relative w-full h-full">
-        <img
-          src="/topline.svg"
+        <NuxtImg
+          src="/white/topline.svg"
           alt="Topline"
-          class="w-full h-full object-contain"
+          class="w-full h-full object-contain hidden dark:block"
+        />
+        <NuxtImg
+          src="/dark/topline.png"
+          alt="Topline"
+          class="w-full h-full object-contain block dark:hidden"
+        />
+      </div>
+    </template>
+
+    <template #title>
+      <div class="flex items-center justify-center">
+        <NuxtImg
+          src="/white/etp-logo-custom.png"
+          alt="Topline"
+          class="h-[98px] w-auto hidden dark:block"
+        />
+        <NuxtImg
+          src="/dark/etp-logo-custom.png"
+          alt="Topline"
+          class="h-[98px] w-auto block dark:hidden"
         />
       </div>
     </template>
@@ -135,48 +154,50 @@ const realisationCarouselPicture = [
           'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
       }"
     >
-      <UCarousel
-        :items="realisationCarouselPicture"
-        :ui="{
-          item: 'basis-full',
-          container: 'rounded-lg',
-          indicators: {
-            wrapper: 'relative bottom-0 mt-4',
-          },
-        }"
-        :prev-button="{
-          color: 'primary',
-          icon: 'i-heroicons-arrow-left-20-solid',
-          class: '-start-12',
-        }"
-        :next-button="{
-          color: 'primary',
-          icon: 'i-heroicons-arrow-right-20-solid',
-          class: '-end-12',
-        }"
-        arrows
-        indicators
-        class="w-full max-w-4xl mx-auto"
-      >
-        <template #default="{ item }">
-          <img
-            :src="item"
-            class="w-full h-auto max-h-[500px] object-cover"
-            draggable="false"
-          />
-        </template>
+      <div class="overflow-hidden">
+        <UCarousel
+          :items="realisationCarouselPicture"
+          :ui="{
+            item: 'basis-full',
+            container: 'rounded-lg',
+            indicators: {
+              wrapper: 'relative bottom-0 mt-4',
+            },
+          }"
+          :prev-button="{
+            color: 'primary',
+            icon: 'i-heroicons-arrow-left-20-solid',
+            class: '-start-12',
+          }"
+          :next-button="{
+            color: 'primary',
+            icon: 'i-heroicons-arrow-right-20-solid',
+            class: '-end-12',
+          }"
+          arrows
+          indicators
+          class="w-full max-w-4xl mx-auto"
+        >
+          <template #default="{ item }">
+            <img
+              :src="item"
+              class="w-full h-auto max-h-[500px] object-cover"
+              draggable="false"
+            />
+          </template>
 
-        <template #indicator="{ onClick, page, active }">
-          <UButton
-            :label="String(page)"
-            :variant="active ? 'solid' : 'outline'"
-            size="2xs"
-            class="rounded-full min-w-6 justify-center mt-5"
-            color="primary"
-            @click="onClick(page)"
-          />
-        </template>
-      </UCarousel>
+          <template #indicator="{ onClick, page, active }">
+            <UButton
+              :label="String(page)"
+              :variant="active ? 'solid' : 'outline'"
+              size="2xs"
+              class="rounded-full min-w-6 justify-center mt-5"
+              color="primary"
+              @click="onClick(page)"
+            />
+          </template>
+        </UCarousel>
+      </div>
     </ULandingSection>
   </ULandingHero>
 

@@ -39,10 +39,15 @@ defineProps({
   >
     <template>
       <div class="relative w-full h-full">
-        <img
-          src="/bottomline.svg"
+        <NuxtImg
+          src="/white/bottomline.svg"
           alt="Bottomline"
-          class="w-full h-full object-contain"
+          class="w-full h-full object-contain hidden dark:block"
+        />
+        <NuxtImg
+          src="/dark/bottomline.png"
+          alt="Bottomline"
+          class="w-full h-full object-contain dark:hidden"
         />
       </div>
     </template>
