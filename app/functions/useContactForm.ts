@@ -71,11 +71,44 @@ export function useContactForm() {
     { deep: true } // Observe les changements dans les champs imbriqués
   );
 
+  const isLoading = ref(false);
+  const toast = useToast();
+
+  const modalSendingError = ref(false);
+
+
   // Gestionnaire d'envoi du formulaire
   async function onSubmit(event: any) {
-    console.log("Données soumises :", state);
-    // Ajoutez votre logique ici (API, traitement, etc.)
+    event.preventDefault();
+
+    isLoading.value = true;
+
+    var fakeResponseApi = true;
+
+    if(fakeResponseApi){
+      setTimeout(() => {
+        isLoading.value = false;
+        state.name = "";
+        state.email = "";
+        state.subject = "";
+        state.message = "";
+        state.data_accept = false;
+        toast.add({
+          title: "Message envoyé !",
+          description: "Nous vous répondron dans un délai de 48h.",
+           icon: "i-heroicons-check-circle"
+        });
+      }, 2000);
+    }else {
+      setTimeout(() => {
+        isLoading.value = false;
+        modalSendingError.value = true;
+      }, 2000);
+    }
+
+
+
   }
 
-  return { schema, state, errors, isValid, onSubmit };
+  return { schema, state, isValid, isLoading , modalSendingError , onSubmit };
 }

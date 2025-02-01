@@ -3,7 +3,8 @@ import { useCopyToClipboard } from "@/functions/useCopyToClipboard";
 const { copiedState, copyToClipboard } = useCopyToClipboard();
 
 import { useContactForm } from "@/functions/useContactForm";
-const { schema, state, isValid, onSubmit } = useContactForm();
+const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
+  useContactForm();
 </script>
 
 <template>
@@ -88,7 +89,9 @@ const { schema, state, isValid, onSubmit } = useContactForm();
             class="mb-6"
             type="submit"
             :disabled="!isValid"
+            :loading="isLoading"
           ></UButton>
+
           <div>
             <p class="text-xs text-gray-500">
               INOA Solutions recueille et utilise vos données personnelles pour
@@ -103,6 +106,100 @@ const { schema, state, isValid, onSubmit } = useContactForm();
             </p>
           </div>
         </UForm>
+        <UModal v-model="modalSendingError" prevent-close>
+          <UCard
+            :ui="{
+              ring: '',
+              divide: 'divide-y divide-gray-100 dark:divide-gray-800',
+            }"
+          >
+            <template #header>
+              <div class="flex items-center justify-between">
+                <h3 class="flex items-center text-base font-semibold leading-6">
+                  <UIcon
+                    name="material-symbols:cancel-outline"
+                    class="w-5 h-5 mr-2 text-red-500"
+                  />
+                  Erreur d'envoi
+                </h3>
+                <UButton
+                  color="gray"
+                  variant="ghost"
+                  icon="i-heroicons-x-mark-20-solid"
+                  class="-my-1"
+                  @click="modalSendingError = false"
+                />
+              </div>
+            </template>
+
+            <div class="p-4">
+              <p class="text-sm text-gray-700 dark:text-gray-300">
+                Nous sommes désolés, une erreur est survenue lors de l'envoi de
+                votre message.<br /><br />
+                Pour toute demande urgente, merci de nous contacter directement
+                par email à
+                <span class="inline-flex items-center">
+                  <a
+                    href="mailto:contact@inoa-solutions.com"
+                    class="text-primary-500 hover:underline"
+                  >
+                    contact@inoa-solutions.com
+                  </a>
+                  <span
+                    class="ml-2 cursor-pointer hover:text-primary-500"
+                    @click="
+                      copyToClipboard('email', 'contact@inoa-solutions.com')
+                    "
+                  >
+                    <UIcon
+                      :name="
+                        copiedState.email
+                          ? 'clarity:success-line'
+                          : 'ic:baseline-copy-all'
+                      "
+                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    />
+                  </span>
+                  <span
+                    v-if="copiedState.email"
+                    class="text-sm text-gray-500 dark:text-gray-400 ml-1"
+                  >
+                    Copié
+                  </span> </span
+                >.
+                <br />
+                ou par téléphone au
+                <span class="inline-flex items-center">
+                  <a
+                    href="tel:+33468877291"
+                    class="text-primary-500 hover:underline"
+                  >
+                    04 68 87 72 91
+                  </a>
+                  <span
+                    class="ml-2 cursor-pointer hover:text-primary-500"
+                    @click="copyToClipboard('phone', '04 68 87 72 91')"
+                  >
+                    <UIcon
+                      :name="
+                        copiedState.phone
+                          ? 'clarity:success-line'
+                          : 'ic:baseline-copy-all'
+                      "
+                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    />
+                  </span>
+                  <span
+                    v-if="copiedState.phone"
+                    class="text-sm text-gray-500 dark:text-gray-400 ml-1"
+                  >
+                    Copié
+                  </span> </span
+                >.
+              </p>
+            </div>
+          </UCard>
+        </UModal>
       </div>
 
       <!-- Informations de contact -->
