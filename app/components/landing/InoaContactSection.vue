@@ -106,7 +106,7 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
             </p>
           </div>
         </UForm>
-        <UModal v-model="modalSendingError" prevent-close>
+        <UModal v-model="modalSendingError">
           <UCard
             :ui="{
               ring: '',
@@ -347,5 +347,41 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
         </div>
       </div>
     </div>
+    <ULandingLogos
+      :ui="{
+        strategy: 'override',
+        wrapper: 'mt-2 text-center',
+        images: 'flex flex-wrap justify-center gap-24 p-4',
+      }"
+      align="center"
+    >
+      <ULink
+        to="https://www.instagram.com/inoa_solutions/"
+        target="_blank"
+        active-class="text-primary"
+        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+      >
+        <UIcon
+          name="i-simple-icons-instagram"
+          class="w-10 h-10 flex-shrink-0"
+        />
+      </ULink>
+      <ULink
+        to="https://fr.linkedin.com/company/inoa-solutions-alarme-videoprotection"
+        target="_blank"
+        active-class="text-primary"
+        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+      >
+        <UIcon name="i-simple-icons-linkedin" class="w-10 h-10 flex-shrink-0" />
+      </ULink>
+      <ULink
+        to="https://www.facebook.com/inoasolution"
+        target="_blank"
+        active-class="text-primary"
+        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+      >
+        <UIcon name="i-simple-icons-facebook" class="w-10 h-10 flex-shrink-0" />
+      </ULink>
+    </ULandingLogos>
   </ULandingSection>
 </template>
