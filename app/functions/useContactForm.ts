@@ -1,4 +1,4 @@
-import { reactive, computed } from "vue";
+import { reactive, computed, watch } from "vue";
 import { boolean, object, string, type InferType } from "yup";
 
 export function useContactForm() {
@@ -30,7 +30,16 @@ export function useContactForm() {
     data_accept: false,
   });
 
-  // Validation du formulaire
+  // Validation des champs individuels
+  const errors = reactive<Record<string, string | null>>({
+    name: null,
+    email: null,
+    subject: null,
+    message: null,
+    data_accept: null,
+  });
+
+  // Validation complète du formulaire
   const isValid = computed(() => {
     try {
       schema.validateSync(state, { abortEarly: true });
@@ -40,11 +49,33 @@ export function useContactForm() {
     }
   });
 
+  // Watch pour mettre à jour les erreurs lors des modifications
+  watch(
+    state,
+    () => {
+      try {
+        schema.validateSync(state, { abortEarly: false });
+        // Si la validation réussit, efface toutes les erreurs
+        Object.keys(errors).forEach((key) => {
+          errors[key] = null;
+        });
+      } catch (validationError: any) {
+        // Si la validation échoue, met à jour les erreurs
+        const validationErrors = validationError.inner;
+        Object.keys(errors).forEach((key) => {
+          const error = validationErrors.find((e: any) => e.path === key);
+          errors[key] = error ? error.message : null;
+        });
+      }
+    },
+    { deep: true } // Observe les changements dans les champs imbriqués
+  );
+
   // Gestionnaire d'envoi du formulaire
   async function onSubmit(event: any) {
-    console.log("Données soumises :", event.data);
+    console.log("Données soumises :", state);
     // Ajoutez votre logique ici (API, traitement, etc.)
   }
 
-  return { schema, state, isValid, onSubmit };
+  return { schema, state, errors, isValid, onSubmit };
 }

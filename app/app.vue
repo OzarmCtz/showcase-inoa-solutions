@@ -37,7 +37,11 @@ function handleContextMenu(event: MouseEvent) {
   <UNotifications />
 
   <!-- Menu contextuel -->
-  <UContextMenu v-model="isOpen" :virtual-element="virtualElement">
+  <UContextMenu
+    v-model="isOpen"
+    :virtual-element="virtualElement"
+    :popper="{ arrow: true, placement: 'right' }"
+  >
     <div
       class="p-2 bg-gray-50 text-gray-900 shadow-lg rounded-lg border border-gray-200 dark:bg-gray-950 dark:text-white dark:border-gray-800"
     >
