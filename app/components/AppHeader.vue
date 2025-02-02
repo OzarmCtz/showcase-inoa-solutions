@@ -71,21 +71,19 @@ const links = [
     document.querySelector('#faq')
   ])
 })*/
+
+const darkLogo = "/dark/etp-logo.svg";
+const lightLogo = "/light/etp-logo.png";
 </script>
 
 <template>
   <UHeader :links="links">
     <template #logo>
-      <NuxtImg
-        src="/white/etp-logo.svg"
-        alt="Logo Clair"
-        class="h-9 w-auto hidden dark:block"
-      />
-      <!-- Logo pour le thème sombre -->
-      <NuxtImg
-        src="/dark/etp-logo.png"
-        alt="Logo Sombre"
-        class="h-9 w-auto block dark:hidden"
+      <UColorModeImage
+        :light="lightLogo"
+        :dark="darkLogo"
+        alt="Inoa Solutions Logo"
+        class="h-9 w-auto"
       />
     </template>
 
@@ -98,6 +96,7 @@ const links = [
         color="primary"
         icon="carbon:phone"
       />
+      <UColorModeButton size="sm" />
     </template>
 
     <template #panel>

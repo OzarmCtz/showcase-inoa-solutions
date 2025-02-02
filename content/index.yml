@@ -31,6 +31,7 @@ features:
       description: Empêchez les intrusions à tout moment
       icon: material-symbols:detector
       to: "/services/alarm-intrusion"
+
     - title: Vidéoprotection
       description: Augmentez la sécurité de votre entreprise
       icon: material-symbols:camera-indoor

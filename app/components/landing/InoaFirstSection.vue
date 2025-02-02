@@ -33,6 +33,12 @@ const realisationCarouselPicture = [
   "/realisation/realisation-7.jpg",
 ];
 
+const darkTopLine = "/dark/topline.svg";
+const lightTopLine = "/light/topline.png";
+
+const darkLogoLanding = "/dark/etp-logo-custom.png";
+const lightLogoLanding = "/light/etp-logo-custom.png";
+
 const isOpen = ref(false);
 </script>
 
@@ -47,30 +53,22 @@ const isOpen = ref(false);
   >
     <template #headline>
       <div class="relative w-full h-full">
-        <NuxtImg
-          src="/white/topline.svg"
-          alt="Topline"
-          class="w-full h-full object-contain hidden dark:block"
-        />
-        <NuxtImg
-          src="/dark/topline.png"
-          alt="Topline"
-          class="w-full h-full object-contain block dark:hidden"
+        <UColorModeImage
+          :light="lightTopLine"
+          :dark="darkTopLine"
+          alt="Décoration"
+          class="w-full h-full object-contain"
         />
       </div>
     </template>
 
     <template #title>
       <div class="flex items-center justify-center">
-        <NuxtImg
-          src="/white/etp-logo-custom.png"
-          alt="Topline"
-          class="h-[98px] w-auto hidden dark:block"
-        />
-        <NuxtImg
-          src="/dark/etp-logo-custom.png"
-          alt="Topline"
-          class="h-[98px] w-auto block dark:hidden"
+        <UColorModeImage
+          :light="lightLogoLanding"
+          :dark="darkLogoLanding"
+          alt="Inoa Solution Logo"
+          class="h-[98px] w-auto"
         />
       </div>
     </template>
@@ -149,7 +147,7 @@ const isOpen = ref(false);
     <div class="flex justify-center sm:justify-end">
       <UButton
         label="Voir nos certifications"
-        icon="mdi:lightbulb-on"
+        icon="iconamoon:certificate-badge-fill"
         color="primary"
         variant="outline"
         size="sm"
@@ -358,7 +356,8 @@ const isOpen = ref(false);
       :ui="{
         strategy: 'override',
         wrapper: 'mt-2 text-center',
-        title: 'text-lg font-semibold leading-8 text-gray-900 dark:text-white',
+        title:
+          'text-lg font-semibold leading-8 text-gray-900 dark:text-white mb-10',
         images: 'flex flex-wrap justify-center gap-8 p-4',
       }"
     >

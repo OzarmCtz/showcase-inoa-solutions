@@ -2,6 +2,9 @@
 defineProps({
   pageData: Object,
 });
+
+const darkBottomLine = "/dark/bottomline.svg";
+const lightBottomLine = "/light/bottomline.png";
 </script>
 <template>
   <ULandingSection
@@ -39,15 +42,11 @@ defineProps({
   >
     <template>
       <div class="relative w-full h-full">
-        <NuxtImg
-          src="/white/bottomline.svg"
-          alt="Bottomline"
-          class="w-full h-full object-contain hidden dark:block"
-        />
-        <NuxtImg
-          src="/dark/bottomline.png"
-          alt="Bottomline"
-          class="w-full h-full object-contain dark:hidden"
+        <UColorModeImage
+          :light="lightBottomLine"
+          :dark="darkBottomLine"
+          alt="Décoration"
+          class="w-full h-full object-contain"
         />
       </div>
     </template>

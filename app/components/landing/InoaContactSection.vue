@@ -21,9 +21,14 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
       <div class="w-full">
         <div class="mb-5 flex">
           <ULink to="#faq" class="text-primary text-sm">
-            Vous pouvez aussi consulter notre rubrique F.A.Q
+            <UBadge variant="outline">
+              Vous pouvez aussi consulter notre rubrique F.A.Q
+              <UIcon
+                name="streamline:interface-help-question-circle-circle-faq-frame-help-info-mark-more-query-question"
+                class="text-primary"
+              />
+            </UBadge>
           </ULink>
-          <UIcon name="pepicons-pencil:arrow-up-right" class="text-primary" />
         </div>
 
         <UForm :schema="schema" :state="state" @submit="onSubmit">
@@ -358,8 +363,7 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
       <ULink
         to="https://www.instagram.com/inoa_solutions/"
         target="_blank"
-        active-class="text-primary"
-        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+        inactive-class="text-gray dark:text-gray hover:text-primary dark:hover:text-primary"
       >
         <UIcon
           name="i-simple-icons-instagram"
@@ -369,16 +373,14 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
       <ULink
         to="https://fr.linkedin.com/company/inoa-solutions-alarme-videoprotection"
         target="_blank"
-        active-class="text-primary"
-        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+        inactive-class="text-gray dark:text-gray hover:text-primary dark:hover:text-primary"
       >
         <UIcon name="i-simple-icons-linkedin" class="w-10 h-10 flex-shrink-0" />
       </ULink>
       <ULink
         to="https://www.facebook.com/inoasolution"
         target="_blank"
-        active-class="text-primary"
-        inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+        inactive-class="text-gray dark:text-gray hover:text-primary dark:hover:text-primary"
       >
         <UIcon name="i-simple-icons-facebook" class="w-10 h-10 flex-shrink-0" />
       </ULink>
