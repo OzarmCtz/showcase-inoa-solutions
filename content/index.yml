@@ -5,8 +5,7 @@ hero:
   description: Spécialisée dans le domaine de la protection des biens et des personnes.
   links:
     - label: Nos services
-      icon: i-heroicons-arrow-right-20-solid
-      trailing: true
+      icon: material-symbols:home-work-outline
       to: "#services"
       size: xl
       color: primary

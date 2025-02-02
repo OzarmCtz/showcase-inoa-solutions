@@ -63,55 +63,48 @@ const links = [
   },
 ];
 
-/*nuxtApp.hooks.hookOnce('page:finish', () => {
-  updateHeadings([
-    document.querySelector('#features'),
-    document.querySelector('#pricing'),
-    document.querySelector('#testimonials'),
-    document.querySelector('#faq')
-  ])
-})*/
-
 const darkLogo = "/dark/etp-logo.svg";
 const lightLogo = "/light/etp-logo.png";
 </script>
 
 <template>
-  <UHeader :links="links">
-    <template #logo>
-      <UColorModeImage
-        :light="lightLogo"
-        :dark="darkLogo"
-        alt="Inoa Solutions Logo"
-        class="h-9 w-auto"
-      />
-    </template>
+  <div>
+    <UHeader :links="links">
+      <template #logo>
+        <UColorModeImage
+          :light="lightLogo"
+          :dark="darkLogo"
+          alt="Inoa Solutions Logo"
+          class="h-9 w-auto"
+          draggable="false"
+        />
+      </template>
 
-    <template #right>
-      <UButton
-        label="04 68 87 72 91"
-        variant="outline"
-        class="hidden lg:flex"
-        to="tel:0468877291"
-        color="primary"
-        icon="carbon:phone"
-      />
-      <UColorModeButton size="sm" />
-    </template>
+      <template #right>
+        <UButton
+          label="04 68 87 72 91"
+          variant="outline"
+          class="hidden lg:flex"
+          to="tel:0468877291"
+          color="primary"
+          icon="carbon:phone"
+        />
+      </template>
 
-    <template #panel>
-      <UNavigationTree :links="links" :multiple="false" default-open />
+      <template #panel>
+        <UNavigationTree :links="links" :multiple="false" default-open />
 
-      <UDivider class="my-6" />
-      <UButton
-        label="04 68 87 72 91"
-        variant="outline"
-        block
-        class="mb-3"
-        to="tel:0468877291"
-        color="primary"
-        icon="carbon:phone"
-      />
-    </template>
-  </UHeader>
+        <UDivider class="my-6" />
+        <UButton
+          label="04 68 87 72 91"
+          variant="outline"
+          block
+          class="mb-3"
+          to="tel:0468877291"
+          color="primary"
+          icon="carbon:phone"
+        />
+      </template>
+    </UHeader>
+  </div>
 </template>

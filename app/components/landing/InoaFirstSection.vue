@@ -355,7 +355,7 @@ const isOpen = ref(false);
       title="Ils nous font confiance"
       :ui="{
         strategy: 'override',
-        wrapper: 'mt-2 text-center',
+        wrapper: 'text-center',
         title:
           'text-lg font-semibold leading-8 text-gray-900 dark:text-white mb-10',
         images: 'flex flex-wrap justify-center gap-8 p-4',

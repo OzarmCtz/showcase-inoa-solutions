@@ -15,9 +15,13 @@ const lightBottomLine = "/light/bottomline.png";
     <template #description>
       <div class="mb-5 flex justify-center">
         <ULink to="#contact" class="text-primary text-sm">
-          Vous pouvez aussi nous contacter
+          <UBadge variant="outline" size="sm">
+            Vous pouvez aussi nous contacter<UIcon
+              name="material-symbols:android-chat"
+              class="text-primary"
+            />
+          </UBadge>
         </ULink>
-        <UIcon name="pepicons-pencil:arrow-up-right" class="text-primary" />
       </div>
     </template>
     <ULandingFAQ
