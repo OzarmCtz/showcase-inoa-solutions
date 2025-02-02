@@ -2,24 +2,24 @@ import { ref, unref } from "vue";
 import { useMouse, useWindowScroll } from "@vueuse/core";
 
 export function useContextMenu() {
-  // Coordonnées de la souris
+  // Mouse coordinates
   const { x, y } = useMouse();
   const { y: windowY } = useWindowScroll();
 
-  // État du menu contextuel
+  // Context menu state
   const isOpen = ref(false);
   const virtualElement = ref({ getBoundingClientRect: () => ({}) });
 
-  // États pour copier/coller
+  // States for copy/paste actions
   const isSelectionActive = ref(false);
   const isInInput = ref(false);
   const selectedText = ref("");
   const currentInput = ref<HTMLInputElement | HTMLTextAreaElement | null>(null);
 
-  // Actions pour le menu contextuel
+  // Context menu actions
   const actions = ref([]);
 
-  // Vérifie si le clic droit est dans #contact
+  // Checks if the right-click is within the #contact section
   function isInContactSection(event: MouseEvent) {
     const contactSection = document.querySelector("#contact");
     if (contactSection) {
@@ -28,19 +28,19 @@ export function useContextMenu() {
     return false;
   }
 
-  // Vérifie le contexte au clic droit
+  // Checks the context on right-click
   function detectContext(event: MouseEvent) {
-    // Vérifie si on est dans un input ou textarea
+    // Checks if the target is an input or textarea
     const target = event.target as HTMLElement;
     if (target.tagName === "INPUT" || target.tagName === "TEXTAREA") {
       isInInput.value = true;
       currentInput.value = target as HTMLInputElement | HTMLTextAreaElement;
-      isSelectionActive.value = false; // Priorité à "Coller" dans les inputs
+      isSelectionActive.value = false; // Priority to "Paste" in inputs
     } else {
       isInInput.value = false;
       currentInput.value = null;
 
-      // Vérifie si du texte est sélectionné
+      // Checks if text is selected
       const selection = window.getSelection()?.toString();
       if (selection && selection.length > 0) {
         selectedText.value = selection;
@@ -50,16 +50,16 @@ export function useContextMenu() {
       }
     }
 
-    // Met à jour les actions dynamiques
+    // Updates dynamic actions
     updateActions(isInContactSection(event));
   }
 
-  // Gestion de l'ouverture du menu contextuel
+  // Handles opening the context menu
   function onContextMenu(event: MouseEvent) {
-    event.preventDefault(); // Bloque le menu contextuel natif
-    detectContext(event); // Vérifie le contexte actuel
+    event.preventDefault(); // Blocks the native context menu
+    detectContext(event); // Checks the current context
 
-    // Positionne le menu
+    // Positions the menu
     const top = unref(y) - unref(windowY);
     const left = unref(x);
 
@@ -70,69 +70,69 @@ export function useContextMenu() {
       left,
     });
 
-    isOpen.value = true; // Ouvre le menu
+    isOpen.value = true; // Opens the menu
   }
 
-  // Action pour copier le texte sélectionné
+  // Action to copy selected text
   async function copyToClipboard() {
     if (selectedText.value) {
       await navigator.clipboard.writeText(selectedText.value);
-      isOpen.value = false; // Ferme le menu après l'action
+      isOpen.value = false; // Closes the menu after the action
     }
   }
 
-  // Action pour coller du texte dans l'input actif
+  // Action to paste text into the active input
   async function pasteFromClipboard() {
     if (isInInput.value && currentInput.value) {
       const clipboardText = await navigator.clipboard.readText();
       currentInput.value.value += clipboardText;
-      isOpen.value = false; // Ferme le menu après l'action
+      isOpen.value = false; // Closes the menu after the action
     }
   }
 
-  // Met à jour les actions dynamiques
+  // Updates dynamic actions
   function updateActions(isInContact: boolean) {
     const dynamicActions = [];
 
-    // Ajoute le bouton "Copier" si un texte est sélectionné (hors input)
+    // Adds the "Copy" button if text is selected (outside input)
     if (isSelectionActive.value) {
       dynamicActions.push({
-        label: "Copier",
+        label: "Copy",
         icon: "carbon:copy",
         onClick: copyToClipboard,
       });
     }
 
-    // Ajoute le bouton "Coller" si on est dans un input/textarea
+    // Adds the "Paste" button if in an input/textarea
     if (isInInput.value) {
       dynamicActions.push({
-        label: "Coller",
+        label: "Paste",
         icon: "material-symbols:content-paste",
         onClick: pasteFromClipboard,
       });
     }
 
-    // Ajoute les actions fixes
+    // Adds fixed actions
     actions.value = [
       ...dynamicActions,
       {
-        label: "Nous appeler",
+        label: "Call us",
         icon: "carbon:phone",
         onClick: () => {
           window.location.href = "tel:+33468877291";
-          isOpen.value = false; // Ferme le menu après l'action
+          isOpen.value = false; // Closes the menu after the action
         },
       },
-      // N'ajoute "Nous contacter" que si le clic n'est pas dans la section #contact
+      // Adds "Contact us" only if the click is not in the #contact section
       ...(isInContact
         ? []
         : [
             {
-              label: "Nous contacter",
+              label: "Contact us",
               icon: "material-symbols:mail-outline",
               onClick: () => {
                 document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-                isOpen.value = false; // Ferme le menu après l'action
+                isOpen.value = false; // Closes the menu after the action
               },
             },
           ]),

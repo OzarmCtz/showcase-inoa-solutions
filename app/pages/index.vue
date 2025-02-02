@@ -17,14 +17,19 @@ useSeoMeta({
 
 <template>
   <div>
+    <!-- First Section | Title | Video | Enterprise presentation | Certification | Realisation  -->
     <LandingInoaFirstSection :pageData="page" />
 
     <div class="bg-grid-pattern bg-grid-sm">
+      <!--Services Section-->
       <LandingInoaServicesSection :pageData="page" />
+      <!--Testimonial Section-->
       <LandingInoaTestimonialsSection :pageData="page" />
     </div>
 
+    <!--Contact Section-->
     <LandingInoaContactSection :pageData="page" />
+    <!--F.A.Q Section-->
     <LandingInoaFaqSection :page-data="page" />
   </div>
 </template>

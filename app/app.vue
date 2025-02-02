@@ -3,7 +3,7 @@ useHead({
   meta: [{ name: "viewport", content: "width=device-width, initial-scale=1" }],
   link: [{ rel: "icon", href: "/favicon.ico" }],
   htmlAttrs: {
-    lang: "en",
+    lang: "fr",
   },
 });
 
@@ -27,7 +27,7 @@ function handleContextMenu(event: MouseEvent) {
     <!-- Header -->
     <AppHeader />
 
-    <!-- Contenu principal -->
+    <!-- Main Content -->
     <UMain @contextmenu="handleContextMenu" class="min-h-screen">
       <NuxtPage />
     </UMain>
@@ -38,7 +38,7 @@ function handleContextMenu(event: MouseEvent) {
     <!-- Notifications -->
     <UNotifications />
 
-    <!-- Menu contextuel -->
+    <!-- Context Menu -->
     <UContextMenu
       v-model="isOpen"
       :virtual-element="virtualElement"
@@ -53,9 +53,7 @@ function handleContextMenu(event: MouseEvent) {
           @click="action.onClick"
           class="flex items-center gap-3 p-2 rounded-md cursor-pointer transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-gray-800"
         >
-          <!-- Icône -->
           <UIcon :name="action.icon" class="text-gray-500 dark:text-gray-40" />
-          <!-- Texte -->
           <span class="text-gray-900 dark:text-gray-200">
             {{ action.label }}
           </span>

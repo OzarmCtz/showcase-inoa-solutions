@@ -1,17 +1,17 @@
 /**
- * Gestionnaire global pour intercepter les clics sur les liens avec des hash spécifiques
+ * Global handler to intercept clicks on links with specific hashes
  */
 export function useHandleNavClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    // Recherche un lien dont l'attribut href commence par "#"
-    const hashLink = target.closest('a[href^="#"]');
-    if (hashLink) {
-      const hash = hashLink.getAttribute("href");
-      // Vous pouvez ajouter ici d'autres cas si nécessaire
-      if (hash === "#contact" || hash === "#services" || hash === "#faq") {
-        event.preventDefault();
-        const targetElement = document.querySelector(hash);
-        targetElement?.scrollIntoView({ behavior: "smooth" });
-      }
+  const target = event.target as HTMLElement;
+  // Finds a link whose href attribute starts with "#"
+  const hashLink = target.closest('a[href^="#"]');
+  if (hashLink) {
+    const hash = hashLink.getAttribute("href");
+    // You can add additional cases here if needed
+    if (hash === "#contact" || hash === "#services" || hash === "#faq") {
+      event.preventDefault();
+      const targetElement = document.querySelector(hash);
+      targetElement?.scrollIntoView({ behavior: "smooth" });
     }
   }
+}

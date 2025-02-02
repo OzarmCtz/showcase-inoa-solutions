@@ -1,7 +1,9 @@
 <script setup lang="ts">
+// Access the Nuxt application instance
 const nuxtApp = useNuxtApp();
 const { activeHeadings, updateHeadings } = useScrollspy();
 
+// Define the navigation links and structure
 const links = [
   {
     label: "Accueil",
@@ -17,42 +19,42 @@ const links = [
         label: "Alarm Intrusion",
         to: "/services/alarm-intrusion",
         icon: "material-symbols:detector",
-        description: "Empêchez les intrusions à tout moment",
+        description: "Prevent intrusions at all times",
       },
       {
         label: "Vidéo protection",
         to: "/services/video-protection",
         icon: "material-symbols:camera-indoor",
-        description: "Augmentez la sécurité de votre entreprise",
+        description: "Enhance your company's security",
       },
       {
         label: "Contrôle d'Accès",
         to: "/services/controle-access",
         icon: "material-symbols:nest-secure-alarm-outline",
-        description: "Limitez l'accès de vos employés à des zones prédéfinies",
+        description: "Restrict employee access to predefined areas",
       },
       {
         label: "Télésurveillance",
         to: "/services/telesurveillance",
         icon: "mdi:television-ambient-light",
-        description: "Gardez un oeil sur vos locaux",
+        description: "Keep an eye on your premises",
       },
       {
         label: "Caméra Nomade La Chouette",
         to: "services/camera-nomade-la-chouette",
         icon: "material-symbols:speed-camera-outline",
-        description: "La caméra nomade nouvelle génération",
+        description: "Next-generation portable camera",
       },
       {
         label: "Reconnaissance Automatique des Plaques d'Immatriculation",
         to: "/controle-acces/reconnaissance-automatique-plaques-immatriculation",
         icon: "ri:voice-recognition-line",
-        description: "Gérez l'entrée et la sortie de vos locaux",
+        description: "Manage the entry and exit of your premises",
       },
     ],
   },
   {
-    label: "Pourquoi nous choirsir ?",
+    label: "Pourquoi nous choisir ?",
     icon: "material-symbols:contact-support-outline",
     to: "/pourquoi-nous-choisir",
   },
@@ -63,6 +65,7 @@ const links = [
   },
 ];
 
+// Define the logos for light and dark modes
 const darkLogo = "/dark/etp-logo.svg";
 const lightLogo = "/light/etp-logo.png";
 </script>
@@ -70,6 +73,7 @@ const lightLogo = "/light/etp-logo.png";
 <template>
   <div>
     <UHeader :links="links">
+      <!-- Logo section -->
       <template #logo>
         <UColorModeImage
           :light="lightLogo"
@@ -80,6 +84,7 @@ const lightLogo = "/light/etp-logo.png";
         />
       </template>
 
+      <!-- Right section of the header -->
       <template #right>
         <UButton
           label="04 68 87 72 91"
@@ -91,6 +96,7 @@ const lightLogo = "/light/etp-logo.png";
         />
       </template>
 
+      <!-- Navigation panel -->
       <template #panel>
         <UNavigationTree :links="links" :multiple="false" default-open />
 
