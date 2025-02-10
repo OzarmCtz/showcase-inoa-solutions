@@ -82,7 +82,7 @@ export function useContactForm() {
 
     isLoading.value = true;
 
-    var fakeResponseApi = true;
+    var fakeResponseApi = false;
 
     if (fakeResponseApi) {
       setTimeout(() => {
