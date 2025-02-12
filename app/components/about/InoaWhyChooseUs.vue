@@ -21,20 +21,38 @@ const links = [
 ];
 
 import CertificationsModal from "@/components/CertificationsModal.vue";
-import type { list } from "postcss";
 
 const isOpen = ref(false);
 
 const openModal = () => {
   isOpen.value = true;
 };
+// todo remove to extern file
+const darkTopLine = "/dark/topline.svg";
+const lightTopLine = "/light/topline.png";
+
+const darkBottomLine = "/dark/bottomline.svg";
+const lightBottomLine = "/light/bottomline.png";
 </script>
 
 <template>
   <ULandingHero
     title="Pourquoi nous chosir ?"
-    description="Watch your dreams materialize before your eyes with us."
-  />
+    :ui="{
+      strategy: 'override',
+      wrapper: 'mt-0',
+    }"
+  >
+    <template #headline>
+      <div class="relative w-full h-full">
+        <UColorModeImage
+          :light="lightTopLine"
+          :dark="darkTopLine"
+          alt="Décoration"
+          class="w-full h-full object-contain"
+        />
+      </div> </template
+  ></ULandingHero>
   <ULandingSection
     title="1. Plus de 10 ans d'expériences"
     description="Nuxt UI Pro ships with an extensive set of advanced components that cover a wide range of use-cases."
@@ -58,9 +76,10 @@ const openModal = () => {
       électronique, du conseil jusqu’à la mise en oeuvre et l’exécution du
       chantier.
     </template>
-    <img
+    <NuxtImg
       src="/inoa_place.jpeg"
       class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
+      draggable="false"
     />
   </ULandingSection>
   <ULandingSection
@@ -69,9 +88,10 @@ const openModal = () => {
     :links="[
       {
         label: 'En savoir plus sur nos certifications',
+        variant: 'outline',
         color: 'primary',
         trailingIcon: 'akar-icons:eye-open',
-        size: 'lg',
+        size: 'sm',
         click: openModal,
       },
     ]"
@@ -138,48 +158,81 @@ const openModal = () => {
   >
     <template #description>
       Chez INOA Solutions, nous sommes avant tout des passionnés de technologie
-      et d’innovation.
-      <br />
-      <br />
-      C’est la raison pour laquelle nous vous proposons ce qui se fait de mieux
-      sur le marché :
+      et d’innovation. C’est la raison pour laquelle nous vous proposons ce qui
+      se fait de mieux sur le marché :
       <br />
       <br />
       <div class="flex items-center gap-4 text-sm">
-        - Reconnaissance automatique de plaque d’immatriculation avec Dahua
-        Technology
-        <br />
-        <br />
-        - Caméra nomade La Chouette pour sécuriser une commune intelligemment,
-        <br />
-        <br />
-        - Détection intrusion par caméra thermique…
+        <Icon name="icon-park-twotone:success" class="text-primary w-6 h-6" />
+        <span>
+          Reconnaissance automatique de plaque d’immatriculation avec Dahua
+          Technology
+        </span>
       </div>
       <br />
+      <div class="flex items-center gap-4 text-sm">
+        <Icon name="icon-park-twotone:success" class="text-primary w-6 h-6" />
+        <span>
+          Caméra nomade La Chouette pour sécuriser une commune intelligemment,
+        </span>
+      </div>
+      <br />
+      <div class="flex items-center gap-4 text-sm">
+        <Icon name="icon-park-twotone:success" class="text-primary w-6 h-6" />
+        <span> Détection intrusion par caméra thermique… </span>
+      </div>
       <br />
       Nous avons forcément la solution adaptée à vos besoins.
     </template>
-    <img
-      src="https://picsum.photos/640/360"
+    <NuxtImg
+      src="/technologies.jpeg"
       class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
+      draggable="false"
     />
   </ULandingSection>
   <ULandingSection
-    title="The freedom to build anything"
-    description="Nuxt UI Pro ships with an extensive set of advanced components that cover a wide range of use-cases."
+    :ui="{
+      strategy: 'override',
+      description: 'text-lg mt-10',
+      title: 'text-4xl font-bold tracking-tight text-primary',
+    }"
+    title="5. Une entreprise locale proche de vous
+"
     align="right"
-    :links="[
-      {
-        label: 'Explore components',
-        color: 'gray',
-        trailingIcon: 'i-heroicons-arrow-right',
-        size: 'lg',
-      },
-    ]"
   >
-    <img
-      src="https://picsum.photos/640/360"
+    <template #description>
+      INOA Solutions est fortement ancré au sein du tissu économique de
+      Perpignan et des Pyrénées-Orientales.
+      <br />
+      <br />
+      Nous sommes partenaires des Dragons Catalans et oeuvrons au développement
+      économique et sportif local.
+      <br />
+      <br />
+      Car c’est aussi ça, le rôle d’une entreprise à taille humaine.
+    </template>
+    <NuxtImg
+      src="/inoa-solutions-dragons-catalans.jpeg"
       class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
+      draggable="false"
     />
+  </ULandingSection>
+
+  <ULandingSection
+    :ui="{
+      strategy: 'override',
+      wrapper: 'mb-0',
+    }"
+  >
+    <template>
+      <div class="relative w-full h-full">
+        <UColorModeImage
+          :light="lightBottomLine"
+          :dark="darkBottomLine"
+          alt="Décoration"
+          class="w-full h-full object-contain"
+        />
+      </div>
+    </template>
   </ULandingSection>
 </template>

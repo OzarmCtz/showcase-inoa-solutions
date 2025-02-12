@@ -34,7 +34,7 @@ const realisationCarouselPicture = [
   "/realisation/realisation-8.jpeg",
   "/realisation/realisation-7.jpg",
 ];
-
+// todo remove to extern file
 const darkTopLine = "/dark/topline.svg";
 const lightTopLine = "/light/topline.png";
 
