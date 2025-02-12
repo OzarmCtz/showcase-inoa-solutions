@@ -13,6 +13,14 @@ const links = [
     icon: "i-heroicons-square-3-stack-3d",
   },
 ];
+
+import CertificationsModal from "@/components/CertificationsModal.vue";
+
+const isOpen = ref(false);
+
+const openModal = () => {
+  isOpen.value = true;
+};
 </script>
 
 <template>
@@ -53,10 +61,11 @@ const links = [
     align="right"
     :links="[
       {
-        label: 'Explore components',
-        color: 'gray',
-        trailingIcon: 'i-heroicons-arrow-right',
+        label: 'En savoir plus sur nos certifications',
+        color: 'primary',
+        trailingIcon: 'akar-icons:eye-open',
         size: 'lg',
+        click: openModal,
       },
     ]"
     :ui="{
@@ -65,17 +74,27 @@ const links = [
       title: 'text-4xl font-bold tracking-tight text-primary',
     }"
   >
-    <img
-      src="https://picsum.photos/640/360"
-      class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
-    />
+    <CertificationsModal v-model="isOpen" />
+    <NuxtImg src="/APSAD.png" class="w-full rounded-md" draggable="false" />
 
     <template #description>
       Nous détenons depuis plus de 10 ans les certifications suivantes :
-      <br /><br />Service d’Installation et de Maintenance de Systèmes de
-      Détection d’Intrusion (NF 367-I81) Catégories AB : Certificat
-      n°191/13/367-81 <br /><br />Vidéosurveillance (NF 367-I82) : Certificat n°
-      121/13/367-82
+      <br />
+      <br />
+      <div class="flex items-center gap-4 text-sm">
+        <Icon name="icon-park-twotone:success" class="text-primary w-10 h-10" />
+        <span>
+          Service d’Installation et de Maintenance de Systèmes de Détection
+          d’Intrusion (NF 367-I81) Catégories AB : Certificat n°191/13/367-81
+        </span>
+      </div>
+      <br />
+      <div class="flex items-center gap-4 text-sm">
+        <Icon name="icon-park-twotone:success" class="text-primary w-6 h-6" />
+        <span>
+          Vidéosurveillance (NF 367-I82) : Certificat n° 121/13/367-82
+        </span>
+      </div>
     </template>
   </ULandingSection>
   <ULandingSection
