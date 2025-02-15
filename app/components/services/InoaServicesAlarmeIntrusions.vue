@@ -20,6 +20,7 @@ const links = [
   },
 ];
 
+import { ULandingSection } from "#components";
 import CertificationsModal from "@/components/CertificationsModal.vue";
 
 const isOpen = ref(false);
@@ -37,7 +38,7 @@ const lightBottomLine = "/light/bottomline.png";
 
 <template>
   <ULandingHero
-    title="Pourquoi nous chosir ?"
+    title="Nos systèmes d'alarmes intrusion"
     :ui="{
       strategy: 'override',
       wrapper: 'mt-0',
@@ -54,7 +55,7 @@ const lightBottomLine = "/light/bottomline.png";
       </div> </template
   ></ULandingHero>
   <ULandingSection
-    title="1. Plus de 10 ans d'expériences"
+    title="Empêchez les intrusions à tout moment"
     description="Nuxt UI Pro ships with an extensive set of advanced components that cover a wide range of use-cases."
     align="left"
     :ui="{
@@ -64,26 +65,26 @@ const lightBottomLine = "/light/bottomline.png";
     }"
   >
     <template #description>
-      Vidéoprotection, alarme intrusion, contrôle d’accès, caméra nomade…
+      Nos spécialistes sauront vous guider dans le choix d’un système d’alarme
+      performant, capable de répondre à tous vos besoins, présents et futurs.
       <br />
       <br />
-      Notre slogan, « Architecte de votre protection », reflète parfaitement
-      notre volonté d’innovation et d’accompagnement au service de votre
-      protection.
+      INOA Solutions propose toute une série d’applications reliées à la
+      protection contre les vols et intrusions pour les entreprises.
       <br />
       <br />
-      Nous vous conseillons de A à Z sur l’ensemble de votre besoin de sécurité
-      électronique, du conseil jusqu’à la mise en oeuvre et l’exécution du
-      chantier.
+      Nos experts sauront répondre adéquatement à vos besoins définis de
+      sécurité et vous recommander divers dispositifs pour concevoir un système
+      d’alarme antivol sur mesure.
     </template>
     <NuxtImg
-      src="/inoa_place.jpeg"
+      src="/services/Homme_Empechant_Une_Intrusion.jpg"
       class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
       draggable="false"
     />
   </ULandingSection>
   <ULandingSection
-    title="2. Nos certifications"
+    title="Optez pour l'alarme filaire"
     align="right"
     :links="[
       {
@@ -100,29 +101,48 @@ const lightBottomLine = "/light/bottomline.png";
       description: 'text-lg mt-10',
       title: 'text-4xl font-bold tracking-tight text-primary',
     }"
-  >
+    >1
     <CertificationsModal v-model="isOpen" />
-    <NuxtImg src="/APSAD.png" class="w-full rounded-md" draggable="false" />
+    <NuxtImg
+      src="/services/Electricien_Installant_une_Alarme_Filaire.jpg"
+      class="w-full rounded-md"
+      draggable="false"
+    />
 
     <template #description>
-      Nous détenons depuis plus de 10 ans les certifications suivantes :
+      L’alarme filaire est un système où les composants sont reliés entre eux
+      par des câbles. Ils permettent de faire circuler les informations
+      nécessaires au fonctionnement du système, de manière totalement sécurisée.
+      L’alarme filaire fonctionne tel un réseau en étoile.
       <br />
       <br />
-      <div class="flex items-center gap-4 text-sm">
-        <Icon name="icon-park-twotone:success" class="text-primary w-10 h-10" />
-        <span>
-          Service d’Installation et de Maintenance de Systèmes de Détection
-          d’Intrusion (NF 367-I81) Catégories AB : Certificat n°191/13/367-81
-        </span>
-      </div>
-      <br />
-      <div class="flex items-center gap-4 text-sm">
-        <Icon name="icon-park-twotone:success" class="text-primary w-6 h-6" />
-        <span>
-          Vidéosurveillance (NF 367-I82) : Certificat n° 121/13/367-82
-        </span>
-      </div>
+      La centrale d’alarme se trouve au centre du réseau. Les équipements
+      répandus dans les locaux à surveiller sont reliés à cette centrale à
+      l’aide de câbles, constituants les branches de l’étoile. L’ensemble des
+      communications du système transitent par ces câbles. L’alarme filaire ne
+      nécessite ni Wi-Fi, ni GSM, ni aucune technologie radio pour gérer ses
+      échanges.
     </template>
+  </ULandingSection>
+  <ULandingSection
+    :ui="{
+      strategy: 'override',
+      wrapper: 'mt-0',
+    }"
+  >
+    <template #description>
+      L’alarme filaire est un système fiable car le système est capable de
+      transmettre des signaux tant que l’intégrité des câbles n’est pas altérée.
+      Ce système constitue un choix judicieux pour des locaux volumineux par
+      exemple.
+      <br />
+      <br />
+      L’alarme filaire permet de répondre aux problématiques de couverture dans
+      la mesure où le câble peut porter un signal électrique. De plus, n’ayez
+      aucune crainte quant à d’éventuelles tentatives de brouillages via
+      interférences électromagnétiques : tant que le fil n’est pas coupé,
+      l’alarme continue de fonctionner.</template
+    >
   </ULandingSection>
   <ULandingSection
     title="3. La confiance de nos clients"

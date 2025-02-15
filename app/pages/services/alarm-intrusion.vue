@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import InoaWhyChooseUs from "@/components/about/InoaWhyChooseUs.vue";
+import InoaServicesAlarmeIntrusions from "@/components/services/InoaServicesAlarmeIntrusions.vue";
 
 const { data: page } = await useAsyncData("index", () =>
   queryContent("/").findOne()
 );
 useSeoMeta({
-  title: "Pourquoi nous choisir ? - INOA Solutions",
-  ogTitle: "Pourquoi nous choisir ? - INOA Solutions",
+  title: "Alarmes Intrusion - INOA Solutions",
+  ogTitle: "Alarmes Intrusion - INOA Solutions",
   description: page.value.description,
   ogDescription: page.value.description,
 });
@@ -14,6 +14,6 @@ useSeoMeta({
 
 <template>
   <div class="bg-grid-pattern bg-grid-sm">
-    <InoaWhyChooseUs />
+    <InoaServicesAlarmeIntrusions />
   </div>
 </template>
