@@ -13,7 +13,5 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="bg-grid-pattern bg-grid-sm">
-    <InoaServicesAlarmeIntrusions />
-  </div>
+  <InoaServicesAlarmeIntrusions />
 </template>
