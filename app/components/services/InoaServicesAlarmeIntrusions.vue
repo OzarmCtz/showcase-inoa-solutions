@@ -11,6 +11,13 @@ const openModalRadio = () => {
   isOpenRadio.value = true;
 };
 
+const items = [
+  "/services/alarme-3.jpg",
+  "/services/alarme-4.jpg",
+  "/services/alarme-5.jpg",
+  "/services/alarme-6.jpg",
+];
+
 import { ULandingSection } from "#components";
 
 // todo remove to extern file
@@ -265,6 +272,10 @@ const lightBottomLine = "/light/bottomline.png";
     title="Optez pour la solution hybride !"
     align="center"
     class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
+    :ui="{
+      stategy: 'override',
+      description: 'text-sm sm:text-lg',
+    }"
   >
     <NuxtImg
       src="/services/Garde_De_Sécurité_Surveillant_Un_Local.jpg"
@@ -286,6 +297,73 @@ const lightBottomLine = "/light/bottomline.png";
       Commuté à la communication 3G, les alarmes mixtes laissent un large choix
       de communication. De plus, ils offrent une large gamme d’accessoires et de
       détecteurs en filaire mais aussi sans fil.
+    </template>
+  </ULandingSection>
+  <template>
+    <ULandingSection
+      title="Nos systèmes d'alarme"
+      :ui="{
+        strategy: 'override',
+        title:
+          'text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl',
+      }"
+    >
+      <div class="overflow-hidden">
+        <UCarousel
+          :items="items"
+          :ui="{
+            item: 'basis-full',
+            container: 'rounded-lg',
+            indicators: {
+              wrapper: 'relative bottom-0 mt-4',
+            },
+          }"
+          :prev-button="{
+            color: 'primary',
+            icon: 'i-heroicons-arrow-left-20-solid',
+            class: '-start-24',
+          }"
+          :next-button="{
+            color: 'primary',
+            icon: 'i-heroicons-arrow-right-20-solid',
+            class: '-end-24',
+          }"
+          arrows
+          indicators
+          class="w-full max-w-md mx-auto"
+        >
+          <template #default="{ item }">
+            <NuxtImg :src="item" class="w-full" draggable="false" />
+          </template>
+          <template #indicator="{ onClick, page, active }">
+            <UButton
+              :label="String(page)"
+              :variant="active ? 'solid' : 'outline'"
+              size="2xs"
+              class="rounded-full min-w-6 justify-center mt-5"
+              color="primary"
+              @click="onClick(page)"
+            />
+          </template>
+        </UCarousel>
+      </div>
+    </ULandingSection>
+  </template>
+  <ULandingSection
+    :ui="{
+      strategy: 'override',
+      wrapper: 'mb-0',
+    }"
+  >
+    <template>
+      <div class="relative w-full h-full">
+        <UColorModeImage
+          :light="lightBottomLine"
+          :dark="darkBottomLine"
+          alt="Décoration"
+          class="w-full h-full object-contain"
+        />
+      </div>
     </template>
   </ULandingSection>
 </template>
