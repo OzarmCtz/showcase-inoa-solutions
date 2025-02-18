@@ -1,14 +1,8 @@
 <script setup lang="ts">
-const isOpenFilaire = ref(false);
+const isOpenBadges = ref(false);
 
-const openModalFilaire = () => {
-  isOpenFilaire.value = true;
-};
-
-const isOpenRadio = ref(false);
-
-const openModalRadio = () => {
-  isOpenRadio.value = true;
+const openModalBadges = () => {
+  isOpenBadges.value = true;
 };
 
 const items = [
@@ -31,7 +25,7 @@ const lightBottomLine = "/light/bottomline.png";
 <template>
   <div class="bg-grid-pattern bg-grid-sm">
     <ULandingHero
-      title="Nos systèmes d'alarmes intrusion"
+      title="Nos systèmes de contrôle d'accès"
       :ui="{
         strategy: 'override',
         wrapper: 'mt-0',
@@ -48,8 +42,7 @@ const lightBottomLine = "/light/bottomline.png";
         </div> </template
     ></ULandingHero>
     <ULandingSection
-      title="Empêchez les intrusions à tout moment"
-      description="Nuxt UI Pro ships with an extensive set of advanced components that cover a wide range of use-cases."
+      title="Limitez l'accès de vos employés à des zones prédéfinies"
       align="left"
       :ui="{
         strategy: 'override',
@@ -58,119 +51,74 @@ const lightBottomLine = "/light/bottomline.png";
       }"
     >
       <template #description>
-        Nos spécialistes sauront vous guider dans le choix d’un système d’alarme
-        performant, capable de répondre à tous vos besoins, présents et futurs.
+        Le contrôle d’accès devient de plus en plus populaire dans plusieurs
+        entreprises de toute importance
         <br />
         <br />
-        INOA Solutions propose toute une série d’applications reliées à la
-        protection contre les vols et intrusions pour les entreprises.
+        Vous désirez protéger votre département de Recherche et Développement et
+        votre département de Comptabilité en limitant l’accès pour raisons de
+        confidentialité ? Le contrôle d’accès est le bon outil !
         <br />
         <br />
-        Nos experts sauront répondre adéquatement à vos besoins définis de
-        sécurité et vous recommander divers dispositifs pour concevoir un
-        système d’alarme antivol sur mesure.
+        Plusieurs possibilités de contrôle vous sont proposées. De la carte
+        magnétique en passant par la biométrie, vous pouvez choisir la solution
+        la plus adaptée à vos besoins !
+        <br />
+        <br />
+
+        La capacité de limiter l’accès à des personnes pré-autorisées à circuler
+        dans les différents départements de votre entreprise est certainement
+        très attrayant et peut être réalisé à un coût très abordable.
       </template>
       <NuxtImg
-        src="/services/Homme_Empechant_Une_Intrusion.jpg"
+        src="/services/ACCES.jpg"
         class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
         draggable="false"
       />
     </ULandingSection>
 
     <ULandingSection
-      title="Optez pour l'alarme filaire"
+      title="Contôlez l'accès avec des badges "
       align="right"
       :ui="{
         strategy: 'override',
         description: 'text-base mt-10',
         title: 'text-4xl font-bold tracking-tight text-primary',
       }"
-      :links="[
-        {
-          label: 'En savoir plus sur nos alarmes filaires',
-          color: 'primary',
-          trailingIcon: 'mdi:lightbulb-on',
-          size: 'sm',
-          click: openModalFilaire,
-          variant: 'outline',
-        },
-      ]"
     >
       <NuxtImg
-        src="/services/Electricien_Installant_une_Alarme_Filaire.jpg"
+        src="/services/photos-controle-d-acces.jpg"
         class="w-full rounded-md"
         draggable="false"
       />
 
       <template #description>
-        L’alarme filaire est un système où les composants sont reliés entre eux
-        par des câbles. Ils permettent de faire circuler les informations
-        nécessaires au fonctionnement du système, de manière totalement
-        sécurisée. L’alarme filaire fonctionne tel un réseau en étoile.
+        Le contrôle d’accès par lecteur de badge permet de gérer les
+        autorisations des individus pour pénétrer dans les différents espaces de
+        l’entreprise. Le dispositif optimise la circulation des salariés en
+        fonction des autorisations de chacun.
+
         <br />
         <br />
-        La centrale d’alarme se trouve au centre du réseau. Les équipements
-        répandus dans les locaux à surveiller sont reliés à cette centrale à
-        l’aide de câbles, constituants les branches de l’étoile. L’ensemble des
-        communications du système transitent par ces câbles. L’alarme filaire ne
-        nécessite ni Wi-Fi, ni GSM, ni aucune technologie radio pour gérer ses
-        échanges.
+        Le système dispose d’une console principale permettant de piloter les
+        différents éléments du dispositif et permet également d’analyser mais
+        aussi d’ajuster les paramètres et de gérer les différentes actions. Des
+        applications informatiques permettent également de contrôler l’ouverture
+        des portes mais aussi d’assurer la supervision des infrastructures
+        déployées. Ainsi, la badgeuse permet d’identifier un individu et
+        autoriser son accès ou non à un bâtiment, pièce ou entrepôt.
+        <br />
+        <br />
+        Plusieurs équipements à contacts existent tel que les codes barres, qui
+        constituent un système peu sécurisé; les badges magnétiques, qui sont
+        plus présents dans des lieux où la sécurité est moindre; ou encore la
+        carte à puce à contacts qui enregistre les informations dans la puce. Le
+        procédé reste le même que pour les badges.
       </template>
     </ULandingSection>
-    <template>
-      <div>
-        <USlideover v-model="isOpenFilaire">
-          <UCard
-            class="flex flex-col flex-1"
-            :ui="{
-              body: { base: 'flex-1' },
-              ring: '',
-              divide: 'divide-y divide-primary dark:divide-primary',
-            }"
-          >
-            <template #header>
-              <div class="flex items-center justify-between">
-                <h3
-                  class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
-                >
-                  Alarme Filaire
-                </h3>
-                <UButton
-                  color="gray"
-                  variant="ghost"
-                  icon="i-heroicons-x-mark-20-solid"
-                  class="-my-1"
-                  @click="isOpenFilaire = false"
-                />
-              </div>
-            </template>
-
-            <div>
-              L’alarme filaire est un système fiable car le système est capable
-              de transmettre des signaux tant que l’intégrité des câbles n’est
-              pas altérée.
-              <br />
-              <br />
-              Ce système constitue un choix judicieux pour des locaux volumineux
-              par exemple.
-              <br /><br />
-              L’alarme filaire permet de répondre aux problématiques de
-              couverture dans la mesure où le câble peut porter un signal
-              électrique.
-
-              <br />
-              <br />
-              De plus, n’ayez aucune crainte quant à d’éventuelles tentatives de
-              brouillages via interférences électromagnétiques : tant que le fil
-              n’est pas coupé, l’alarme continue de fonctionner.
-            </div>
-          </UCard>
-        </USlideover>
-      </div>
-    </template>
 
     <ULandingSection
-      title="Découvrez l'alarme radio"
+      title="Sécurisez vos espaces par code"
       align="left"
       :ui="{
         strategy: 'override',
@@ -179,38 +127,39 @@ const lightBottomLine = "/light/bottomline.png";
       }"
       :links="[
         {
-          label: 'En savoir plus sur nos alarmes radio',
+          label: 'En savoir plus sur nos digicodes',
           color: 'primary',
           trailingIcon: 'mdi:lightbulb-on',
           size: 'sm',
-          click: openModalRadio,
+          click: openModalBadges,
           variant: 'outline',
         },
       ]"
     >
       <NuxtImg
-        src="/services/Femme_Controlant_Son_Alarme_Radio.jpg"
+        src="/services/Système_Accès_Digicode-1024x683.jpg"
         class="w-full rounded-md"
         draggable="false"
       />
 
       <template #description>
-        L’alarme sans fil, ou alarme radio, est un système composé de différents
-        éléments communiquants avec une centrale d’alarme sans fil, par ondes
-        radio. Chaque élément (alarmes, détecteurs, caméras) peut être placé
-        d’une manière à optimiser ses performances.
+        Aussi appelé digicode, le clavier à code est un système qui permet de
+        déverrouiller ou d’ouvrir les portes de vos locaux ou de vos bâtiments.
+        Ce système de contrôle d’accès peut être branché à une gâche électrique,
+        à une sonnette ou encore un interphone audio et/ou vidéo.
+
         <br />
         <br />
-        La communication entre les parties du système est réalisée soit par
-        Wi-Fi, soit via le réseau de téléphonie mobile. Si l’alarme se
-        déclenche, le propriétaire reçoit une alerte et peut consulter les
-        images des caméras sur tout appareil connecté à internet. Il peut ainsi
-        prévenir ou non la police et/ou les secours.
+        Afin d’actionner la gâche électrique ou l’automatisme qui lui est relié,
+        l’utilisateur doit composer un code secret sur son clavier. L’appareil
+        est doté de plusieurs éléments, dont un clavier. Le boîtier bénéficie
+        d’une protection solide afin qu’il puisse résister aux tentatives de
+        démontage et aussi au vandalisme.
       </template>
     </ULandingSection>
     <template>
       <div>
-        <USlideover v-model="isOpenRadio">
+        <USlideover v-model="isOpenBadges">
           <UCard
             class="flex flex-col flex-1"
             :ui="{
@@ -224,42 +173,33 @@ const lightBottomLine = "/light/bottomline.png";
                 <h3
                   class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
                 >
-                  Alarme Radio
+                  Nos digicodes
                 </h3>
                 <UButton
                   color="gray"
                   variant="ghost"
                   icon="i-heroicons-x-mark-20-solid"
                   class="-my-1"
-                  @click="isOpenRadio = false"
+                  @click="isOpenBadges = false"
                 />
               </div>
             </template>
 
             <div>
-              Il existe un large choix de détecteurs que l’on peut coupler avec
-              les alarmes sans fil.
-              <br />En complément des détecteurs de mouvement ou intrusion,
-              l’alarme radio permet d’ajouter des capteurs plus spécifiques tel
-              que des détecteurs de bris de vitre par exemple.
+              Il existe deux types de systèmes d’accès à code; les systèmes
+              d’accès à code filaire et non filaire.
               <br />
               <br />
-              Certains modèles permettent de paramétrer différents types de
-              sonneries afin de faciliter l’identification de la cause du
-              déclenchement de l’alarme.
+              Les claviers à code filaires nécessitent d’établir une liaison
+              avec la gâche électrique ou le système de motorisation. De ce
+              fait, les claviers à code filaires ne sont pas sensibles à un
+              brouillage.
               <br />
               <br />
-              Il existe plusieurs modèles d’alarmes sur le marché. Le modèle GSM
-              nécessite une carte SIM à introduire dans le transmetteur GSM.
-              <br />
-              Ce système permet de recevoir les alertes directement sur le
-              téléphone sous la forme de messages vocaux ou de SMS.
-
-              <br />
-              <br />
-
-              L’alarme IP, quant à elle, repose sur Internet. Les alertes sont
-              données par l’envoi d’un email.
+              Concernant les boîtiers non filaires, ceux-ci bénéficient d’un
+              système radio. Tous les éléments constituant le système sont de ce
+              fait sans fil, afin que le boîtier puisse communiquer avec les
+              autres éléments par ondes radios.
             </div>
           </UCard>
         </USlideover>

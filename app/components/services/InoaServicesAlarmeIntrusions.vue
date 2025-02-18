@@ -274,7 +274,7 @@ const lightBottomLine = "/light/bottomline.png";
     class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
     :ui="{
       stategy: 'override',
-      description: 'text-sm sm:text-lg',
+      description: 'text-base',
     }"
   >
     <NuxtImg
