@@ -29,7 +29,7 @@ const links = [
       },
       {
         label: "Contrôle d'Accès",
-        to: "/services/controle-access",
+        to: "/services/controle-dacces",
         icon: "material-symbols:nest-secure-alarm-outline",
         description: "Restrict employee access to predefined areas",
       },
