@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import InoaControleDacces from "@/components/services/InoaControleDacces.vue";
+import InoaVideoProtection from "@/components/services/InoaServicesVideoProtection.vue";
 
 const { data: page } = await useAsyncData("index", () =>
   queryContent("/").findOne()
 );
 useSeoMeta({
-  title: "Contrôle d'Accès - INOA Solution",
-  ogTitle: "Contrôle d'Accès - INOA Solution",
+  title: "Surveillance Vidéoprotection - INOA Solution",
+  ogTitle: "Surveillance Vidéoprotection - INOA Solution",
   description: page.value.description,
   ogDescription: page.value.description,
 });
 </script>
 
 <template>
-  <InoaControleDacces />
+  <InoaVideoProtection />
 </template>

@@ -2,6 +2,8 @@
 export default defineNuxtConfig({
   extends: ['@nuxt/ui-pro'],
 
+  
+
   ui: {
     safelistColors: ['custom-green'],
   },

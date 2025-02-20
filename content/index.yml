@@ -38,7 +38,7 @@ features:
     - title: Contrôle d'Accès
       description: Limitez l'accès de vos employés à des zones prédéfinies
       icon: material-symbols:nest-secure-alarm-outline
-      to: "/services/controle-access"
+      to: "/services/controle-dacces"
     - title: Télésurveillance
       description: Gardez un oeil sur vos locaux
       icon: mdi:television-ambient-light
