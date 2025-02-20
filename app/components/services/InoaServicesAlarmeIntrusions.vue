@@ -117,57 +117,54 @@ const lightBottomLine = "/light/bottomline.png";
         échanges.
       </template>
     </ULandingSection>
-    <template>
-      <div>
-        <USlideover v-model="isOpenFilaire">
-          <UCard
-            class="flex flex-col flex-1"
-            :ui="{
-              body: { base: 'flex-1' },
-              ring: '',
-              divide: 'divide-y divide-primary dark:divide-primary',
-            }"
-          >
-            <template #header>
-              <div class="flex items-center justify-between">
-                <h3
-                  class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
-                >
-                  Alarme Filaire
-                </h3>
-                <UButton
-                  color="gray"
-                  variant="ghost"
-                  icon="i-heroicons-x-mark-20-solid"
-                  class="-my-1"
-                  @click="isOpenFilaire = false"
-                />
-              </div>
-            </template>
-
-            <div>
-              L’alarme filaire est un système fiable car le système est capable
-              de transmettre des signaux tant que l’intégrité des câbles n’est
-              pas altérée.
-              <br />
-              <br />
-              Ce système constitue un choix judicieux pour des locaux volumineux
-              par exemple.
-              <br /><br />
-              L’alarme filaire permet de répondre aux problématiques de
-              couverture dans la mesure où le câble peut porter un signal
-              électrique.
-
-              <br />
-              <br />
-              De plus, n’ayez aucune crainte quant à d’éventuelles tentatives de
-              brouillages via interférences électromagnétiques : tant que le fil
-              n’est pas coupé, l’alarme continue de fonctionner.
+    <div>
+      <USlideover v-model="isOpenFilaire">
+        <UCard
+          class="flex flex-col flex-1"
+          :ui="{
+            body: { base: 'flex-1' },
+            ring: '',
+            divide: 'divide-y divide-primary dark:divide-primary',
+          }"
+        >
+          <template #header>
+            <div class="flex items-center justify-between">
+              <h3
+                class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
+              >
+                Alarme Filaire
+              </h3>
+              <UButton
+                color="gray"
+                variant="ghost"
+                icon="i-heroicons-x-mark-20-solid"
+                class="-my-1"
+                @click="isOpenFilaire = false"
+              />
             </div>
-          </UCard>
-        </USlideover>
-      </div>
-    </template>
+          </template>
+
+          <div>
+            L’alarme filaire est un système fiable car le système est capable de
+            transmettre des signaux tant que l’intégrité des câbles n’est pas
+            altérée.
+            <br />
+            <br />
+            Ce système constitue un choix judicieux pour des locaux volumineux
+            par exemple.
+            <br /><br />
+            L’alarme filaire permet de répondre aux problématiques de couverture
+            dans la mesure où le câble peut porter un signal électrique.
+
+            <br />
+            <br />
+            De plus, n’ayez aucune crainte quant à d’éventuelles tentatives de
+            brouillages via interférences électromagnétiques : tant que le fil
+            n’est pas coupé, l’alarme continue de fonctionner.
+          </div>
+        </UCard>
+      </USlideover>
+    </div>
 
     <ULandingSection
       title="Découvrez l'alarme radio"
@@ -208,63 +205,61 @@ const lightBottomLine = "/light/bottomline.png";
         prévenir ou non la police et/ou les secours.
       </template>
     </ULandingSection>
-    <template>
-      <div>
-        <USlideover v-model="isOpenRadio">
-          <UCard
-            class="flex flex-col flex-1"
-            :ui="{
-              body: { base: 'flex-1' },
-              ring: '',
-              divide: 'divide-y divide-primary dark:divide-primary',
-            }"
-          >
-            <template #header>
-              <div class="flex items-center justify-between">
-                <h3
-                  class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
-                >
-                  Alarme Radio
-                </h3>
-                <UButton
-                  color="gray"
-                  variant="ghost"
-                  icon="i-heroicons-x-mark-20-solid"
-                  class="-my-1"
-                  @click="isOpenRadio = false"
-                />
-              </div>
-            </template>
-
-            <div>
-              Il existe un large choix de détecteurs que l’on peut coupler avec
-              les alarmes sans fil.
-              <br />En complément des détecteurs de mouvement ou intrusion,
-              l’alarme radio permet d’ajouter des capteurs plus spécifiques tel
-              que des détecteurs de bris de vitre par exemple.
-              <br />
-              <br />
-              Certains modèles permettent de paramétrer différents types de
-              sonneries afin de faciliter l’identification de la cause du
-              déclenchement de l’alarme.
-              <br />
-              <br />
-              Il existe plusieurs modèles d’alarmes sur le marché. Le modèle GSM
-              nécessite une carte SIM à introduire dans le transmetteur GSM.
-              <br />
-              Ce système permet de recevoir les alertes directement sur le
-              téléphone sous la forme de messages vocaux ou de SMS.
-
-              <br />
-              <br />
-
-              L’alarme IP, quant à elle, repose sur Internet. Les alertes sont
-              données par l’envoi d’un email.
+    <div>
+      <USlideover v-model="isOpenRadio">
+        <UCard
+          class="flex flex-col flex-1"
+          :ui="{
+            body: { base: 'flex-1' },
+            ring: '',
+            divide: 'divide-y divide-primary dark:divide-primary',
+          }"
+        >
+          <template #header>
+            <div class="flex items-center justify-between">
+              <h3
+                class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
+              >
+                Alarme Radio
+              </h3>
+              <UButton
+                color="gray"
+                variant="ghost"
+                icon="i-heroicons-x-mark-20-solid"
+                class="-my-1"
+                @click="isOpenRadio = false"
+              />
             </div>
-          </UCard>
-        </USlideover>
-      </div>
-    </template>
+          </template>
+
+          <div>
+            Il existe un large choix de détecteurs que l’on peut coupler avec
+            les alarmes sans fil.
+            <br />En complément des détecteurs de mouvement ou intrusion,
+            l’alarme radio permet d’ajouter des capteurs plus spécifiques tel
+            que des détecteurs de bris de vitre par exemple.
+            <br />
+            <br />
+            Certains modèles permettent de paramétrer différents types de
+            sonneries afin de faciliter l’identification de la cause du
+            déclenchement de l’alarme.
+            <br />
+            <br />
+            Il existe plusieurs modèles d’alarmes sur le marché. Le modèle GSM
+            nécessite une carte SIM à introduire dans le transmetteur GSM.
+            <br />
+            Ce système permet de recevoir les alertes directement sur le
+            téléphone sous la forme de messages vocaux ou de SMS.
+
+            <br />
+            <br />
+
+            L’alarme IP, quant à elle, repose sur Internet. Les alertes sont
+            données par l’envoi d’un email.
+          </div>
+        </UCard>
+      </USlideover>
+    </div>
   </div>
 
   <ULandingSection
@@ -299,56 +294,54 @@ const lightBottomLine = "/light/bottomline.png";
       détecteurs en filaire mais aussi sans fil.
     </template>
   </ULandingSection>
-  <template>
-    <ULandingSection
-      title="Nos systèmes d'alarme"
-      :ui="{
-        strategy: 'override',
-        title:
-          'text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl',
-      }"
-    >
-      <div class="overflow-hidden">
-        <UCarousel
-          :items="items"
-          :ui="{
-            item: 'basis-full',
-            container: 'rounded-lg',
-            indicators: {
-              wrapper: 'relative bottom-0 mt-4',
-            },
-          }"
-          :prev-button="{
-            color: 'primary',
-            icon: 'i-heroicons-arrow-left-20-solid',
-            class: '-start-24',
-          }"
-          :next-button="{
-            color: 'primary',
-            icon: 'i-heroicons-arrow-right-20-solid',
-            class: '-end-24',
-          }"
-          arrows
-          indicators
-          class="w-full max-w-md mx-auto"
-        >
-          <template #default="{ item }">
-            <NuxtImg :src="item" class="w-full" draggable="false" />
-          </template>
-          <template #indicator="{ onClick, page, active }">
-            <UButton
-              :label="String(page)"
-              :variant="active ? 'solid' : 'outline'"
-              size="2xs"
-              class="rounded-full min-w-6 justify-center mt-5"
-              color="primary"
-              @click="onClick(page)"
-            />
-          </template>
-        </UCarousel>
-      </div>
-    </ULandingSection>
-  </template>
+  <ULandingSection
+    title="Nos systèmes d'alarme"
+    :ui="{
+      strategy: 'override',
+      title:
+        'text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl',
+    }"
+  >
+    <div class="overflow-hidden">
+      <UCarousel
+        :items="items"
+        :ui="{
+          item: 'basis-full',
+          container: 'rounded-lg',
+          indicators: {
+            wrapper: 'relative bottom-0 mt-4',
+          },
+        }"
+        :prev-button="{
+          color: 'primary',
+          icon: 'i-heroicons-arrow-left-20-solid',
+          class: '-start-24',
+        }"
+        :next-button="{
+          color: 'primary',
+          icon: 'i-heroicons-arrow-right-20-solid',
+          class: '-end-24',
+        }"
+        arrows
+        indicators
+        class="w-full max-w-md mx-auto"
+      >
+        <template #default="{ item }">
+          <NuxtImg :src="item" class="w-full" draggable="false" />
+        </template>
+        <template #indicator="{ onClick, page, active }">
+          <UButton
+            :label="String(page)"
+            :variant="active ? 'solid' : 'outline'"
+            size="2xs"
+            class="rounded-full min-w-6 justify-center mt-5"
+            color="primary"
+            @click="onClick(page)"
+          />
+        </template>
+      </UCarousel>
+    </div>
+  </ULandingSection>
   <ULandingSection
     :ui="{
       strategy: 'override',

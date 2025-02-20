@@ -6,10 +6,13 @@ const openModalBadges = () => {
 };
 
 const items = [
-  "/services/alarme-3.jpg",
-  "/services/alarme-4.jpg",
-  "/services/alarme-5.jpg",
-  "/services/alarme-6.jpg",
+  "/services/Contrôle_Accès_Biometrique.jpg",
+  "/services/Contrôle_Accès_Carte.jpg",
+  "/services/Contrôle_Accès_Code.jpg",
+  "/services/Contrôle_Accès_Digicode.jpg",
+  "/services/ACCES.jpg",
+  "/services/photos-controle-d-acces.jpg",
+  "/services/Contrôle_Accès_Empreinte_Digitale.jpg",
 ];
 
 import { ULandingSection } from "#components";
@@ -129,7 +132,7 @@ const lightBottomLine = "/light/bottomline.png";
         {
           label: 'En savoir plus sur nos digicodes',
           color: 'primary',
-          trailingIcon: 'mdi:lightbulb-on',
+          trailingIcon: 'material-symbols:nest-secure-alarm-outline',
           size: 'sm',
           click: openModalBadges,
           variant: 'outline',
@@ -157,153 +160,202 @@ const lightBottomLine = "/light/bottomline.png";
         démontage et aussi au vandalisme.
       </template>
     </ULandingSection>
-    <template>
-      <div>
-        <USlideover v-model="isOpenBadges">
-          <UCard
-            class="flex flex-col flex-1"
-            :ui="{
-              body: { base: 'flex-1' },
-              ring: '',
-              divide: 'divide-y divide-primary dark:divide-primary',
-            }"
-          >
-            <template #header>
-              <div class="flex items-center justify-between">
+    <div>
+      <USlideover v-model="isOpenBadges">
+        <UCard
+          class="flex flex-col flex-1"
+          :ui="{
+            body: { base: 'flex-1' },
+            ring: '',
+            divide: 'divide-y divide-primary dark:divide-primary',
+          }"
+        >
+          <template #header>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <NuxtImg
+                  src="/services/control_access.png"
+                  draggable="false"
+                  class="w-12 h-12"
+                />
                 <h3
                   class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
                 >
                   Nos digicodes
                 </h3>
-                <UButton
-                  color="gray"
-                  variant="ghost"
-                  icon="i-heroicons-x-mark-20-solid"
-                  class="-my-1"
-                  @click="isOpenBadges = false"
-                />
               </div>
-            </template>
-
-            <div>
-              Il existe deux types de systèmes d’accès à code; les systèmes
-              d’accès à code filaire et non filaire.
-              <br />
-              <br />
-              Les claviers à code filaires nécessitent d’établir une liaison
-              avec la gâche électrique ou le système de motorisation. De ce
-              fait, les claviers à code filaires ne sont pas sensibles à un
-              brouillage.
-              <br />
-              <br />
-              Concernant les boîtiers non filaires, ceux-ci bénéficient d’un
-              système radio. Tous les éléments constituant le système sont de ce
-              fait sans fil, afin que le boîtier puisse communiquer avec les
-              autres éléments par ondes radios.
+              <UButton
+                color="gray"
+                variant="ghost"
+                icon="i-heroicons-x-mark-20-solid"
+                class="-my-1"
+                @click="isOpenBadges = false"
+              />
             </div>
-          </UCard>
-        </USlideover>
-      </div>
-    </template>
+          </template>
+
+          <div>
+            Il existe deux types de systèmes d’accès à code; les systèmes
+            d’accès à code filaire et non filaire.
+            <br />
+            <br />
+            Les claviers à code filaires nécessitent d’établir une liaison avec
+            la gâche électrique ou le système de motorisation. De ce fait, les
+            claviers à code filaires ne sont pas sensibles à un brouillage.
+            <br />
+            <br />
+            Concernant les boîtiers non filaires, ceux-ci bénéficient d’un
+            système radio. Tous les éléments constituant le système sont de ce
+            fait sans fil, afin que le boîtier puisse communiquer avec les
+            autres éléments par ondes radios.
+          </div>
+        </UCard>
+      </USlideover>
+    </div>
   </div>
 
-  <ULandingSection
-    headline="Pourquoi choisir entre filaire ou sans-fil ?"
-    title="Optez pour la solution hybride !"
-    align="center"
-    class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
+  <UCard
     :ui="{
-      stategy: 'override',
-      description: 'text-sm sm:text-lg',
+      strategy: 'override',
+      background: '',
+      divide: '',
+      shadow: '',
+      header: {
+        base: '',
+        background: '',
+        padding: 'px-4 py-12 sm:px-6', // Réduction maximale du padding du header
+      },
+      body: {
+        base: '',
+        background: '',
+        padding: 'px-4 py-0 sm:p-2', // Suppression presque totale du padding body
+      },
     }"
+    class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
   >
-    <NuxtImg
-      src="/services/Garde_De_Sécurité_Surveillant_Un_Local.jpg"
-      class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
-      draggable="false"
-    />
-
-    <template #description>
-      Surveillez votre local en toute sécurité grâce au système d’alarme
-      hybride. Ce système permet d’assurer la surveillance sans interruption. Le
-      système d’alarme hybride, ou mixte, combine les avantages du système
-      d’alarme filaire et les ceux du système sans fil. Ils sont munis d’un
-      système autonome provisoire qui prendra le relais si une coupure de
-      courant survient.
-      <br />
-      <br />
-      Les systèmes d’alarmes hybrides sont flexibles sur le choix des
-      communications. De la communication qui se connecte au Réseau Téléphonique
-      Commuté à la communication 3G, les alarmes mixtes laissent un large choix
-      de communication. De plus, ils offrent une large gamme d’accessoires et de
-      détecteurs en filaire mais aussi sans fil.
+    <template #header>
+      <div class="flex items-center justify-center text-center w-full">
+        <p class="text-2xl sm:text-4xl font-bold tracking-tight relative mb-2">
+          Optez pour une solution 100% sécurisée
+          <span
+            class="absolute left-1/2 bottom-[-12px] w-1/2 h-1 bg-primary -translate-x-1/2"
+          ></span>
+        </p>
+      </div>
     </template>
-  </ULandingSection>
-  <template>
+
     <ULandingSection
-      title="Nos systèmes d'alarme"
+      align="left"
       :ui="{
         strategy: 'override',
-        title:
-          'text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl',
+        description: 'text-base',
+        title: 'text-4xl font-bold tracking-tight text-primary',
+        wrapper: 'py-10',
       }"
     >
-      <div class="overflow-hidden">
-        <UCarousel
-          :items="items"
-          :ui="{
-            item: 'basis-full',
-            container: 'rounded-lg',
-            indicators: {
-              wrapper: 'relative bottom-0 mt-4',
-            },
-          }"
-          :prev-button="{
-            color: 'primary',
-            icon: 'i-heroicons-arrow-left-20-solid',
-            class: '-start-24',
-          }"
-          :next-button="{
-            color: 'primary',
-            icon: 'i-heroicons-arrow-right-20-solid',
-            class: '-end-24',
-          }"
-          arrows
-          indicators
-          class="w-full max-w-md mx-auto"
-        >
-          <template #default="{ item }">
-            <NuxtImg :src="item" class="w-full" draggable="false" />
-          </template>
-          <template #indicator="{ onClick, page, active }">
-            <UButton
-              :label="String(page)"
-              :variant="active ? 'solid' : 'outline'"
-              size="2xs"
-              class="rounded-full min-w-6 justify-center mt-5"
-              color="primary"
-              @click="onClick(page)"
-            />
-          </template>
-        </UCarousel>
-      </div>
+      <NuxtImg
+        src="/services/Contrôle_Accès_Biométrique.jpg"
+        class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
+        draggable="false"
+      />
+
+      <template #description>
+        Le contrôle d’accès biométrique est une alternative aux identifiants et
+        mots de passe que l’on utilise habituellement pour sécuriser les accès
+        des entreprises. Il s’agit de la technologie la plus performante et la
+        plus fiable.
+        <br /><br />
+        Un système centralisé de contrôle d’accès biométrique est un système
+        automatique se basant sur la reconnaissance de caractéristiques propres
+        à un individu qu’elles soient physiques ou comportementales. Appliquée
+        dans la sécurité des entreprises, cette technologie s’exprime par
+        l’analyse et l’authentification d’empreintes digitales préalablement
+        enregistrées et stockées dans une base de données.
+        <br /><br />
+        Le système d’accès biométrique est d’une haute précision puisque la
+        duplication d’empreinte est impossible. De plus, il enregistre les
+        données de manière sécurisée et ne peut être perdu ou transmis à des
+        personnes non autorisées.
+      </template>
     </ULandingSection>
-  </template>
+  </UCard>
+
+  <ULandingSection
+    title="Nos systèmes de contrôle d'accès"
+    :ui="{
+      strategy: 'override',
+      title:
+        'text-3xl font-bold tracking-tight text-primary sm:text-4xl lg:text-5xl',
+    }"
+  >
+    <template #headline>
+      <div class="flex items-center justify-center text-center w-full mb-5">
+        <UButton
+          color="primary"
+          to="/#contact"
+          label="Nous contacter"
+          trailing-icon="material-symbols:android-chat"
+          size="xs"
+          class="rounded-full"
+          variant="outline"
+        />
+      </div>
+    </template>
+
+    <div class="overflow-hidden">
+      <UCarousel
+        :items="items"
+        :ui="{
+          item: 'basis-full',
+          container: 'rounded-lg',
+          indicators: {
+            wrapper: 'relative bottom-0 mt-4',
+          },
+        }"
+        :prev-button="{
+          color: 'primary',
+          icon: 'i-heroicons-arrow-left-20-solid',
+          class: '-start-24',
+        }"
+        :next-button="{
+          color: 'primary',
+          icon: 'i-heroicons-arrow-right-20-solid',
+          class: '-end-24',
+        }"
+        arrows
+        indicators
+        class="w-full max-w-md mx-auto"
+      >
+        <template #default="{ item }">
+          <NuxtImg :src="item" class="w-full" draggable="false" />
+        </template>
+        <template #indicator="{ onClick, page, active }">
+          <UButton
+            :label="String(page)"
+            :variant="active ? 'solid' : 'outline'"
+            size="2xs"
+            class="rounded-full min-w-6 justify-center mt-5"
+            color="primary"
+            @click="onClick(page)"
+          />
+        </template>
+      </UCarousel>
+    </div>
+  </ULandingSection>
+
   <ULandingSection
     :ui="{
       strategy: 'override',
       wrapper: 'mb-0',
     }"
   >
-    <template>
-      <div class="relative w-full h-full">
-        <UColorModeImage
-          :light="lightBottomLine"
-          :dark="darkBottomLine"
-          alt="Décoration"
-          class="w-full h-full object-contain"
-        />
-      </div>
-    </template>
+    <div class="relative w-full h-full">
+      <UColorModeImage
+        :light="lightBottomLine"
+        :dark="darkBottomLine"
+        alt="Décoration"
+        class="w-full h-full object-contain"
+      />
+    </div>
   </ULandingSection>
 </template>
