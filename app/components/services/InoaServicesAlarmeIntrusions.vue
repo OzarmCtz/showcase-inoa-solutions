@@ -89,7 +89,7 @@ const lightBottomLine = "/light/bottomline.png";
         {
           label: 'En savoir plus sur nos alarmes filaires',
           color: 'primary',
-          trailingIcon: 'mdi:lightbulb-on',
+          trailingIcon: 'material-symbols:detector-alarm-outline',
           size: 'sm',
           click: openModalFilaire,
           variant: 'outline',
@@ -129,11 +129,18 @@ const lightBottomLine = "/light/bottomline.png";
         >
           <template #header>
             <div class="flex items-center justify-between">
-              <h3
-                class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
-              >
-                Alarme Filaire
-              </h3>
+              <div class="flex items-center gap-2">
+                <NuxtImg
+                  src="/services/alarm.png"
+                  draggable="false"
+                  class="w-12 h-12"
+                />
+                <h3
+                  class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
+                >
+                  Alarme Filaire
+                </h3>
+              </div>
               <UButton
                 color="gray"
                 variant="ghost"
@@ -178,7 +185,7 @@ const lightBottomLine = "/light/bottomline.png";
         {
           label: 'En savoir plus sur nos alarmes radio',
           color: 'primary',
-          trailingIcon: 'mdi:lightbulb-on',
+          trailingIcon: 'material-symbols:detector-alarm-outline',
           size: 'sm',
           click: openModalRadio,
           variant: 'outline',
@@ -217,11 +224,18 @@ const lightBottomLine = "/light/bottomline.png";
         >
           <template #header>
             <div class="flex items-center justify-between">
-              <h3
-                class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
-              >
-                Alarme Radio
-              </h3>
+              <div class="flex items-center gap-2">
+                <NuxtImg
+                  src="/services/alarm.png"
+                  draggable="false"
+                  class="w-12 h-12"
+                />
+                <h3
+                  class="text-base font-semibold leading-6 text-gray-900 dark:text-white"
+                >
+                  Alarme Radio
+                </h3>
+              </div>
               <UButton
                 color="gray"
                 variant="ghost"
@@ -262,38 +276,73 @@ const lightBottomLine = "/light/bottomline.png";
     </div>
   </div>
 
-  <ULandingSection
-    headline="Pourquoi choisir entre filaire ou sans-fil ?"
-    title="Optez pour la solution hybride !"
-    align="center"
-    class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
+  <UCard
     :ui="{
-      stategy: 'override',
-      description: 'text-base',
+      strategy: 'override',
+      background: '',
+      divide: '',
+      shadow: '',
+      header: {
+        base: '',
+        background: '',
+        padding: 'px-4 py-12 sm:px-6', // Réduction maximale du padding du header
+      },
+      body: {
+        base: '',
+        background: '',
+        padding: 'px-4 py-0 sm:p-2', // Suppression presque totale du padding body
+      },
     }"
+    class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
   >
-    <NuxtImg
-      src="/services/Garde_De_Sécurité_Surveillant_Un_Local.jpg"
-      class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
-      draggable="false"
-    />
-
-    <template #description>
-      Surveillez votre local en toute sécurité grâce au système d’alarme
-      hybride. Ce système permet d’assurer la surveillance sans interruption. Le
-      système d’alarme hybride, ou mixte, combine les avantages du système
-      d’alarme filaire et les ceux du système sans fil. Ils sont munis d’un
-      système autonome provisoire qui prendra le relais si une coupure de
-      courant survient.
-      <br />
-      <br />
-      Les systèmes d’alarmes hybrides sont flexibles sur le choix des
-      communications. De la communication qui se connecte au Réseau Téléphonique
-      Commuté à la communication 3G, les alarmes mixtes laissent un large choix
-      de communication. De plus, ils offrent une large gamme d’accessoires et de
-      détecteurs en filaire mais aussi sans fil.
+    <template #header>
+      <div class="flex items-center justify-center text-center w-full">
+        <p class="text-sm text-primary tracking-tight relative mb-2">
+          Pourquoi choisir entre filaire ou sans-fil ?
+        </p>
+      </div>
+      <div class="flex items-center justify-center text-center w-full">
+        <p class="text-2xl sm:text-4xl font-bold tracking-tight relative mb-2">
+          Optez pour la solution hybride !
+          <span
+            class="absolute left-1/2 bottom-[-12px] w-1/2 h-1 bg-primary -translate-x-1/2"
+          ></span>
+        </p>
+      </div>
     </template>
-  </ULandingSection>
+
+    <ULandingSection
+      align="left"
+      :ui="{
+        strategy: 'override',
+        description: 'text-base',
+        title: 'text-4xl font-bold tracking-tight text-primary',
+        wrapper: 'py-10',
+      }"
+    >
+      <NuxtImg
+        src="/services/Garde_De_Sécurité_Surveillant_Un_Local.jpg"
+        class="w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
+        draggable="false"
+      />
+
+      <template #description>
+        Surveillez votre local en toute sécurité grâce au système d’alarme
+        hybride. Ce système permet d’assurer la surveillance sans interruption.
+        Le système d’alarme hybride, ou mixte, combine les avantages du système
+        d’alarme filaire et les ceux du système sans fil. Ils sont munis d’un
+        système autonome provisoire qui prendra le relais si une coupure de
+        courant survient.
+        <br />
+        <br />
+        Les systèmes d’alarmes hybrides sont flexibles sur le choix des
+        communications. De la communication qui se connecte au Réseau
+        Téléphonique Commuté à la communication 3G, les alarmes mixtes laissent
+        un large choix de communication. De plus, ils offrent une large gamme
+        d’accessoires et de détecteurs en filaire mais aussi sans fil.
+      </template>
+    </ULandingSection>
+  </UCard>
   <ULandingSection
     title="Nos systèmes d'alarme"
     :ui="{
