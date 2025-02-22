@@ -293,17 +293,6 @@ const lightBottomLine = "/light/bottomline.png";
     class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
   >
     <template #header>
-      <div class="flex items-center justify-center text-center w-full mb-5">
-        <UButton
-          color="primary"
-          to="/#contact"
-          label="Nous contacter"
-          trailing-icon="material-symbols:android-chat"
-          size="xs"
-          class="rounded-full"
-          variant="outline"
-        />
-      </div>
       <div class="flex items-center justify-center text-center w-full">
         <p class="text-2xl sm:text-4xl font-bold tracking-tight relative mb-2">
           La détection par l’image
