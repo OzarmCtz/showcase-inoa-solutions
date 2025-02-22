@@ -346,6 +346,24 @@ const lightBottomLine = "/light/bottomline.png";
       </template>
     </ULandingSection>
   </UCard>
+  <ULandingSection
+    title="Besoin de plus d'informations ?"
+    :ui="{
+      strategy: 'override',
+      title:
+        'text-3xl font-bold tracking-tight text-primary dark:text-primary sm:text-4xl',
+    }"
+    :links="[
+      {
+        label: 'Contactez-nous pour en savoir plus',
+        color: 'primary',
+        size: 'md',
+        variant: 'outline',
+        icon: 'material-symbols:android-chat',
+        to: '/#contact',
+      },
+    ]"
+  />
 
   <ULandingSection
     :ui="{
