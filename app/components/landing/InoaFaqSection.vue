@@ -44,15 +44,13 @@ const lightBottomLine = "/light/bottomline.png";
       wrapper: 'mb-0',
     }"
   >
-    <template>
-      <div class="relative w-full h-full">
-        <UColorModeImage
-          :light="lightBottomLine"
-          :dark="darkBottomLine"
-          alt="Décoration"
-          class="w-full h-full object-contain"
-        />
-      </div>
-    </template>
+    <div class="relative w-full h-full">
+      <UColorModeImage
+        :light="lightBottomLine"
+        :dark="darkBottomLine"
+        alt="Décoration"
+        class="w-full h-full object-contain"
+      />
+    </div>
   </ULandingSection>
 </template>

@@ -41,13 +41,13 @@ const links = [
       },
       {
         label: "Caméra Nomade La Chouette",
-        to: "services/camera-nomade-la-chouette",
+        to: "/services/camera-nomade-la-chouette",
         icon: "material-symbols:speed-camera-outline",
         description: "Next-generation portable camera",
       },
       {
         label: "Reconnaissance Automatique des Plaques d'Immatriculation",
-        to: "/controle-acces/reconnaissance-automatique-plaques-immatriculation",
+        to: "/services/reconnaissance-automatique-plaques-immatriculation",
         icon: "ri:voice-recognition-line",
         description: "Manage the entry and exit of your premises",
       },

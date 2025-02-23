@@ -18,8 +18,6 @@ const items = [
   "/services/alarme-6.jpg",
 ];
 
-import { ULandingSection } from "#components";
-
 // todo remove to extern file
 const darkTopLine = "/dark/topline.svg";
 const lightTopLine = "/light/topline.png";

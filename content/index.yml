@@ -50,7 +50,7 @@ features:
     - title: Reconnaissance Automatique des Plaques d'Immatriculation
       description: Gérez l'entrée et la sortie de vos locaux
       icon: ri:voice-recognition-line
-      to: "/controle-acces/reconnaissance-automatique-plaques-immatriculation"
+      to: "/services/reconnaissance-automatique-plaques-immatriculation"
 testimonials:
   items:
     - quote: >
