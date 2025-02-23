@@ -144,17 +144,20 @@ const links_first_section = [
     >
       <NuxtImg src="/maison-secu.jpg" class="w-full" draggable="false" />
     </ULandingSection>
-    <div class="flex justify-center sm:justify-end mr-6">
-      <UButton
-        label="Voir nos certifications"
-        icon="iconamoon:certificate-badge-fill"
-        color="primary"
-        variant="outline"
-        size="sm"
-        @click="isOpen = true"
-      />
-      <CertificationsModal v-model="isOpen" />
-    </div>
+
+    <UContainer>
+      <div class="flex justify-center sm:justify-end mr-6">
+        <UButton
+          label="Voir nos certifications"
+          icon="iconamoon:certificate-badge-fill"
+          color="primary"
+          variant="outline"
+          size="sm"
+          @click="isOpen = true"
+        />
+        <CertificationsModal v-model="isOpen" />
+      </div>
+    </UContainer>
 
     <ULandingSection
       title="Nos réalisations"
