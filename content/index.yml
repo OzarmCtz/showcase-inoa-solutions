@@ -1,7 +1,15 @@
 title: Alarme Sécurité Perpignan - INOA Solutions
 description: Retrouvez nos systèmes de protection des biens et des personnes. De l&#039;alarme de sécurité à la vidéoprotection, sentez vous plus en sécurité.
+global:
+  etp_infos:
+    email: contact@inoa-solutions.com
+    phone: 04 68 87 72 91
+    adress: Rue Gaïa Tecnosud 2 66100 PERPIGNAN
+    google_maps: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2904.297164681281!2d2.9093875159041745!3d42.6712850791685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b051994751231d%3A0x41dbe6f55db6d29a!2s338%20Rue%20Ga%C3%AFa%2C%2066000%20Perpignan!5e0!3m2!1sfr!2sfr!4v1616179622333!5m2!1sfr!2sfr
+    instagram: https://www.instagram.com/inoa_solutions/
+    linkedin: https://fr.linkedin.com/company/inoa-solutions-alarme-videoprotection
+    facebook: https://www.facebook.com/inoasolution
 hero:
-  title: INOA Solutions
   description: Spécialisée dans le domaine de la protection des biens et des personnes.
   links:
     - label: Nos services
@@ -15,22 +23,14 @@ hero:
       icon: material-symbols:android-chat
       size: xl
       to: "#contact"
-logos:
-  title: Ils nous font confiance
 features:
   headline: Inoa Solutions
   title: Nos services
-  description: >
-    Spécialisée dans le domaine de la protection des biens et des personnes, notre
-    agence INOA Solutions, basée à Tecnosud 2, s’est donnée comme objectif de répondre
-    à un besoin exprimé par la clientèle en termes de qualité de services, de promptitude
-    d’intervention et de satisfaction continue.
   items:
     - title: Alarme intrusion
       description: Empêchez les intrusions à tout moment
       icon: material-symbols:detector
       to: "/services/alarm-intrusion"
-
     - title: Vidéoprotection
       description: Augmentez la sécurité de votre entreprise
       icon: material-symbols:camera-indoor
@@ -52,6 +52,8 @@ features:
       icon: ri:voice-recognition-line
       to: "/services/reconnaissance-automatique-plaques-immatriculation"
 testimonials:
+  headline: Témoignages
+  title: Ce que disent nos clients
   items:
     - quote: >
         Entreprise sérieuse, fiable et à l'écoute du client. Aucun abonnement
@@ -100,6 +102,20 @@ testimonials:
         avatar:
           src: https://lh3.googleusercontent.com/a/ACg8ocLNS6SFJBvu_8z702kVEkprNEV96LX6HFLdRC6dhE7_sCmyrw=w60-h60-p-rp-mo-br100
           loading: lazy
+contact:
+  headline: Vous avez une question ?
+  title: Contactez-nous !
+  go_to_faq:
+    text: Vous pouvez aussi consulter notre rubrique F.A.Q
+    icon: streamline:interface-help-question-circle-circle-faq-frame-help-info-mark-more-query-question
+  conditions: J'accepte que mes données soient utilisées dans le cadre des communications qui découleront de cet envoi.
+  confidentials:
+    text: INOA Solutions recueille et utilise vos données personnelles pour assurer la gestion de vos demandes. Pour en savoir plus ou exercer vos droits, vous pouvez accéder à la
+    underlined_text: politique de confidentialité via ce lien.
+    to: /politique-de-confidentialite
+  sending_failed:
+    title: Erreur d'envoi
+    icon: material-symbols:cancel-outline
 faq:
   title: Questions fréquemment posées
   description: >

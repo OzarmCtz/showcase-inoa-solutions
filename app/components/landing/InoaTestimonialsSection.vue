@@ -5,7 +5,10 @@ defineProps({
 </script>
 
 <template>
-  <ULandingSection headline="Témoignages" title="Ce que disent nos clients.">
+  <ULandingSection
+    :headline="pageData.testimonials.headline"
+    :title="pageData.testimonials.title"
+  >
     <UPageColumns
       id="testimonials"
       class="xl:columns-4 scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"

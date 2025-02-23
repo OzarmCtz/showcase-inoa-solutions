@@ -1,4 +1,8 @@
 <script setup lang="ts">
+defineProps({
+  pageData: Object,
+});
+
 import { useCopyToClipboard } from "@/functions/useCopyToClipboard";
 const { copiedState, copyToClipboard } = useCopyToClipboard();
 
@@ -9,8 +13,8 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
 
 <template>
   <ULandingSection
-    headline="Vous avez une question ?"
-    title="Contactez-nous !"
+    :headline="pageData.contact.headline"
+    :title="pageData.contact.title"
     id="contact"
     class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10"
   >
@@ -22,9 +26,9 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
         <div class="mb-5 flex">
           <ULink to="#faq" class="text-primary text-sm">
             <UBadge variant="outline">
-              Vous pouvez aussi consulter notre rubrique F.A.Q
+              {{ pageData.contact.go_to_faq.text }}
               <UIcon
-                name="streamline:interface-help-question-circle-circle-faq-frame-help-info-mark-more-query-question"
+                :name="pageData.contact.go_to_faq.icon"
                 class="text-primary"
               />
             </UBadge>
@@ -79,8 +83,7 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
             <UCheckbox v-model="state.data_accept" required>
               <template #label>
                 <span>
-                  J'accepte que mes données soient utilisées dans le cadre des
-                  communications qui découleront de cet envoi.
+                  {{ pageData.contact.conditions }}
                 </span>
               </template>
             </UCheckbox>
@@ -99,14 +102,12 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
 
           <div>
             <p class="text-xs text-gray-500">
-              INOA Solutions recueille et utilise vos données personnelles pour
-              assurer la gestion de vos demandes. Pour en savoir plus ou exercer
-              vos droits, vous pouvez accéder à la
+              {{ pageData.contact.confidentials.text }}
               <ULink
-                to="/politique-de-confidentialite"
+                :to="pageData.contact.confidentials.to"
                 class="text-primary hover:underline"
               >
-                politique de confidentialité via ce lien.
+                {{ pageData.contact.confidentials.underlined_text }}
               </ULink>
             </p>
           </div>
@@ -122,10 +123,10 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
               <div class="flex items-center justify-between">
                 <h3 class="flex items-center text-base font-semibold leading-6">
                   <UIcon
-                    name="material-symbols:cancel-outline"
+                    :name="pageData.contact.sending_failed.title"
                     class="w-5 h-5 mr-2 text-red-500"
                   />
-                  Erreur d'envoi
+                  {{ pageData.contact.sending_failed.title }}
                 </h3>
                 <UButton
                   color="gray"
@@ -148,12 +149,12 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
                     href="mailto:contact@inoa-solutions.com"
                     class="text-primary-500 hover:underline"
                   >
-                    contact@inoa-solutions.com
+                    {{ pageData.global.etp_infos.email }}
                   </a>
                   <span
                     class="ml-2 cursor-pointer hover:text-primary-500"
                     @click="
-                      copyToClipboard('email', 'contact@inoa-solutions.com')
+                      copyToClipboard('email', pageData.global.etp_infos.email)
                     "
                   >
                     <UIcon
@@ -176,14 +177,16 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
                 ou par téléphone au
                 <span class="inline-flex items-center">
                   <a
-                    href="tel:+33468877291"
+                    :href="'tel:' + pageData.global.etp_infos.phone"
                     class="text-primary-500 hover:underline"
                   >
-                    04 68 87 72 91
+                    {{ pageData.global.etp_infos.phone }}
                   </a>
                   <span
                     class="ml-2 cursor-pointer hover:text-primary-500"
-                    @click="copyToClipboard('phone', '04 68 87 72 91')"
+                    @click="
+                      copyToClipboard('phone', pageData.global.etp_infos.phone)
+                    "
                   >
                     <UIcon
                       :name="
@@ -228,14 +231,16 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
             <div class="flex items-center">
               <p class="text-sm text-gray-700 dark:text-gray-300">
                 <a
-                  href="mailto:contact@inoa-solutions.com"
+                  :href="'mailto:' + pageData.global.etp_infos.email"
                   class="text-primary-500 hover:underline"
-                  >contact@inoa-solutions.com</a
+                  >{{ pageData.global.etp_infos.email }}</a
                 >
               </p>
               <div
                 class="flex items-center ml-1 cursor-pointer hover:text-primary-500"
-                @click="copyToClipboard('email', 'contact@inoa-solutions.com')"
+                @click="
+                  copyToClipboard('email', pageData.global.etp_infos.email)
+                "
               >
                 <UIcon
                   :name="
@@ -270,14 +275,16 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
             <div class="flex items-center">
               <p class="text-sm text-gray-700 dark:text-gray-300">
                 <a
-                  href="tel:+33468877291"
+                  :href="'tel:' + pageData.global.etp_infos.phone"
                   class="text-primary-500 hover:underline"
-                  >04 68 87 72 91</a
+                  >{{ pageData.global.etp_infos.phone }}</a
                 >
               </p>
               <div
                 class="flex items-center ml-1 cursor-pointer hover:text-primary-500"
-                @click="copyToClipboard('phone', '04 68 87 72 91')"
+                @click="
+                  copyToClipboard('phone', pageData.global.etp_infos.phone)
+                "
               >
                 <UIcon
                   :name="
@@ -310,15 +317,12 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
             ></UIcon>
             <div class="flex items-center">
               <p class="text-sm text-gray-700 dark:text-gray-300">
-                Rue Gaïa Tecnosud 2 66100 PERPIGNAN
+                {{ pageData.global.etp_infos.adress }}
               </p>
               <div
                 class="flex items-center ml-1 cursor-pointer hover:text-primary-500"
                 @click="
-                  copyToClipboard(
-                    'address',
-                    'Rue Gaïa Tecnosud 2 66100 PERPIGNAN'
-                  )
+                  copyToClipboard('address', pageData.global.etp_infos.adress)
                 "
               >
                 <UIcon
@@ -341,7 +345,7 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
         <div class="mt-12">
           <div class="rounded-lg overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2904.297164681281!2d2.9093875159041745!3d42.6712850791685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b051994751231d%3A0x41dbe6f55db6d29a!2s338%20Rue%20Ga%C3%AFa%2C%2066000%20Perpignan!5e0!3m2!1sfr!2sfr!4v1616179622333!5m2!1sfr!2sfr"
+              :src="pageData.global.etp_infos.google_maps"
               width="100%"
               height="150"
               style="border: 0"
@@ -361,7 +365,7 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
       align="center"
     >
       <ULink
-        to="https://www.instagram.com/inoa_solutions/"
+        :to="pageData.global.etp_infos.instagram"
         target="_blank"
         inactive-class="text-gray dark:text-gray hover:text-primary dark:hover:text-primary"
       >
@@ -371,14 +375,14 @@ const { schema, state, isValid, isLoading, onSubmit, modalSendingError } =
         />
       </ULink>
       <ULink
-        to="https://fr.linkedin.com/company/inoa-solutions-alarme-videoprotection"
+        :to="pageData.global.etp_infos.linkedin"
         target="_blank"
         inactive-class="text-gray dark:text-gray hover:text-primary dark:hover:text-primary"
       >
         <UIcon name="i-simple-icons-linkedin" class="w-10 h-10 flex-shrink-0" />
       </ULink>
       <ULink
-        to="https://www.facebook.com/inoasolution"
+        :to="pageData.global.etp_infos.facebook"
         target="_blank"
         inactive-class="text-gray dark:text-gray hover:text-primary dark:hover:text-primary"
       >
