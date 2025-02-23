@@ -87,6 +87,7 @@ const lightLogo = "/light/etp-logo.png";
       <!-- Right section of the header -->
       <template #right>
         <UButton
+          size="xs"
           label="04 68 87 72 91"
           variant="outline"
           class="hidden lg:flex"

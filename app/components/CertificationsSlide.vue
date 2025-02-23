@@ -3,7 +3,7 @@ const isOpen = defineModel<boolean>();
 </script>
 
 <template>
-  <UModal v-model="isOpen">
+  <USlideover v-model="isOpen">
     <UCard
       :ui="{
         ring: '',
@@ -123,5 +123,5 @@ const isOpen = defineModel<boolean>();
         </div>
       </div>
     </UCard>
-  </UModal>
+  </USlideover>
 </template>

@@ -20,7 +20,7 @@ const links = [
   },
 ];
 
-import CertificationsModal from "@/components/CertificationsModal.vue";
+import CertificationsModal from "~/components/CertificationsSlide.vue";
 
 const isOpen = ref(false);
 

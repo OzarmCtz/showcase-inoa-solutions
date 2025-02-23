@@ -1,27 +1,4 @@
 <script setup lang="ts">
-const openModalDoute = () => {
-  isOpenDoute.value = true;
-};
-
-const isOpenDoute = ref(false);
-
-const isOpenInterpellation = ref(false);
-const openModalInterpellation = () => {
-  isOpenInterpellation.value = true;
-};
-
-const items = [
-  "/services/Contrôle_Accès_Biometrique.jpg",
-  "/services/Contrôle_Accès_Carte.jpg",
-  "/services/Contrôle_Accès_Code.jpg",
-  "/services/Contrôle_Accès_Digicode.jpg",
-  "/services/ACCES.jpg",
-  "/services/photos-controle-d-acces.jpg",
-  "/services/Contrôle_Accès_Empreinte_Digitale.jpg",
-];
-
-import { ULandingSection } from "#components";
-
 // todo remove to extern file
 const darkTopLine = "/dark/topline.svg";
 const lightTopLine = "/light/topline.png";

@@ -2,7 +2,7 @@
 defineProps({
   pageData: Object,
 });
-import CertificationsModal from "@/components/CertificationsModal.vue";
+import CertificationsModal from "~/components/CertificationsSlide.vue";
 const isOpen = ref(false);
 
 const LandingLogoPicture = [
@@ -40,111 +40,111 @@ const lightTopLine = "/light/topline.png";
 
 const darkLogoLanding = "/dark/etp-logo-custom.png";
 const lightLogoLanding = "/light/etp-logo-custom.png";
+
+const links_second_section = [
+  {
+    name: "Caméra de surveillance",
+    description:
+      "Sentez-vous plus en sécurité avec notre large gamme de caméras de surveillance. Que ce soit pour des besoins de surveillance intérieure ou extérieure, nos conseillers seront en mesure de vous offrir la caméra répondant à chacune de vos attentes spécifiques.",
+    icon: "material-symbols:speed-camera-outline",
+  },
+  {
+    name: "Détection de mouvement",
+    description:
+      "Découvrez notre système d’alarme sans fil à la pointe de la technologie. Activez les détecteurs de mouvement via votre téléphone ou internet. Les systèmes d’alarme sans-fil permettent d’envoyer des notifications par téléphone, mail ou SMS dans l’éventualité d’une intrusion ou de tout autre événement anormal.",
+    icon: "material-symbols:detection-and-zone-sharp",
+  },
+];
+
+const links_first_section = [
+  {
+    name: "Une Expertise au Service de Votre Sécurité",
+    description:
+      "Spécialisée dans le domaine de la protection des biens et des personnes, notre agence INOA Solutions, basée à Tecnosud 2, s’est donnée comme objectif de répondre à un besoin exprimé par la clientèle en termes de qualité de services, de promptitude d’intervention et de satisfaction continue.",
+    icon: "material-symbols:lock-outline",
+  },
+  {
+    name: "Notre objectif ?",
+    description:
+      "Répondre à vos besoins de sécurité sans cesse grandissants. Au fil du temps, nous avons réussi à fidéliser notre clietèle diversifiée grâce à notre exigence, notre savoir-faire et notre disponibilité.",
+    icon: "octicon:goal-16",
+  },
+];
 </script>
 
 <template>
-  <ULandingHero
-    :description="pageData.hero.description"
-    :links="pageData.hero.links"
-    :ui="{
-      strategy: 'override',
-      wrapper: 'mt-0 pb-20 bg-grid-pattern bg-grid-sm',
-    }"
-  >
-    <template #headline>
-      <div class="relative w-full h-full">
-        <UColorModeImage
-          :light="lightTopLine"
-          :dark="darkTopLine"
-          alt="Décoration"
-          class="w-full h-full object-contain"
-        />
-      </div>
-    </template>
-
-    <template #title>
-      <div class="flex items-center justify-center">
-        <UColorModeImage
-          :light="lightLogoLanding"
-          :dark="darkLogoLanding"
-          alt="Inoa Solution Logo"
-          class="h-[98px] w-auto"
-        />
-      </div>
-    </template>
-
-    <ImagePlaceholder />
-
-    <!-- Première Section -->
-    <ULandingSection
-      headline="Architecte de votre protection
-"
-      align="left"
+  <div class="bg-grid-pattern bg-grid-sm">
+    <ULandingHero
+      :description="pageData.hero.description"
+      :links="pageData.hero.links"
       :ui="{
         strategy: 'override',
-        wrapper: 'mb-0',
-        title:
-          'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
+        wrapper: 'mt-0',
+      }"
+    >
+      <template #headline>
+        <div class="relative w-full h-full">
+          <UColorModeImage
+            :light="lightTopLine"
+            :dark="darkTopLine"
+            alt="Décoration"
+            class="w-full h-full object-contain"
+          />
+        </div>
+      </template>
 
+      <template #title>
+        <div class="flex items-center justify-center">
+          <UColorModeImage
+            :light="lightLogoLanding"
+            :dark="darkLogoLanding"
+            alt="Inoa Solution Logo"
+            class="h-[98px] w-auto"
+          />
+        </div>
+      </template>
+
+      <ImagePlaceholder />
+    </ULandingHero>
+    <!-- Première Section -->
+    <ULandingSection
+      title="Architecte de votre protection"
+      align="left"
+      :features="links_first_section"
+      :ui="{
+        strategy: 'override',
+        title: 'text-4xl font-bold tracking-tight text-primary',
+        features: {
+          wrapper: {
+            list: 'space-y-12',
+          },
+        },
         description:
           'mt-6 text-base leading-relaxed text-gray-600 dark:text-gray-300',
       }"
     >
-      <template #description>
-        Spécialisée dans le domaine de la protection des biens et des personnes,
-        notre agence INOA Solutions, basée à Tecnosud 2, s’est donnée comme
-        objectif de répondre à un besoin exprimé par la clientèle en termes de
-        qualité de services, de promptitude d’intervention et de satisfaction
-        continue.
-        <br />
-        <br />
-        Notre objectif ?
-        <br />
-        <br />
-        Répondre à vos besoins de sécurité sans cesse grandissants. Au fil du
-        temps, nous avons réussi à fidéliser notre clietèle diversifiée grâce à
-        notre exigence, notre savoir-faire et notre disponibilité.
-      </template>
       <NuxtImg src="/inoa_place.jpeg" class="w-full" draggable="false" />
     </ULandingSection>
 
     <ULandingSection
-      headline="Au services de votre sécurité"
+      title="Au services de votre sécurité"
       align="right"
+      :features="links_second_section"
       :ui="{
         strategy: 'override',
-        wrapper: 'mb-0',
-        title:
-          'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
-
+        title: 'text-4xl font-bold tracking-tight text-primary',
         description:
           'mt-6 text-base leading-relaxed text-gray-600 dark:text-gray-300',
+        features: {
+          wrapper: {
+            list: 'space-y-12',
+          },
+        },
       }"
     >
-      <template #description>
-        <p class="text-xl">Caméra de surveillance</p>
-        <br />
-        <p class="text-sm">
-          Sentez-vous plus en sécurité avec notre large gamme de caméras de
-          surveillance. Que ce soit pour des besoins de surveillance intérieure
-          ou extérieure, nos conseillers seront en mesure de vous offrir la
-          caméra répondant à chacune de vos attentes spécifiques.
-        </p>
-        <br />
-        <p class="text-xl">Détection de mouvement</p>
-        <br />
-        <p class="text-sm">
-          Découvrez notre système d’alarme sans fil à la pointe de la
-          technologie. Activez les détecteurs de mouvement via votre téléphone
-          ou internet. Les systèmes d’alarme sans-fil permettent d’envoyer des
-          notifications par téléphone, mail ou SMS dans l’éventualité d’une
-          intrusion ou de tout autre événement anormal.
-        </p>
-      </template>
-
       <NuxtImg src="/maison-secu.jpg" class="w-full" draggable="false" />
     </ULandingSection>
-    <div class="flex justify-center sm:justify-end">
+    <div class="flex justify-center sm:justify-end mr-6">
       <UButton
         label="Voir nos certifications"
         icon="iconamoon:certificate-badge-fill"
@@ -157,12 +157,11 @@ const lightLogoLanding = "/light/etp-logo-custom.png";
     </div>
 
     <ULandingSection
-      headline="Nos réalisations"
+      title="Nos réalisations"
       :ui="{
         strategy: 'override',
-        wrapper: 'mb-0',
         title:
-          'text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl',
+          'text-2xl font-bold tracking-tight text-primary sm:text-3xl lg:text-4xl',
       }"
     >
       <div class="overflow-hidden">
@@ -210,7 +209,7 @@ const lightLogoLanding = "/light/etp-logo-custom.png";
         </UCarousel>
       </div>
     </ULandingSection>
-  </ULandingHero>
+  </div>
 
   <ULandingSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
     <ULandingLogos
